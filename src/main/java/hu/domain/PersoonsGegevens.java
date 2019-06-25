@@ -1,0 +1,115 @@
+package hu.domain;
+
+import java.util.Date;
+
+public class PersoonsGegevens {
+	private int id;
+	private String naam;
+	private String straatnaam;
+	private int huisnummer;
+	private String postcode;
+	private String woonplaats;
+	private Date geboortedatum;
+	private String geslacht;
+	private int telefoonnummer;
+	private String email;
+	private String linkedin;
+	
+	public PersoonsGegevens(int ID, String nm, String strNm, int hn, String pc, String wp, Date gb, String gs, int tfn, String mail, String ldin) {
+		id = ID;
+		naam = nm;
+		straatnaam = strNm;
+		huisnummer = hn;
+		postcode = pc;
+		woonplaats = wp;
+		geboortedatum = gb;
+		geslacht = gs;
+		telefoonnummer = tfn;
+		email = mail;
+		linkedin = ldin;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public String getNaam() {
+		return naam;
+	}
+	
+	public String getStraatnaam() {
+		return straatnaam;
+	}
+	
+	public int getHuisnummer() {
+		return huisnummer;
+	}
+	
+	public String getPostcode() {
+		return postcode;
+	}
+	
+	public String getWoonplaats() {
+		return woonplaats;
+	}
+	
+	public Date getGeboortedatum() {
+		return geboortedatum;
+	}
+	
+	public String getGeslacht() {
+		return geslacht;
+	}
+	
+	public int getTelefoonnummer() {
+		return telefoonnummer;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public String getLinkedin() {
+		return linkedin;
+	}
+	
+	public void setNaam(String nm) {
+		naam = nm;
+	}
+	
+	public void setStraatnaam(String strNm) {
+		straatnaam = strNm;
+	}
+	
+	public void setHuisnummer(int hn) {
+		huisnummer = hn;
+	}
+	
+	public void setPostcode(String pc) {
+		postcode = pc;
+	}
+	
+	public void setWoonplaats(String wp) {
+		woonplaats = wp;
+	}
+	
+	public void setGeboortedatum(Date gb) {
+		geboortedatum = gb;
+	}
+	
+	public void setGeslacht(String gs) {
+		geslacht = gs;
+	}
+	
+	public void setTelefoonnummer(int tfn) {
+		telefoonnummer = tfn;
+	}
+	
+	public void setEmail(String mail) {
+		email = mail;
+	}
+	
+	public void setLinkedin(String ldin) {
+		linkedin = ldin;
+	}
+}
