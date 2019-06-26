@@ -34,7 +34,7 @@
 
 			<param-name>jersey.config.server.provider.packages</param-name>
 
-			<param-value>hu.ipass....</param-value>
+			<param-value>hu.ipass.webservices</param-value>
 
 		</init-param>
 
