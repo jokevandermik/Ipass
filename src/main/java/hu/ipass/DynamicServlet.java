@@ -18,7 +18,7 @@ public class DynamicServlet extends HttpServlet {
 
 
 		PersoonsGegevensPostgresDaoImpl myDao = new PersoonsGegevensPostgresDaoImpl();
-		System.out.println(myDao.selectGegevens("Select * from \"Persoonsgegevens\""));
+		System.out.println(myDao.selectGegevens());
 		
 		PrintWriter out = resp.getWriter();
 

@@ -10,8 +10,9 @@ import java.util.List;
 import hu.domain.PersoonsGegevens;
 
 public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements PersoonsGegevensDao{
-	public List<PersoonsGegevens> selectGegevens(String query) {
+	public List<PersoonsGegevens> selectGegevens() {
 		List<PersoonsGegevens> result = new ArrayList<PersoonsGegevens>();
+		String query = "Select * from \"Persoonsgegevens\"";
 
 		try (Connection con = super.getConnection()) {
 			PreparedStatement pstmt = con.prepareStatement(query);
@@ -24,7 +25,7 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 				int huisnummer = dbResultSet.getInt("huisnummer");
 				String postcode = dbResultSet.getString("postcode");
 				String woonplaats = dbResultSet.getString("woonplaats");
-				Date geboortedatum = dbResultSet.getDate("geboortedatum");
+				String geboortedatum = dbResultSet.getString("geboortedatum");
 				String geslacht = dbResultSet.getString("geslacht");
 				int telefoonnummer = dbResultSet.getInt("telefoonnummer");
 				String email = dbResultSet.getString("email");
@@ -48,7 +49,7 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 			pstmt.setInt(2, persoonsGegevens.getHuisnummer());
 			pstmt.setString(3, persoonsGegevens.getPostcode());
 			pstmt.setString(4, persoonsGegevens.getWoonplaats());
-			pstmt.setDate(5, (Date) persoonsGegevens.getGeboortedatum());
+			pstmt.setString(5, persoonsGegevens.getGeboortedatum());
 			pstmt.setString(6, persoonsGegevens.getGeslacht());
 			pstmt.setInt(7, persoonsGegevens.getTelefoonnummer());
 			pstmt.setString(8, persoonsGegevens.getEmail());
@@ -72,7 +73,7 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 			pstmt.setInt(2, persoonsGegevens.getHuisnummer());
 			pstmt.setString(3, persoonsGegevens.getPostcode());
 			pstmt.setString(4, persoonsGegevens.getWoonplaats());
-			pstmt.setDate(5, (Date) persoonsGegevens.getGeboortedatum());
+			pstmt.setString(5, persoonsGegevens.getGeboortedatum());
 			pstmt.setString(6, persoonsGegevens.getGeslacht());
 			pstmt.setInt(7, persoonsGegevens.getTelefoonnummer());
 			pstmt.setString(8, persoonsGegevens.getEmail());

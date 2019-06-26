@@ -9,13 +9,13 @@ public class PersoonsGegevens {
 	private int huisnummer;
 	private String postcode;
 	private String woonplaats;
-	private Date geboortedatum;
+	private String geboortedatum;
 	private String geslacht;
 	private int telefoonnummer;
 	private String email;
 	private String linkedin;
 	
-	public PersoonsGegevens(int ID, String nm, String strNm, int hn, String pc, String wp, Date gb, String gs, int tfn, String mail, String ldin) {
+	public PersoonsGegevens(int ID, String nm, String strNm, int hn, String pc, String wp, String gb, String gs, int tfn, String mail, String ldin) {
 		id = ID;
 		naam = nm;
 		straatnaam = strNm;
@@ -53,7 +53,7 @@ public class PersoonsGegevens {
 		return woonplaats;
 	}
 	
-	public Date getGeboortedatum() {
+	public String getGeboortedatum() {
 		return geboortedatum;
 	}
 	
@@ -93,7 +93,7 @@ public class PersoonsGegevens {
 		woonplaats = wp;
 	}
 	
-	public void setGeboortedatum(Date gb) {
+	public void setGeboortedatum(String gb) {
 		geboortedatum = gb;
 	}
 	

@@ -1,11 +1,13 @@
 package hu.domain;
 
+import java.util.ArrayList;
+
 public class Profiel {
 	private String eigenschappen;
 	private String spreektalen;
 	private int jarenErvaringIT;
 	private PersoonsGegevens gegevens;
-	private Vaardigheid vaardigheden;
+	private ArrayList<Vaardigheid> vaardigheden = new ArrayList<Vaardigheid>();;
 	
 	public Profiel(String es, String st, int jEIT) {
 		eigenschappen = es;
