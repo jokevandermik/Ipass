@@ -19,7 +19,7 @@ import javax.ws.rs.core.Response;
 import hu.domain.*;
 import hu.persistence.PersoonsGegevensPostgresDaoImpl;;
 
-@Path("/Wolf&Cherry")
+@Path("/WolfAndCherry")
 public class ServiceProvider {
 	@GET
 	@Path("/all")
