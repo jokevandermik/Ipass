@@ -67,14 +67,10 @@
 						var persoon;
 						for (persoon = 0; persoon.length; persoon++){
 							persoonsgegevensHolder.innerHTML += getPersoonsGegevensHtml(persoonsGegevens[persoon]);
+							consol.log(persoon.naam)
 						}
 					}
 				})
-		}
-		
-		function getPersoonsGegevensHtml(persoonGegevens){
-			return '' +
-				'<p>naam</p>';
 		}
 	</script>
 </body>
