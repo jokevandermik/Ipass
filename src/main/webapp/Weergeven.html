@@ -44,6 +44,7 @@
 		</div>
 	<script>
 		let all_persoonsGegevens = [];
+		let hoi = "hallo";
 		
 		function init(){
 			let fetchOptions = {
@@ -55,9 +56,17 @@
 					console.log(response.status);
 					if (response.ok){
 						return response.json();
+						hoi = "response oke";
+						consol.log(hoi);
 					}
 					else if(response.status = 403){
-						
+					hoi = "status  403";
+					consol.log(hoi);
+					}
+					else {
+						hoi = "de rest";
+						consol.log(hoi);
+						consol.log(response.status);
 					}
 				})
 				.then((persoonsGegevens)=> {
