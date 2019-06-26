@@ -41,13 +41,3 @@ public class DynamicServlet extends HttpServlet {
 
 	}
 }
-'<p>' + persoonGegevens.naam + '</p>' +
-'<p>' + persoonGegevens.straatnaam + '</p>' +
-'<p>' + persoonGegevens.huisnummer + '</p>' +
-'<p>' + persoonGegevens.postcode + '</p>' +
-'<p>' + persoonGegevens.woonplaats + '</p>' +
-'<p>' + persoonGegevens.geboortedatum + '</p>' +
-'<p>' + persoonGegevens.geslacht + '</p>' +
-'<p>' + persoonGegevens.telefoonnummer + '</p>' +
-'<p>' + persoonGegevens.email + '</p>' +
-'<p>' + persoonGegevens.linkedin + '</p> <br>';
