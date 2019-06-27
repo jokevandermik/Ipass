@@ -45,7 +45,6 @@
 	<script>
 	let hoi = "hallo";
 	console.log(hoi);
-	document.getElementById('hello').innerHTML = "hi";
 	
 	function init(){
 		let fetchOptions = {
@@ -75,9 +74,9 @@
 					all_persoonsGegevens = persoonsGegevens;
 					if(persoonsGegevens.length > 0){
 						let persoonsgegevensHolder = document.getElementById("all_persoonsGegevens");
-						var persoon;
-						for (persoon = 0; persoon.length; persoon++){
-							persoonsgegevensHolder.innerHTML += getPersoonsGegevensHtml(persoonsGegevens[persoon]);
+						var p;
+						for (p = 0; p.length; p++){
+							persoonsgegevensHolder.innerHTML += getPersoonsGegevensHtml(persoonsGegevens[p]);
 							console.log(persoon.naam)
 						}
 					}
