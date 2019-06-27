@@ -52,7 +52,6 @@
 				method: 'GET',
 		};
 		
-		document.querySelector("#error").innerHTML = "";
 		fetch('/restservices/WolfAndCherry/all', fetchOptions)
 			.then((response) => {
 				console.log(response.status);
