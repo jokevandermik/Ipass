@@ -18,7 +18,7 @@
 	</div>
 		<div class="weergeven_links" id="all_persoonsGegevens">
 			Naam: <p></p>
-			Straatnaam: <p id="error"></p>
+			Straatnaam: <p></p>
 			Woonplaats: <p></p>
 			Geboortedatum: <p></p>
 			Telefoonnummer: <p></p>
@@ -43,44 +43,45 @@
 			Pakketen: <p></p>
 		</div>
 	<script>
-		let hoi = "hallo";
-		console.log(hoi);
-		docement.querySelector("#error").innerHTML = "Status 403";
+	let hoi = "hallo";
+	console.log(hoi);
+	document.querySelector("#error").innerHTML = "Status 403";
+	
+	function init(){
+		let fetchOptions = {
+				method: 'GET',
+		};
 		
-		function init(){
-			let fetchOptions = {
-					method: 'GET',
-			};
-			
-			document.querySelector("#error").innerHTML = "";
-			fetch('/restservices/WolfAndCherry/all', fetchOptions)
-				.then((response) => {
-					console.log(response.status);
-					if (response.ok){
-						return response.json();
-						hoi = "response oke";
-						console.log(hoi);
-					}
-					else if(response.status = 403){
-					hoi = "status  403";
+		document.querySelector("#error").innerHTML = "";
+		fetch('/restservices/WolfAndCherry/all', fetchOptions)
+			.then((response) => {
+				console.log(response.status);
+				if (response.ok){
+					return response.json();
+					hoi = "response oke";
 					console.log(hoi);
-					
-					}
-					else {
-						hoi = "de rest";
-						console.log(hoi);
-						console.log(response.status);
-					}
-				})
-				.then((myJson)=> {
-					let all_persoonsGegevens = document.querySelector('body');
-					all_persoonsGegevens.innerHTML = "";
-					
-					var i = 0;
-					for (i; i < myJson.length; i++){
-						all_persoonsGegevens.innerHTML = all_persoonsGegevens.innerHTML + "<p> naam</p>";
-					
+				}
+				else if(response.status = 403){
+				hoi = "status  403";
+				console.log(hoi);
+				
+				}
+				else {
+					hoi = "de rest";
+					console.log(hoi);
+					console.log(response.status);
+				}
+			})
+				.then((persoonsGegevens)=> {
+					all_persoonsGegevens = persoonsGegevens;
+					if(persoonsGegevens.length > 0){
+						let persoonsgegevensHolder = document.getElementById("all_persoonsGegevens");
+						var persoon;
+						for (persoon = 0; persoon.length; persoon++){
+							persoonsgegevensHolder.innerHTML += getPersoonsGegevensHtml(persoonsGegevens[persoon]);
+							console.log(persoon.naam)
 						}
+					}
 				})
 		}
 		
