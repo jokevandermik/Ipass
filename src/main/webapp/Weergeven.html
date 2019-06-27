@@ -70,17 +70,9 @@
 					console.log(response.status);
 				}
 			})
-				.then((persoonsGegevens)=> {
-					all_persoonsGegevens = persoonsGegevens;
-					if(persoonsGegevens.length > 0){
-						let persoonsgegevensHolder = document.getElementById("all_persoonsGegevens");
-						var p;
-						for (p = 0; p.length; p++){
-							persoonsgegevensHolder.innerHTML += getPersoonsGegevensHtml(persoonsGegevens[p]);
-							console.log(persoon.naam)
-						}
-					}
-				})
+			.then((myJson){
+				console.log(JSON.stringify(myJson));
+			});
 		}
 		
 		init();
