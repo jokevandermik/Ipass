@@ -55,7 +55,7 @@
 			fetch('restservices/WolfAndCherry/all', fetchOptions)
 				.then((response) => {
 					console.log(response.status);
-					if (Response.ok){
+					if (response.ok){
 						return response.json();
 						hoi = "response oke";
 						console.log(hoi);
@@ -72,7 +72,7 @@
 				})
 				.then((persoonsGegevens)=> {
 					all_persoonsGegevens = persoonsGegevens;
-					if(events.length > 0){
+					if(persoonsGegevens.length > 0){
 						let persoonsgegevensHolder = document.getElementById("all_persoonsGegevens");
 						var persoon;
 						for (persoon = 0; persoon.length; persoon++){
