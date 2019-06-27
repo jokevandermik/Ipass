@@ -19,7 +19,7 @@
 
 			<param-name>jersey.config.server.provider.packages</param-name>
 
-			<param-value>hu.ipass.webservices</param-value>
+			<param-value>hu.webservices</param-value>
 
 		</init-param>
 
