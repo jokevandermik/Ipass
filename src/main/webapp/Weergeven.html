@@ -61,7 +61,7 @@
 				}
 				else if(response.status = 403){
 				hoi = "status  403";
-				console.log9(hoi);
+				console.log(hoi);
 				
 				}
 				else {
@@ -70,9 +70,17 @@
 					console.log(response.status);
 				}
 			})
-			.then(function(myJson){
-				console.log(JSON.strinify(myJson))
-			});
+				.then((persoonsGegevens)=> {
+					all_persoonsGegevens = persoonsGegevens;
+					if(persoonsGegevens.length > 0){
+						let persoonsgegevensHolder = document.getElementById("all_persoonsGegevens");
+						var p;
+						for (p = 0; p.length; p++){
+							persoonsgegevensHolder.innerHTML += getPersoonsGegevensHtml(persoonsGegevens[p]);
+							console.log(persoon.naam)
+						}
+					}
+				})
 		}
 		
 		init();
