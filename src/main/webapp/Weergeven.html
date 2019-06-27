@@ -17,7 +17,7 @@
 		</div>
 	</div>
 		<div class="weergeven_links" id="all_persoonsGegevens">
-			Naam: <p id="error"></p>
+			Naam: <p id="hello"></p>
 			Straatnaam: <p></p>
 			Woonplaats: <p></p>
 			Geboortedatum: <p></p>
@@ -45,7 +45,7 @@
 	<script>
 	let hoi = "hallo";
 	console.log(hoi);
-	document.querySelector("#error").innerHTML = "Status 403";
+	document.getElementById('hello').innerHTML = 'hi';
 	
 	function init(){
 		let fetchOptions = {
