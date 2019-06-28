@@ -47,4 +47,12 @@ public class ServiceProvider {
 		JsonArray jsonArray = jab.build();
 		return Response.ok(jsonArray.toString()).build();
 	}
+	
+	@POST
+	@Path("/save")
+	public Response savePersoonsgegevens() {
+		PersoonsGegevensPostgresDaoImpl db = new PersoonsGegevensPostgresDaoImpl();
+		PersoonsGegevens pg = new PersoonsGegevens();
+		pg.setNaam(naam);
+	}
 }
