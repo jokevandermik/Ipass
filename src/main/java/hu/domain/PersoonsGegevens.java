@@ -3,7 +3,7 @@ package hu.domain;
 import java.util.Date;
 
 public class PersoonsGegevens {
-	private int id = (Integer) null;
+	private int id;
 	private String naam;
 	private String straatnaam;
 	private int huisnummer;
