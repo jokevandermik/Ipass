@@ -14,10 +14,6 @@ public class Profiel {
 	private PersoonsGegevens gegevens;
 	private Vaardigheid vaardigheden;
 
-	public Profiel() {
-
-	}
-
 	public Profiel(int ID, int IDPersoonsGegevens, int IDVaardigheid, String es, String st, int jEIT) {
 		id = ID;
 		idPersoonsGegevens = IDPersoonsGegevens;
