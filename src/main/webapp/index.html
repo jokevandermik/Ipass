@@ -18,7 +18,7 @@
 	</div>
 	
 	<div class="div_input_links"> 
-		<form> 
+		<form id="FormPost"> 
 			Naam: <input class="input" type="text" name="naam" maxlength="50"/><br>
 			Straatnaam: <input class="input" type="text" name="straatnaam" maxlength="50" /><br>
 			Woonplaats: <input class="input" type="text" name="woonplaats" maxlength="50"/><br>
@@ -36,7 +36,7 @@
 	</div>
 	
 	<div class="div_input_rechts">
-		<form>
+		<form id="FormPost">
 			Huisnummer: <input class="input" type="number" name="huisnummer" maxlength="4"/><br>
 			Postcode: <input class="input" type="text" name="postcode" maxlength="6"/><br>
 			Email: <input class="input" type="text" name="email" maxlength="50"/><br>
@@ -45,9 +45,9 @@
 			Functionele vaardigheden: <input class="input" type="text" name="functionele_vaardigheden" maxlength="256"/><br>
 			Computertalen: <input class="input" type="text" name="computertalen" maxlength="256"/><br>
 			Pakketen: <input class="input" type="text" name="pakketen" maxlength="256"/>
-			<input class="submit" type="submit" value="Toevoegen" />
+			<input class="submit" type="button" id="post" value="Toevoegen" />
 		</form>
 	</div>
-
+<script src="js/profiel.js"></script>
 </body>
 </html>
