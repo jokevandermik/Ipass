@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Profiel weergeven</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="header">
+		<img src="wolfandcherrylogo.jpg" alt="Wolf & Cherry logo" width="150px">
+		<div class="header-right">
+			<a href="index.html">Profiel aanmaken</a>
+			<a href="Aanpassen.html">Profiel aanpassen</a>
+			<a href="Zoekterm.html">Zoekterm</a>
+			<a href="Relevantie.html">Zoeken op relevantie</a>
+			<a href="Geografisch.html">Geografisch zoeken</a>
+		</div>
+	</div>
+		<div class="weergeven_links" id="all_persoonsGegevens">
+			Naam: <p></p>
+			Straatnaam: <p></p>
+			Woonplaats: <p></p>
+			Geboortedatum: <p></p>
+			Telefoonnummer: <p></p>
+			<br>
+			Eigenschappen: <p></p>
+			Spreektalen: <p></p>
+			Jaren ervaring in IT: <p></p>
+			<br>
+			Technische vaardigheden: <p></p>
+			Werkervaring: <p></p>
+			Platformen: <p></p>
+		</div>
+		
+		<div class="weergeven_rechts">
+			Huisnummer: <p></p>
+			Postcode: <p></p>
+			Email: <p></p>
+			Linkedin: <p></p>
+			<br><br><br><br><br><br><br><br><br><br>
+			Functionele vaardigheden: <p></p>
+			Computertalen: <p></p>
+			Pakketen: <p></p>
+		</div>
+	<script>
+	let hoi = "hallo";
+	console.log(hoi);
+	
+	function init(){
+		let fetchOptions = {
+				method: 'GET',
+		};
+		
+		fetch('/restservices/WolfAndCherry/all', fetchOptions)
+			.then((response) => {
+				console.log(response.status);
+				if (response.status = 200){
+					hoi = "response oke";
+					console.log(hoi);
+					return response.json();
+				}
+				else if(response.status = 403){
+				hoi = "status  403";
+				console.log(hoi);
+				
+				}
+				else {
+					hoi = "de rest";
+					console.log(hoi);
+					console.log(response.status);
+				}
+			})
+			.then((myJson) => {
+				console.log(JSON.stringify(myJson));
+			});
+		}
+		
+		init();
+	</script>
+</body>
+</html>
