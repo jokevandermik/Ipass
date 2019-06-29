@@ -8,6 +8,7 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
@@ -22,6 +23,7 @@ import hu.persistence.ServiceProvider;;
 public class ProfielResource {
 	@GET
 	@Path("/all")
+
 	public Response getPersoonsGegevens() {
 		PersoonsGegevensPostgresDaoImpl db = new PersoonsGegevensPostgresDaoImpl();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
@@ -60,6 +62,7 @@ public class ProfielResource {
 	
 	@POST
 	@Path("/save")
+	@Produces("application/json")
 	public Response saveProfiel(@FormParam("naam") String nm, @FormParam("straatnaam") String strnm, @FormParam("huisnummer") int hsnr, @FormParam("postcode") String pc, @FormParam("woonplaats") String wp, @FormParam("geboortedatum") String gb, @FormParam("geslacht") String gs, @FormParam("telefoonnummer") int tfnr, @FormParam("email") String mail, @FormParam("linkedin") String lkin,
 			@FormParam("eigenschappen") String es, @FormParam("spreektalen") String st, @FormParam("jarenErvaringIT") int jeIT, @FormParam("technischeVaardigheden") String tv, @FormParam("functioneleVaardigheden") String fv, @FormParam("werkervaring") String we, @FormParam("computertalen") String ct, @FormParam("platformen") String pt, @FormParam("pakketen") String pk) {
 		ProfielService profielService = ServiceProvider.getProfielService();
