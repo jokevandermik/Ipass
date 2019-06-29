@@ -9,7 +9,7 @@
 //else
 
 document.querySelector("#post").addEventListener("click", function () {
-    var formData = new FormData(document.querySelector("#POSTcustomerForm"));
+    var formData = new FormData(document.querySelector("#FormPost"));
     var encData = new URLSearchParams(formData.entries());
 
     fetch("restservices/WolfAndCherry/save", { method: 'POST', body: encData })
