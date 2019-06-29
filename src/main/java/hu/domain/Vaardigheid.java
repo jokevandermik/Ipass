@@ -1,20 +1,26 @@
 package hu.domain;
 
 public class Vaardigheid {
+	private int id;
 	private String technischeVaardigheden;
 	private String functioneleVaardigheden;
 	private String werkervaring;
 	private String computertalen;
 	private String platform;
-	private String pakketen;
+	private String pakketten;
 
-	public Vaardigheid(String tv, String fv, String we, String ct, String pf, String pk) {
+	public Vaardigheid(int id,String tv, String fv, String we, String ct, String pf, String pk) {
+		this.id = id;
 		technischeVaardigheden = tv;
 		functioneleVaardigheden = fv;
 		werkervaring = we;
 		computertalen = ct;
 		platform = pf;
-		pakketen = pk;
+		pakketten = pk;
+	}
+	
+	public int getId() {
+		return id;
 	}
 
 	public String GetTechnischeVaardigheden() {
@@ -38,7 +44,11 @@ public class Vaardigheid {
 	}
 
 	public String GetPakketen() {
-		return pakketen;
+		return pakketten;
+	}
+	
+	public void setId(int ID) {
+		id = ID;
 	}
 
 	public void setTechnischeVaardigheden(String tv) {
@@ -62,6 +72,6 @@ public class Vaardigheid {
 	}
 
 	public void setPakketen(String pk) {
-		pakketen = pk;
+		pakketten = pk;
 	}
 }

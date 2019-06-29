@@ -9,10 +9,10 @@
 //else
 
 document.querySelector("#post").addEventListener("click", function () {
-    var formData = new FormData(document.querySelector("#POSTcustomerForm"));
+    var formData = new FormData(document.querySelector("#FormPost"));
     var encData = new URLSearchParams(formData.entries());
 
-    fetch("restservices/customers", { method: 'POST', body: encData })
+    fetch("restservices/WolfAndCherry/save", { method: 'POST', body: encData })
         .then(response => response.json())
         .then(function (myJson) { console.log(myJson); });
 });

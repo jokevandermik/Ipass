@@ -3,7 +3,7 @@ package hu.domain;
 import java.util.Date;
 
 public class PersoonsGegevens {
-	private int id;
+	private int id = (Integer) null;
 	private String naam;
 	private String straatnaam;
 	private int huisnummer;
@@ -71,6 +71,10 @@ public class PersoonsGegevens {
 	
 	public String getLinkedin() {
 		return linkedin;
+	}
+	
+	public void setId(int ID) {
+		id = ID; 
 	}
 	
 	public void setNaam(String nm) {

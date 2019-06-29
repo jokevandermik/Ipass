@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 import hu.domain.PersoonsGegevens;
 
 public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements PersoonsGegevensDao{
@@ -42,7 +43,7 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 
 	public boolean save(PersoonsGegevens persoonsGegevens) {
 		try (Connection con = super.getConnection()) {
-			String q = "insert into Persoonsgegevens(Straatnaam, Huisnummer, Postcode, Woonplaats, Geboortedatum, Geslacht, Telefoonnummer, Email, Linkedin, Naam) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String q = "insert into \"Persoonsgegevens\"(\"Straatnaam\", \"Huisnummer\", \"Postcode\", \"Woonplaats\", \"Geboortedatum\", \"Geslacht\", \"Telefoonnummer\", \"Email\", \"Linkedin\", \"Naam\") values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement pstmt = con.prepareStatement(q);
 			pstmt.setString(1, persoonsGegevens.getStraatnaam());
 			pstmt.setInt(2, persoonsGegevens.getHuisnummer());
@@ -64,8 +65,8 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 
 	public boolean update(PersoonsGegevens persoonsGegevens) {
 		try (Connection con = super.getConnection()) {
-			String q = "Update Persoonsgegevens SET Straatnaam = ? , huisnumer = ?, Postcode = ?, Woonplaats = ?,"
-					+ " Geboortedatum = ?, Geslacht = ?, Telefoonnummer = ?, Email = ?, Naam = ? where ID = ?";
+			String q = "Update \"Persoonsgegevens\" SET \"Straatnaam\" = ? , \"huisnumer\" = ?, \"Postcode\" = ?, \"Woonplaats\" = ?,"
+					+ " \"Geboortedatum\" = ?, \"Geslacht\" = ?, \"Telefoonnummer\" = ?, \"Email\" = ?, \"Naam\" = ? where \"ID\" = ?";
 			System.out.println(q);
 			PreparedStatement pstmt = con.prepareStatement(q);
 			pstmt.setString(1, persoonsGegevens.getStraatnaam());
@@ -87,7 +88,7 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 	
 	public boolean delete(PersoonsGegevens persoonsGegevens) {
 		try(Connection con = super.getConnection()){
-			String q = "delete from Persoonsgegevens where id = ?";
+			String q = "delete from \"Persoonsgegevens\" where \"id\" = ?";
 			System.out.println(q);
 			PreparedStatement pstmt = con.prepareStatement(q);
 			pstmt.setInt(1, persoonsGegevens.getId());
