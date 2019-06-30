@@ -9,27 +9,42 @@
 //else
 
 document.querySelector("#post").addEventListener("click", function () {
-//	var id;
-//	id = id + 1;
+// var id;
+// id = id + 1;
 //	
-//	let fetchOptions = {
-//			method: 'GET',
-//	};
-//	
-//	fetch('/restservices/WolfAndCherry/IDhalen', fetchOptions)
-//		.then((response) => {
-//			console.log(response.status);
-//			if (response.status = 200){
-//				hoi = "response oke";
-//				console.log(hoi);
-//				return response.json();
-//			}
-	 //fetch(idhalen)
-    //id json var maken
-    //maak var boven aan undifind var
-    //geeft json aan var
-    //doe +1 bij var
-	//gooi er wat console.logs in
+ let fetchOptions = {
+ method: 'GET',
+ };
+	
+ fetch('/restservices/WolfAndCherry/IDhalen', fetchOptions)
+ .then((response) => {
+ console.log(response.status);
+	if (response.status = 200){
+		hoi = "response oke";
+		console.log(hoi);
+		return response.json();
+	}
+	else if(response.status = 403){
+	hoi = "status  403";
+	console.log(hoi);
+	
+	}
+	else {
+		hoi = "de rest";
+		console.log(hoi);
+		console.log(response.status);
+	}
+})
+.then((myJson) => {
+	console.log(JSON.stringify(myJson));
+	
+});
+	 // fetch(idhalen)
+    // id json var maken
+    // maak var boven aan undifind var
+    // geeft json aan var
+    // doe +1 bij var
+	// gooi er wat console.logs in
     
 	var formData = new FormData(document.querySelector("#FormPost"));
     var encData = new URLSearchParams(formData.entries() + id.entries());
@@ -54,6 +69,6 @@ document.querySelector("#post").addEventListener("click", function () {
         		console.log(response.status);
         	}
         });
-        //{response.json())
-        //.then(function (myJson)  { console.log(myJson); });
+        // {response.json())
+        // .then(function (myJson) { console.log(myJson); });
 	});
