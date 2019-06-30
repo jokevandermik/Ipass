@@ -4,6 +4,7 @@ import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObjectBuilder;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -79,7 +80,7 @@ public class ProfielResource {
 	
 	@POST
 	@Path("/save")
-	@Produces("application/json")
+	@Consumes("application/json")
 	public Response saveProfiel(@FormParam("jsid") int id,@FormParam("naam") String nm, @FormParam("straatnaam") String strnm, @FormParam("huisnummer") int hsnr, @FormParam("postcode") String pc, @FormParam("woonplaats") String wp, @FormParam("geboortedatum") String gb, @FormParam("geslacht") String gs, @FormParam("telefoonnummer") int tfnr, @FormParam("email") String mail, @FormParam("linkedin") String lkin,
 			@FormParam("eigenschappen") String es, @FormParam("spreektalen") String st, @FormParam("jarenErvaringIT") int jeIT, @FormParam("technischeVaardigheden") String tv, @FormParam("functioneleVaardigheden") String fv, @FormParam("werkervaring") String we, @FormParam("computertalen") String ct, @FormParam("platformen") String pt, @FormParam("pakketen") String pk) {
 		ProfielService profielService = ServiceProvider.getProfielService();
@@ -87,7 +88,7 @@ public class ProfielResource {
 		if(nm.trim().isEmpty()&& strnm.trim().isEmpty() && pc.trim().isEmpty() && wp.trim().isEmpty() &&
 				gb.trim().isEmpty() && mail.trim().isEmpty() && lkin.trim().isEmpty()) return Response.noContent().build();
 		//vul alle parameters voor de save
-		int jsid =id;
+		int jsid = id;
 		String naam = nm.trim();
 		String straatnaam = strnm.trim();
 		int huisnummer = hsnr;
