@@ -54,21 +54,13 @@
 }
 
 	haalIDop();
-	
-	 // fetch(idhalen)
-    // id json var maken
-    // maak var boven aan undifind var
-    // geeft json aan var
-    // doe +1 bij var
-	// gooi er wat console.logs in
 
 	document.querySelector("#post").addEventListener("click", function () {
-// var formData = new FormData(document.querySelector("#FormPost"));
-// var encData = new URLSearchParams(formData.entries());
-// console.log(encData);
-// console.log(formData);
-// encData = new URLSearchParams(formData.entries() + jsid.entries());
-// console.log(encData)
+ var formData = new FormData(document.querySelector("#FormPost"));
+ var encData = new URLSearchParams(formData.entries());
+ console.log(encData);
+ console.log(formData);
+
 // hoi = "response oke";
 // console.log("hoi")
 // }
