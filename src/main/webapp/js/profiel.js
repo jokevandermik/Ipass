@@ -10,7 +10,7 @@
 
 document.querySelector("#post").addEventListener("click", function () {
  
-	function haalIDop(){
+	
 	var jsid;
  
 	
@@ -47,9 +47,10 @@ document.querySelector("#post").addEventListener("click", function () {
 	console.log(jsid);
 	jsid = jsid + 1;
 	console.log(jsid);
-	
+	var formData = new FormData(document.querySelector("#FormPost"));
+    var encData = new URLSearchParams(formData.entries());
 });
-}
+
 	
 	 // fetch(idhalen)
     // id json var maken
@@ -57,13 +58,10 @@ document.querySelector("#post").addEventListener("click", function () {
     // geeft json aan var
     // doe +1 bij var
 	// gooi er wat console.logs in
-    
-	var formData = new FormData(document.querySelector("#FormPost"));
-    var encData = new URLSearchParams(formData.entries());
-
-    haalIDop();
+	
     
     console.log(encData);
+    console.log(formData);
     encData = new URLSearchParams(formData.entries() + jsid.entries());
     console.log(encData);
     
