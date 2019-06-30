@@ -84,19 +84,20 @@ public class ProfielResource {
 	@Path("/save")
 	public Response saveProfiel(@FormParam("id") int Id,@FormParam("naam") String nm, @FormParam("straatnaam") String strnm, @FormParam("huisnummer") int hsnr, @FormParam("postcode") String pc, @FormParam("woonplaats") String wp, @FormParam("geboortedatum") String gb, @FormParam("geslacht") String gs, @FormParam("telefoonnummer") int tfnr, @FormParam("email") String mail, @FormParam("linkedin") String lkin) {
 		ProfielService profielService = ServiceProvider.getProfielService();
-		if(nm.trim().isEmpty()&& strnm.trim().isEmpty() && pc.trim().isEmpty() && wp.trim().isEmpty() &&
-				gb.trim().isEmpty() && mail.trim().isEmpty() && lkin.trim().isEmpty()) return Response.noContent().build();
+		
 		int id = Id;
-		String naam = nm.trim();
-		String straatnaam = strnm.trim();
+		String naam = nm;
+		String straatnaam = strnm;
 		int huisnummer = hsnr;
-		String postcode = pc.trim();
-		String woonplaats = wp.trim();
-		String geboortedatum = gb.trim();
+		String postcode = pc;
+		String woonplaats = wp;
+		String geboortedatum = gb;
 		String geslacht = gs;
 		int telefoonnummer = tfnr;
-		String email = mail.trim();
-		String linkedin = lkin.trim();
+		String email = mail;
+		String linkedin = lkin;
+		
+		PersoonsGegevens deGegevens = new PersoonsGegevens(id, naam, straatnaam, huisnummer, postcode, woonplaats, geboortedatum, geslacht, telefoonnummer, email, linkedin);
 		
 		return Response.ok().build();
 	}
