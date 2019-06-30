@@ -27,7 +27,7 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 				String woonplaats = dbResultSet.getString("woonplaats");
 				String geboortedatum = dbResultSet.getString("geboortedatum");
 				String geslacht = dbResultSet.getString("geslacht");
-				int telefoonnummer = dbResultSet.getInt("telefoonnummer");
+				String telefoonnummer = dbResultSet.getString("telefoonnummer");
 				String email = dbResultSet.getString("email");
 				String linkedin = dbResultSet.getString("linkedin");
 
@@ -47,14 +47,14 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 		try (Connection con = super.getConnection()) {
 			String q = "insert into \"Persoonsgegevens\"(\"ID\", \"Straatnaam\", \"Huisnummer\", \"Postcode\", \"Woonplaats\", \"Geboortedatum\", \"Geslacht\", \"Telefoonnummer\", \"Email\", \"Linkedin\", \"Naam\") values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 			PreparedStatement pstmt = con.prepareStatement(q);
-			pstmt.setInt(1, 4);
+			pstmt.setInt(1, 5);
 			pstmt.setString(2, "straat");
 			pstmt.setInt(3, 6);
 			pstmt.setString(4, "5555KK");
 			pstmt.setString(5, "plaats");
 			pstmt.setString(6, "20-06-2000");
 			pstmt.setString(7, "Vrouw");
-			pstmt.setInt(8, 6789);
+			pstmt.setString(8, "6789");
 			pstmt.setString(9, "mail");
 			pstmt.setString(10, "hoi");
 			pstmt.setString(11, "hoi");
@@ -89,7 +89,7 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 			pstmt.setString(4, persoonsGegevens.getWoonplaats());
 			pstmt.setString(5, persoonsGegevens.getGeboortedatum());
 			pstmt.setString(6, persoonsGegevens.getGeslacht());
-			pstmt.setInt(7, persoonsGegevens.getTelefoonnummer());
+			pstmt.setString(7, persoonsGegevens.getTelefoonnummer());
 			pstmt.setString(8, persoonsGegevens.getEmail());
 			pstmt.setString(9, persoonsGegevens.getLinkedin());
 			pstmt.setString(10, persoonsGegevens.getNaam());

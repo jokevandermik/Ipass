@@ -11,11 +11,15 @@ public class PersoonsGegevens {
 	private String woonplaats;
 	private String geboortedatum;
 	private String geslacht;
-	private int telefoonnummer;
+	private String telefoonnummer;
 	private String email;
 	private String linkedin;
 	
-	public PersoonsGegevens(int ID, String nm, String strNm, int hn, String pc, String wp, String gb, String gs, int tfn, String mail, String ldin) {
+	public PersoonsGegevens() {
+		
+	}
+	
+	public PersoonsGegevens(int ID, String nm, String strNm, int hn, String pc, String wp, String gb, String gs, String tfn, String mail, String ldin) {
 		id = ID;
 		naam = nm;
 		straatnaam = strNm;
@@ -61,7 +65,7 @@ public class PersoonsGegevens {
 		return geslacht;
 	}
 	
-	public int getTelefoonnummer() {
+	public String getTelefoonnummer() {
 		return telefoonnummer;
 	}
 	
@@ -105,7 +109,7 @@ public class PersoonsGegevens {
 		geslacht = gs;
 	}
 	
-	public void setTelefoonnummer(int tfn) {
+	public void setTelefoonnummer(String tfn) {
 		telefoonnummer = tfn;
 	}
 	
