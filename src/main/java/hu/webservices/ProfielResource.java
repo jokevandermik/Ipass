@@ -86,8 +86,7 @@ public class ProfielResource {
 			@FormParam("eigenschappen") String es, @FormParam("spreektalen") String st, @FormParam("jarenErvaringIT") int jeIT, @FormParam("technischeVaardigheden") String tv, @FormParam("functioneleVaardigheden") String fv, @FormParam("werkervaring") String we, @FormParam("computertalen") String ct, @FormParam("platformen") String pt, @FormParam("pakketen") String pk) {
 		ProfielService profielService = ServiceProvider.getProfielService();
 		
-//		if(nm.isEmpty()) return Response.status(405).build();
-		if(nm == null) return Response.status(406).build();
+		if(nm.isEmpty()) return Response.status(405).build();
 
 		int id = Id;
 		String naam = nm;
@@ -100,9 +99,6 @@ public class ProfielResource {
 		int telefoonnummer = tfnr;
 		String email = mail;
 		String linkedin = lkin;
-		
-//		System.out.println(id);
-//		System.out.println(naam);
 		
 		String technischeVaardigheden = tv;
 		String functioneleVaardigheden = fv;
