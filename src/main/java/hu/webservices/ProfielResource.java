@@ -124,6 +124,6 @@ public class ProfielResource {
 //		//sla het profiel op
 //		if(profielService.save(hetProfiel)) return Response.ok(hetProfiel).build();
 //		return Response.status(Status.NOT_MODIFIED).build();
-		
+//		
 //	}
 }
