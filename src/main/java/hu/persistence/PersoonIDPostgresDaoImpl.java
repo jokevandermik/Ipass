@@ -23,7 +23,6 @@ public class PersoonIDPostgresDaoImpl extends PostgresBaseDao implements Persoon
 
 				PersoonID pID = new PersoonID(id);
 				result.add(pID);
-				System.out.println(pID);
 			}
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
