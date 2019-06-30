@@ -83,14 +83,14 @@ public class ProfielResource {
 	@POST
 	@Path("/save")
 //	@Consumes({ MediaType.MULTIPART_FORM_DATA })
-	public Response saveProfiel(@FormParam("jsid") int id,@FormParam("naam") String nm, @FormParam("straatnaam") String strnm, @FormParam("huisnummer") int hsnr, @FormParam("postcode") String pc, @FormParam("woonplaats") String wp, @FormParam("geboortedatum") String gb, @FormParam("geslacht") String gs, @FormParam("telefoonnummer") int tfnr, @FormParam("email") String mail, @FormParam("linkedin") String lkin,
+	public Response saveProfiel(@FormParam("id") int ID,@FormParam("naam") String nm, @FormParam("straatnaam") String strnm, @FormParam("huisnummer") int hsnr, @FormParam("postcode") String pc, @FormParam("woonplaats") String wp, @FormParam("geboortedatum") String gb, @FormParam("geslacht") String gs, @FormParam("telefoonnummer") int tfnr, @FormParam("email") String mail, @FormParam("linkedin") String lkin,
 			@FormParam("eigenschappen") String es, @FormParam("spreektalen") String st, @FormParam("jarenErvaringIT") int jeIT, @FormParam("technischeVaardigheden") String tv, @FormParam("functioneleVaardigheden") String fv, @FormParam("werkervaring") String we, @FormParam("computertalen") String ct, @FormParam("platformen") String pt, @FormParam("pakketen") String pk) {
 		ProfielService profielService = ServiceProvider.getProfielService();
 		//check of de parameters in orde zijn (verplichte velden)
 		if(nm.trim().isEmpty()&& strnm.trim().isEmpty() && pc.trim().isEmpty() && wp.trim().isEmpty() &&
 				gb.trim().isEmpty() && mail.trim().isEmpty() && lkin.trim().isEmpty()) return Response.noContent().build();
 		//vul alle parameters voor de save
-		int jsid = id;
+		int id = ID;
 		String naam = nm.trim();
 		String straatnaam = strnm.trim();
 		int huisnummer = hsnr;

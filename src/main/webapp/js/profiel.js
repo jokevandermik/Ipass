@@ -11,7 +11,7 @@
 
  
 	function haalIDop(){
-	var jsid;
+	var id;
     
  let fetchOptions = {
  method: 'GET',
@@ -38,13 +38,13 @@
 })
 .then((myJson) => {
 	console.log(JSON.stringify(myJson));
-	jsid = JSON.parse(myJson[0].id);
-	console.log(jsid);
-	jsid = jsid + 1;
-	console.log(jsid);
+	id = JSON.parse(myJson[0].id);
+	console.log(id);
+	id = id + 1;
+	console.log(id);
 	
 	let input = document.getElementById('id');
-	input.innerHTML = "<input class='input' type='number' name='jsid' maxlength='4' value='" + jsid + "'/>";
+	input.innerHTML = "<input class='input' type='number' name='id' maxlength='4' value='" + id + "'/>";
 });
 }
 
