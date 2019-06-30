@@ -86,6 +86,8 @@ public class ProfielResource {
 			@FormParam("eigenschappen") String es, @FormParam("spreektalen") String st, @FormParam("jarenErvaringIT") int jeIT, @FormParam("technischeVaardigheden") String tv, @FormParam("functioneleVaardigheden") String fv, @FormParam("werkervaring") String we, @FormParam("computertalen") String ct, @FormParam("platformen") String pt, @FormParam("pakketen") String pk) {
 		ProfielService profielService = ServiceProvider.getProfielService();
 		
+		PersoonsGegevensPostgresDaoImpl db = new PersoonsGegevensPostgresDaoImpl();
+		
 		int id = Id;
 		String naam = nm;
 		String straatnaam = strnm;
@@ -98,33 +100,33 @@ public class ProfielResource {
 		String email = mail;
 		String linkedin = lkin;
 		
-		String technischeVaardigheden = tv;
-		String functioneleVaardigheden = fv;
-		String werkervaring = we;
-		String computertalen = ct;
-		String platformen = pt;
-		String pakketen = pk;
-		
-		int idPersoonsGegevens = Id;
-		int idVaardigheid = Id;
-		String eigenschappen = es;
-		String spreektalen = st;
-		int jarenErvaringIT = jeIT;
+//		String technischeVaardigheden = tv;
+//		String functioneleVaardigheden = fv;
+//		String werkervaring = we;
+//		String computertalen = ct;
+//		String platformen = pt;
+//		String pakketen = pk;
+//		
+//		int idPersoonsGegevens = Id;
+//		int idVaardigheid = Id;
+//		String eigenschappen = es;
+//		String spreektalen = st;
+//		int jarenErvaringIT = jeIT;
 		
 		//maakt de PersoonsGegevens obv de velden
 		PersoonsGegevens deGegevens = new PersoonsGegevens(id, naam, straatnaam, huisnummer, postcode, woonplaats, geboortedatum, geslacht, telefoonnummer, email, linkedin);
+		boolean resp = db.save(deGegevens);
+		
+		if(!resp) {
+			return Response.status(402).build();
+		}
+	
+		return Response.ok().build();
 		//maakt de Vaardigheid 
-		Vaardigheid deVaardigheid = new Vaardigheid(id, technischeVaardigheden, functioneleVaardigheden, werkervaring, computertalen, platformen, pakketen);
-		//maakt een profiel
-		Profiel hetProfiel = new Profiel(id, idPersoonsGegevens, idVaardigheid, eigenschappen, spreektalen, jarenErvaringIT);
-		
-		//stelt de gegevens in
-		hetProfiel.setGegevens(deGegevens);
-		hetProfiel.setVaardigheden(deVaardigheid);
-		
-		//sla het profiel op
-		if(profielService.save(hetProfiel)) return Response.ok(hetProfiel).build();
-		return Response.status(Status.NOT_MODIFIED).build();
+//		Vaardigheid deVaardigheid = new Vaardigheid(id, technischeVaardigheden, functioneleVaardigheden, werkervaring, computertalen, platformen, pakketen);
+//		//maakt een profiel
+//		Profiel hetProfiel = new Profiel(id, idPersoonsGegevens, idVaardigheid, eigenschappen, spreektalen, jarenErvaringIT);
+//		
 	}
 //	@Consumes({ MediaType.MULTIPART_FORM_DATA })
 //	public Response saveProfiel(@FormParam("id") int Id,@FormParam("naam") String nm, @FormParam("straatnaam") String strnm, @FormParam("huisnummer") int hsnr, @FormParam("postcode") String pc, @FormParam("woonplaats") String wp, @FormParam("geboortedatum") String gb, @FormParam("geslacht") String gs, @FormParam("telefoonnummer") int tfnr, @FormParam("email") String mail, @FormParam("linkedin") String lkin,
