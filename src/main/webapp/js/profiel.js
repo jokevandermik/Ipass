@@ -16,7 +16,7 @@ document.querySelector("#post").addEventListener("click", function () {
  method: 'GET',
  };
 	
- fetch('/restservices/WolfAndCherry/IDhalen', fetchOptions)
+ fetch('/restservices/WolfAndCherry/Idhalen', fetchOptions)
  .then((response) => {
  console.log(response.status);
 	if (response.status = 200){
