@@ -13,7 +13,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.ResponseBuilder;
 import javax.ws.rs.core.Response.Status;
 
 import hu.domain.PersoonsGegevens;
@@ -87,16 +86,16 @@ public class ProfielResource {
 		ProfielService profielService = ServiceProvider.getProfielService();
 		
 		int id = Id;
-		String naam = nm;
-		String straatnaam = strnm;
+		String naam = nm.trim();
+		String straatnaam = strnm.trim();
 		int huisnummer = hsnr;
-		String postcode = pc;
-		String woonplaats = wp;
-		String geboortedatum = gb;
+		String postcode = pc.trim();
+		String woonplaats = wp.trim();
+		String geboortedatum = gb.trim();
 		String geslacht = gs;
 		int telefoonnummer = tfnr;
-		String email = mail;
-		String linkedin = lkin;
+		String email = mail.trim();
+		String linkedin = lkin.trim();
 		
 		return Response.ok().build();
 	}
