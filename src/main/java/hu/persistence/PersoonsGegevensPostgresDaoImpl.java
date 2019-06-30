@@ -47,7 +47,7 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 		try (Connection con = super.getConnection()) {
 			String q = "insert into \"Persoonsgegevens\"(\"ID\", \"Straatnaam\", \"Huisnummer\", \"Postcode\", \"Woonplaats\", \"Geboortedatum\", \"Geslacht\", \"Telefoonnummer\", \"Email\", \"Linkedin\", \"Naam\") values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 			PreparedStatement pstmt = con.prepareStatement(q);
-			pstmt.setInt(1, 7);
+			pstmt.setInt(1, 8);
 			pstmt.setString(2, "straat");
 			pstmt.setInt(3, 6);
 			pstmt.setString(4, "5555KK");
