@@ -12,6 +12,6 @@ public class ProfielService {
 		boolean vaardigheidOK = vaardigheidDao.save(p.getVaardigheden());
 		ProfielDao profielDao = new ProfielPostgresDaoImpl();
 		boolean profielOK = profielDao.save(p);
-		return gegevensOK && profielOK && vaardigheidOK;
+		return gegevensOK && vaardigheidOK && profielOK;
 	}
 }
