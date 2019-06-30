@@ -41,7 +41,7 @@ document.querySelector("#post").addEventListener("click", function () {
 })
 .then((myJson) => {
 	console.log(JSON.stringify(myJson));
-	jsid = JSON.parse(myJson[0].id);
+	jsid = JSON.parse(myJson[0]);
 	console.log(jsid);
 	jsid = jsid + 1;
 	console.log(jsid);
@@ -54,28 +54,28 @@ document.querySelector("#post").addEventListener("click", function () {
     // doe +1 bij var
 	// gooi er wat console.logs in
     
-//	var formData = new FormData(document.querySelector("#FormPost"));
-//    var encData = new URLSearchParams(formData.entries() + id.entries());
+	var formData = new FormData(document.querySelector("#FormPost"));
+    var encData = new URLSearchParams(formData.entries() + jsid.entries());
     
     
     
-//    fetch("restservices/WolfAndCherry/save", { method: 'POST', body: encData })
-//        .then(response => {
-//        	console.log(response.status);
-//        	if (response.ok){
-//        		hoi = "response oke";
-//        		console.log("hoi")
-//        	}
-//        	else if (response.status == 500){
-//        		hoi = "status 500";
-//        		console.log(hoi)
-//        	}
-//        	else{
-//        		hoi = "de rest";
-//        		console.log(hoi);
-//        		console.log(response.status);
-//        	}
-//        });
+    fetch("restservices/WolfAndCherry/save", { method: 'POST', body: encData })
+        .then(response => {
+        	console.log(response.status);
+        	if (response.ok){
+        		hoi = "response oke";
+        		console.log("hoi")
+        	}
+        	else if (response.status == 500){
+        		hoi = "status 500";
+        		console.log(hoi)
+        	}
+        	else{
+        		hoi = "de rest";
+        		console.log(hoi);
+        		console.log(response.status);
+        	}
+        });
         // {response.json())
         // .then(function (myJson) { console.log(myJson); });
 	});
