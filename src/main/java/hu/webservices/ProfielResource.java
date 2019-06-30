@@ -118,6 +118,10 @@ public class ProfielResource {
 		//maakt een profiel
 		Profiel hetProfiel = new Profiel(id, idPersoonsGegevens, idVaardigheid, eigenschappen, spreektalen, jarenErvaringIT);
 		
+		//stelt de gegevens in
+		hetProfiel.setGegevens(deGegevens);
+		hetProfiel.setVaardigheden(deVaardigheid);
+		
 		return Response.ok().build();
 	}
 //	@Consumes({ MediaType.MULTIPART_FORM_DATA })
