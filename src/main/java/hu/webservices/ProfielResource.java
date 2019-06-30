@@ -146,6 +146,10 @@ public class ProfielResource {
 		//maakt een profiel
 		Profiel hetProfiel = new Profiel(id, idPersoonsGegevens, idVaardigheid, eigenschappen, spreektalen, jarenErvaringIT);
 		
+		if (deGegevens.getNaam().isEmpty()) return Response.status(406).build();
+		
+		if(hetProfiel.getGegevens().getNaam().isEmpty()) return Response.status(410).build();
+		
 		hetProfiel.setGegevens(deGegevens);
 		hetProfiel.setVaardigheden(deVaardigheid);
 		
