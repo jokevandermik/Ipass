@@ -55,8 +55,9 @@ document.querySelector("#post").addEventListener("click", function () {
 	// gooi er wat console.logs in
     
 	var formData = new FormData(document.querySelector("#FormPost"));
-    var encData = new URLSearchParams(formData.entries() + jsid.entries());
-    
+    var encData = new URLSearchParams(formData.entries());
+
+    console.log(encData);
     
     
     fetch("restservices/WolfAndCherry/save", { method: 'POST', body: encData })
