@@ -50,8 +50,8 @@ document.querySelector("#post").addEventListener("click", function () {
     // doe +1 bij var
 	// gooi er wat console.logs in
     
-	var formData = new FormData(document.querySelector("#FormPost"));
-    var encData = new URLSearchParams(formData.entries() + id.entries());
+//	var formData = new FormData(document.querySelector("#FormPost"));
+//    var encData = new URLSearchParams(formData.entries() + id.entries());
     
     
     

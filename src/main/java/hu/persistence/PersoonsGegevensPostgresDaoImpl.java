@@ -43,7 +43,7 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 	
 	public List<PersoonsGegevens> selectID() {
 		List<PersoonsGegevens> result = new ArrayList<PersoonsGegevens>();
-		String query = "select max(\"Id\") from \"PersoonsGegevens\"";
+		String query = "select max(\"ID\") from \"PersoonsGegevens\"";
 
 		try (Connection con = super.getConnection()) {
 			PreparedStatement pstmt = con.prepareStatement(query);
