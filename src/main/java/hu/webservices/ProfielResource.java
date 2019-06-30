@@ -112,7 +112,7 @@ public class ProfielResource {
 			@FormParam("eigenschappen") String es, @FormParam("spreektalen") String st, @FormParam("jarenErvaringIT") int jeIT, @FormParam("technischeVaardigheden") String tv, @FormParam("functioneleVaardigheden") String fv, @FormParam("werkervaring") String we, @FormParam("computertalen") String ct, @FormParam("platformen") String pt, @FormParam("pakketen") String pk) {
 		ProfielService profielService = ServiceProvider.getProfielService();
 		
-		if(nm.isEmpty()) return Response.status(405).build();
+		if(gs.isEmpty()) return Response.status(405).build();
 
 		int id = Id;
 		String naam = nm;
@@ -146,7 +146,7 @@ public class ProfielResource {
 		//maakt een profiel
 		Profiel hetProfiel = new Profiel(id, idPersoonsGegevens, idVaardigheid, eigenschappen, spreektalen, jarenErvaringIT);
 		
-		if (deGegevens.getNaam().isEmpty()) return Response.status(406).build();
+		if (deGegevens.getGeslacht().isEmpty()) return Response.status(406).build();
 		
 		
 		
