@@ -41,7 +41,7 @@ document.querySelector("#post").addEventListener("click", function () {
 })
 .then((myJson) => {
 	console.log(JSON.stringify(myJson));
-	jsid = myJson.id[1];
+	jsid = myJson.id;
 	console.log(id);
 	jsid = jsid + 1;
 	console.log(jsid);
