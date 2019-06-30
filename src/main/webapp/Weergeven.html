@@ -16,7 +16,7 @@
 			<a href="Geografisch.html">Geografisch zoeken</a>
 		</div>
 	</div>
-		<div class="weergeven_links" id="all_persoonsGegevens">
+	<!-- <div class="weergeven_links" id="all_persoonsGegevens">
 			Naam: <p></p>
 			Straatnaam: <p></p>
 			Woonplaats: <p></p>
@@ -41,7 +41,26 @@
 			Functionele vaardigheden: <p></p>
 			Computertalen: <p></p>
 			Pakketen: <p></p>
-		</div>
+		</div>-->
+		
+		<table>
+			<thead>
+				<tr>
+					<th>Naam</th>
+					<th>Straatnaam</th>
+					<th>Huisnummer</th>
+					<th>Postcode</th>
+					<th>Woonplaats</th>
+					<th>Geboortedatum</th>
+					<th>Geslacht</th>
+					<th>Telefoonnummer</th>
+					<th>Email</th>
+					<th>Linkedin</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
 	<script>
 	let hoi = "hallo";
 	console.log(hoi);
@@ -72,6 +91,7 @@
 			})
 			.then((myJson) => {
 				console.log(JSON.stringify(myJson));
+				
 			});
 		}
 		

@@ -58,6 +58,24 @@ public class ProfielResource {
 //			JsonObjectBuilder job = Json.createObjectBuilder();
 //	}
 	
+	@GET
+	@Path("/Idhalen")
+	public Response getID() {
+		PersoonsGegevensPostgresDaoImpl db = new PersoonsGegevensPostgresDaoImpl();
+		JsonArrayBuilder jab = Json.createArrayBuilder();
+		
+		for (PersoonsGegevens pg : db.selectID()) {
+			JsonObjectBuilder job = Json.createObjectBuilder();
+			job.add("id", pg.getId());
+			
+			jab.add(job);
+		}
+		
+		JsonArray jsonArray = jab.build();
+		return Response.ok(jsonArray.toString()).build();
+	}
+	 // maak ergens nieuwe dao met select max(\"Id\") from \"PersoonsGegevens\"
+	
 	
 //	@POST
 //	@Path("/save")
@@ -69,7 +87,7 @@ public class ProfielResource {
 //		if(nm.trim().isEmpty()&& strnm.trim().isEmpty() && pc.trim().isEmpty() && wp.trim().isEmpty() &&
 //				gb.trim().isEmpty() && mail.trim().isEmpty() && lkin.trim().isEmpty()) return Response.noContent().build();
 //		//vul alle parameters voor de save
-//		int id = (Integer) null;
+//		int id;
 //		String naam = nm.trim();
 //		String straatnaam = strnm.trim();
 //		int huisnummer = hsnr;
@@ -105,6 +123,6 @@ public class ProfielResource {
 //		//sla het profiel op
 //		if(profielService.save(hetProfiel)) return Response.ok(hetProfiel).build();
 //		return Response.status(Status.NOT_MODIFIED).build();
-//		
+		
 //	}
 }

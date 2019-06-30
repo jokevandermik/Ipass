@@ -9,8 +9,30 @@
 //else
 
 document.querySelector("#post").addEventListener("click", function () {
-    var formData = new FormData(document.querySelector("#FormPost"));
-    var encData = new URLSearchParams(formData.entries());
+//	var id;
+//	id = id + 1;
+//	
+//	let fetchOptions = {
+//			method: 'GET',
+//	};
+//	
+//	fetch('/restservices/WolfAndCherry/IDhalen', fetchOptions)
+//		.then((response) => {
+//			console.log(response.status);
+//			if (response.status = 200){
+//				hoi = "response oke";
+//				console.log(hoi);
+//				return response.json();
+//			}
+	 //fetch(idhalen)
+    //id json var maken
+    //maak var boven aan undifind var
+    //geeft json aan var
+    //doe +1 bij var
+	//gooi er wat console.logs in
+    
+	var formData = new FormData(document.querySelector("#FormPost"));
+    var encData = new URLSearchParams(formData.entries() + id.entries());
     
     let hoi = "hallo";
     console.log(hoi)
