@@ -19,9 +19,9 @@ public class PersoonIDPostgresDaoImpl extends PostgresBaseDao implements Persoon
 			ResultSet dbResultSet = pstmt.executeQuery();
 
 			while (dbResultSet.next()) {
-				int id = dbResultSet.getInt("id");
+				int persoonID = dbResultSet.getInt("id");
 
-				PersoonID pID = new PersoonID(id);
+				PersoonID pID = new PersoonID(persoonID);
 				result.add(pID);
 			}
 		} catch (SQLException sqle) {
