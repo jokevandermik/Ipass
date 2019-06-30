@@ -50,7 +50,7 @@ document.querySelector("#post").addEventListener("click", function () {
 	
 });
 }
-	haalIDop();
+	
 	 // fetch(idhalen)
     // id json var maken
     // maak var boven aan undifind var
@@ -61,8 +61,11 @@ document.querySelector("#post").addEventListener("click", function () {
 	var formData = new FormData(document.querySelector("#FormPost"));
     var encData = new URLSearchParams(formData.entries());
 
-    console.log(encData);
+    haalIDop();
     
+    console.log(encData);
+    encData = new URLSearchParams(formData.entries() + jsid.entries());
+    console.log(encData);
     
 // fetch("restservices/WolfAndCherry/save", { method: 'POST', body: encData })
 // .then(response => {
