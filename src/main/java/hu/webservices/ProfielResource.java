@@ -117,7 +117,10 @@ public class ProfielResource {
 		Vaardigheid deVaardigheid = new Vaardigheid(id, technischeVaardigheden, functioneleVaardigheden, werkervaring, computertalen, platformen, pakketen);
 		//maakt een profiel
 		Profiel hetProfiel = new Profiel(id, idPersoonsGegevens, idVaardigheid, eigenschappen, spreektalen, jarenErvaringIT);
-//		
+		
+		hetProfiel.setGegevens(deGegevens);
+		hetProfiel.setVaardigheden(deVaardigheid);
+		
 		if(profielService.saveAlles(hetProfiel)) return Response.ok(hetProfiel).build();
 		return Response.status(402).build();
 	}
