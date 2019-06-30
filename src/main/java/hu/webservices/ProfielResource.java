@@ -61,7 +61,7 @@ public class ProfielResource {
 	
 	@GET
 	@Path("/Idhalen")
-	public Response getID() {
+	public Response getPersoonID() {
 		PersoonIDPostgresDaoImpl db = new PersoonIDPostgresDaoImpl();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		
