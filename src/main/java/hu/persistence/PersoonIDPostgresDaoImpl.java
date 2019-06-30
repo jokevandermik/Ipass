@@ -12,7 +12,7 @@ import hu.domain.PersoonID;
 public class PersoonIDPostgresDaoImpl extends PostgresBaseDao implements PersoonIDDao {
 	public List<PersoonID> selectID() {
 		List<PersoonID> result = new ArrayList<PersoonID>();
-		String query = "select max(\"ID\") from \"PersoonsGegevens\"";
+		String query = "select max(\"ID\") from \"Persoonsgegevens\"";
 
 		try (Connection con = super.getConnection()) {
 			PreparedStatement pstmt = con.prepareStatement(query);
@@ -23,6 +23,7 @@ public class PersoonIDPostgresDaoImpl extends PostgresBaseDao implements Persoon
 
 				PersoonID pID = new PersoonID(id);
 				result.add(pID);
+				System.out.println(pID);
 			}
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
