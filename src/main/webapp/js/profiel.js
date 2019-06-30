@@ -47,12 +47,9 @@ document.querySelector("#post").addEventListener("click", function () {
 	console.log(jsid);
 	jsid = jsid + 1;
 	console.log(jsid);
-	var formData = new FormData(document.querySelector("#FormPost"));
-    var encData = new URLSearchParams(formData.entries());
-    console.log(encData);
-    console.log(formData);
-    encData = new URLSearchParams(formData.entries() + jsid.entries());
-    console.log(encData);
+	
+	let input = document.querySelector('tbody');
+	input.innerHTML = "<input class='input' type='number' name='jsid' maxlength='4' value='" + jsid + "'/>";
 });
 
 	
@@ -63,13 +60,12 @@ document.querySelector("#post").addEventListener("click", function () {
     // doe +1 bij var
 	// gooi er wat console.logs in
 	
-    
-    
-    
-// fetch("restservices/WolfAndCherry/save", { method: 'POST', body: encData })
-// .then(response => {
-// console.log(response.status);
-// if (response.ok){
+// var formData = new FormData(document.querySelector("#FormPost"));
+// var encData = new URLSearchParams(formData.entries());
+// console.log(encData);
+// console.log(formData);
+// encData = new URLSearchParams(formData.entries() + jsid.entries());
+// console.log(encData)
 // hoi = "response oke";
 // console.log("hoi")
 // }
