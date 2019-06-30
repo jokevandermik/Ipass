@@ -48,7 +48,7 @@
 	jsid = jsid + 1;
 	console.log(jsid);
 	
-	let input = document.querySelector('tbody');
+	let input = document.getElementById('id');
 	input.innerHTML = "<input class='input' type='number' name='jsid' maxlength='4' value='" + jsid + "'/>";
 });
 }
