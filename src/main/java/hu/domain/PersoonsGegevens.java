@@ -15,9 +15,7 @@ public class PersoonsGegevens {
 	private String email;
 	private String linkedin;
 	
-	public PersoonsGegevens() {
-		
-	}
+
 	
 	public PersoonsGegevens(int ID, String nm, String strNm, int hn, String pc, String wp, String gb, String gs, String tfn, String mail, String ldin) {
 		id = ID;
