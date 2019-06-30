@@ -124,6 +124,7 @@ public class ProfielResource {
 		
 		//sla het profiel op
 		if(profielService.save(hetProfiel)) return Response.ok(hetProfiel).build();
+		return Response.status(Status.NOT_MODIFIED).build();
 	}
 //	@Consumes({ MediaType.MULTIPART_FORM_DATA })
 //	public Response saveProfiel(@FormParam("id") int Id,@FormParam("naam") String nm, @FormParam("straatnaam") String strnm, @FormParam("huisnummer") int hsnr, @FormParam("postcode") String pc, @FormParam("woonplaats") String wp, @FormParam("geboortedatum") String gb, @FormParam("geslacht") String gs, @FormParam("telefoonnummer") int tfnr, @FormParam("email") String mail, @FormParam("linkedin") String lkin,
