@@ -14,6 +14,7 @@ import javax.ws.rs.core.Response.Status;
 
 import hu.domain.PersoonsGegevens;
 import hu.domain.*;
+import hu.persistence.PersoonIDPostgresDaoImpl;
 import hu.persistence.PersoonsGegevensPostgresDaoImpl;
 import hu.persistence.ProfielPostgresDaoImpl;
 import hu.persistence.ProfielService;
@@ -61,12 +62,12 @@ public class ProfielResource {
 	@GET
 	@Path("/Idhalen")
 	public Response getID() {
-		PersoonsGegevensPostgresDaoImpl db = new PersoonsGegevensPostgresDaoImpl();
+		PersoonIDPostgresDaoImpl db = new PersoonIDPostgresDaoImpl();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		
-		for (PersoonsGegevens pg : db.selectID()) {
+		for (PersoonID pid : db.selectID()) {
 			JsonObjectBuilder job = Json.createObjectBuilder();
-			job.add("id", pg.getId());
+			job.add("id", pid.getPersoonID());
 			
 			jab.add(job);
 		}

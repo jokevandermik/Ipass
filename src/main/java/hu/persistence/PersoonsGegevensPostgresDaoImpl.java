@@ -41,25 +41,7 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 		return result;
 	}
 	
-	public List<PersoonsGegevens> selectID() {
-		List<PersoonsGegevens> result = new ArrayList<PersoonsGegevens>();
-		String query = "select max(\"ID\") from \"PersoonsGegevens\"";
-
-		try (Connection con = super.getConnection()) {
-			PreparedStatement pstmt = con.prepareStatement(query);
-			ResultSet dbResultSet = pstmt.executeQuery();
-
-			while (dbResultSet.next()) {
-				int id = dbResultSet.getInt("id");
-
-//				PersoonsGegevens pg = new PersoonsGegevens(id);
-//				result.add(pg);
-			}
-		} catch (SQLException sqle) {
-			sqle.printStackTrace();
-		}
-		return result;
-	}
+	
 
 	public boolean save(PersoonsGegevens persoonsGegevens) {
 		try (Connection con = super.getConnection()) {
