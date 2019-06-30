@@ -8,10 +8,10 @@ public class ProfielService {
 	public boolean saveAlles (Profiel p) {
 		PersoonsGegevensDao persoonsGegevensDao = new PersoonsGegevensPostgresDaoImpl();
 		boolean gegevensOK = persoonsGegevensDao.save(p.getGegevens());
-		ProfielDao profielDao = new ProfielPostgresDaoImpl();
-		boolean profielOK = profielDao.save(p);
 		VaardigheidDao vaardigheidDao = new VaardigheidPostgresDaoImpl();
 		boolean vaardigheidOK = vaardigheidDao.save(p.getVaardigheden());
+		ProfielDao profielDao = new ProfielPostgresDaoImpl();
+		boolean profielOK = profielDao.save(p);
 		return gegevensOK && profielOK && vaardigheidOK;
 	}
 }

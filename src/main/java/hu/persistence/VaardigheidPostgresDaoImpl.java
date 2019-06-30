@@ -38,7 +38,7 @@ public class VaardigheidPostgresDaoImpl extends PostgresBaseDao implements Vaard
 	
 	public boolean save(Vaardigheid vaardigheid) {
 		try(Connection con = super.getConnection()){
-			String q = "insert into \"Vaardigheden\"(\"ID\", \"Technische_vaardigheden\", \"Functionele_vaardigheden\", \"Werkervaring\", \"Computertalen\", \"Platformen\", \"Pakketen\") values(?, ?, ?, ?, ?, ?)";
+			String q = "insert into \"Vaardigheden\"(\"ID\", \"Technische_vaardigheden\", \"Functionele_vaardigheden\", \"Werkervaring\", \"Computertalen\", \"Platformen\", \"Pakketen\") values(?, ?, ?, ?, ?, ?, ?);";
 			PreparedStatement pstmt = con.prepareStatement(q);
 			pstmt.setInt(1, vaardigheid.getId());
 			pstmt.setString(2, vaardigheid.GetTechnischeVaardigheden());
@@ -57,7 +57,7 @@ public class VaardigheidPostgresDaoImpl extends PostgresBaseDao implements Vaard
 	
 	public boolean update(Vaardigheid vaardigheid) {
 		try(Connection con = super.getConnection()){
-			String q = "Update \"Vaardigheden\" set \"Technische_vaardigheden\" = ? , \"Functionele_vaardigheden\" = ? , \"Werkervaring\" = ? ,\"Computertalen\" = ? , \"Platformen\" = ? , \"Pakketen\"= ? ";
+			String q = "Update \"Vaardigheden\" set \"Technische_vaardigheden\" = ? , \"Functionele_vaardigheden\" = ? , \"Werkervaring\" = ? ,\"Computertalen\" = ? , \"Platformen\" = ? , \"Pakketen\"= ? ;";
 			System.out.println(q);
 			PreparedStatement pstmt = con.prepareStatement(q);
 			pstmt.setString(1, vaardigheid.GetTechnischeVaardigheden());

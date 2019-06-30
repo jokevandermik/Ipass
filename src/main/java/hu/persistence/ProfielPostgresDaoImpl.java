@@ -37,7 +37,7 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 	
 	public boolean save(Profiel profiel) {
 		try(Connection con = super.getConnection()){
-			String q = "insert into \"Profiel\" (\"ID\", \"Eigenschappen\", \"Spreektalen\", \"Jaren_Ervaring_IT\")values (?, ?, ?, ?)";
+			String q = "insert into \"Profiel\" (\"ID\", \"Eigenschappen\", \"Spreektalen\", \"Jaren_Ervaring_IT\")values (?, ?, ?, ?);";
 			PreparedStatement pstmt = con.prepareStatement(q);
 			pstmt.setInt(1, profiel.getId());
 			pstmt.setString(2, profiel.getEigenschappen());
@@ -53,7 +53,7 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 	
 	public boolean update(Profiel profiel) {
 		try (Connection con = super.getConnection()){
-			String q = "update \"Profiel\" set \"Eigenschappen\" = ? , \"Spreektalen\" = ? , \"Jaren_Ervaring_IT\" = ?";
+			String q = "update \"Profiel\" set \"Eigenschappen\" = ? , \"Spreektalen\" = ? , \"Jaren_Ervaring_IT\" = ?;";
 			System.out.println(q);
 			PreparedStatement pstmt = con.prepareStatement(q);
 			pstmt.setString(1, profiel.getEigenschappen());
