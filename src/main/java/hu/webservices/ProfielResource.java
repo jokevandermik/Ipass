@@ -147,11 +147,15 @@ public class ProfielResource {
 		Profiel hetProfiel = new Profiel(id, idPersoonsGegevens, idVaardigheid, eigenschappen, spreektalen, jarenErvaringIT);
 		
 		if (deGegevens.getNaam().isEmpty()) return Response.status(406).build();
-//		
-//		if(hetProfiel.getGegevens().getNaam().isEmpty()) return Response.status(410).build();
+		
+		
 		
 		hetProfiel.setGegevens(deGegevens);
+		
+		if(hetProfiel.getGegevens().getNaam().isEmpty()) return Response.status(410).build();
+		
 		hetProfiel.setVaardigheden(deVaardigheid);
+		
 		
 		if(profielService.saveAlles(hetProfiel)) return Response.ok(hetProfiel).build();
 		return Response.status(402).build();
