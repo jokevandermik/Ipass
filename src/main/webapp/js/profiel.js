@@ -9,7 +9,7 @@
 //else
 
 document.querySelector("#post").addEventListener("click", function () {
- var jsid = 0;
+ var jsid;
  
 	
 	
