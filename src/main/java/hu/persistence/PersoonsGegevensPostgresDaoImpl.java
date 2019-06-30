@@ -45,18 +45,19 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 
 	public boolean save(PersoonsGegevens persoonsGegevens) {
 		try (Connection con = super.getConnection()) {
-			String q = "insert into \"Persoonsgegevens\"(\"Straatnaam\", \"Huisnummer\", \"Postcode\", \"Woonplaats\", \"Geboortedatum\", \"Geslacht\", \"Telefoonnummer\", \"Email\", \"Linkedin\", \"Naam\") values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String q = "insert into \"Persoonsgegevens\"(\"ID\", \"Straatnaam\", \"Huisnummer\", \"Postcode\", \"Woonplaats\", \"Geboortedatum\", \"Geslacht\", \"Telefoonnummer\", \"Email\", \"Linkedin\", \"Naam\") values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement pstmt = con.prepareStatement(q);
-			pstmt.setString(1, persoonsGegevens.getStraatnaam());
-			pstmt.setInt(2, persoonsGegevens.getHuisnummer());
-			pstmt.setString(3, persoonsGegevens.getPostcode());
-			pstmt.setString(4, persoonsGegevens.getWoonplaats());
-			pstmt.setString(5, persoonsGegevens.getGeboortedatum());
-			pstmt.setString(6, persoonsGegevens.getGeslacht());
-			pstmt.setInt(7, persoonsGegevens.getTelefoonnummer());
-			pstmt.setString(8, persoonsGegevens.getEmail());
-			pstmt.setString(9, persoonsGegevens.getLinkedin());
-			pstmt.setString(10, persoonsGegevens.getNaam());
+			pstmt.setInt(1, persoonsGegevens.getId());
+			pstmt.setString(2, persoonsGegevens.getStraatnaam());
+			pstmt.setInt(3, persoonsGegevens.getHuisnummer());
+			pstmt.setString(4, persoonsGegevens.getPostcode());
+			pstmt.setString(5, persoonsGegevens.getWoonplaats());
+			pstmt.setString(6, persoonsGegevens.getGeboortedatum());
+			pstmt.setString(7, persoonsGegevens.getGeslacht());
+			pstmt.setInt(8, persoonsGegevens.getTelefoonnummer());
+			pstmt.setString(9, persoonsGegevens.getEmail());
+			pstmt.setString(10, persoonsGegevens.getLinkedin());
+			pstmt.setString(11, persoonsGegevens.getNaam());
 			pstmt.executeUpdate();
 			return true;
 		} catch (SQLException sqle) {
