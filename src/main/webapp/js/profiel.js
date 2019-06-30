@@ -9,7 +9,7 @@
 //else
 
 document.querySelector("#post").addEventListener("click", function () {
- var id;
+ var jsid;
  
 	
 	
@@ -41,9 +41,9 @@ document.querySelector("#post").addEventListener("click", function () {
 })
 .then((myJson) => {
 	console.log(JSON.stringify(myJson));
-	id = myJson.id[0];
+	jsid = myJson.id[0];
 	console.log(id);
-	id = id + 1;
+	jsid = jsid + 1;
 	console.log(id);
 	
 });
