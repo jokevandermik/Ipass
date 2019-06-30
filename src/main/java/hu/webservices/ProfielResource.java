@@ -87,7 +87,8 @@ public class ProfielResource {
 		ProfielService profielService = ServiceProvider.getProfielService();
 		
 		if(nm.isEmpty()) return Response.status(405).build();
-		
+		if(nm == null)return Response.status(406).build();
+
 		int id = Id;
 		String naam = nm;
 		String straatnaam = strnm;
