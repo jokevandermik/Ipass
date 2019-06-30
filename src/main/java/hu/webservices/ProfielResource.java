@@ -84,7 +84,8 @@ public class ProfielResource {
 	@Path("/save")
 	public Response saveProfiel(@FormParam("id") int Id,@FormParam("naam") String nm, @FormParam("straatnaam") String strnm, @FormParam("huisnummer") int hsnr, @FormParam("postcode") String pc, @FormParam("woonplaats") String wp, @FormParam("geboortedatum") String gb, @FormParam("geslacht") String gs, @FormParam("telefoonnummer") int tfnr, @FormParam("email") String mail, @FormParam("linkedin") String lkin) {
 		ProfielService profielService = ServiceProvider.getProfielService();
-		
+		if(nm.trim().isEmpty()&& strnm.trim().isEmpty() && pc.trim().isEmpty() && wp.trim().isEmpty() &&
+				gb.trim().isEmpty() && mail.trim().isEmpty() && lkin.trim().isEmpty()) return Response.noContent().build();
 		int id = Id;
 		String naam = nm.trim();
 		String straatnaam = strnm.trim();
