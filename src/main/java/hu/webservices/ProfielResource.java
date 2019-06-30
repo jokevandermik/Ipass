@@ -86,8 +86,6 @@ public class ProfielResource {
 			@FormParam("eigenschappen") String es, @FormParam("spreektalen") String st, @FormParam("jarenErvaringIT") int jeIT, @FormParam("technischeVaardigheden") String tv, @FormParam("functioneleVaardigheden") String fv, @FormParam("werkervaring") String we, @FormParam("computertalen") String ct, @FormParam("platformen") String pt, @FormParam("pakketen") String pk) {
 		ProfielService profielService = ServiceProvider.getProfielService();
 		
-		PersoonsGegevensPostgresDaoImpl db = new PersoonsGegevensPostgresDaoImpl();
-		
 		int id = Id;
 		String naam = nm;
 		String straatnaam = strnm;
