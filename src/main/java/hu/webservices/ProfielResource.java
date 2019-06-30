@@ -83,9 +83,20 @@ public class ProfielResource {
 	
 	@POST
 	@Path("/save")
-	public Response saveProfiel(@FormParam("naam") String nm) {
+	public Response saveProfiel(@FormParam("id") int Id,@FormParam("naam") String nm, @FormParam("straatnaam") String strnm, @FormParam("huisnummer") int hsnr, @FormParam("postcode") String pc, @FormParam("woonplaats") String wp, @FormParam("geboortedatum") String gb, @FormParam("geslacht") String gs, @FormParam("telefoonnummer") int tfnr, @FormParam("email") String mail, @FormParam("linkedin") String lkin) {
 		ProfielService profielService = ServiceProvider.getProfielService();
+		
+		int id = Id;
 		String naam = nm;
+		String straatnaam = strnm;
+		int huisnummer = hsnr;
+		String postcode = pc;
+		String woonplaats = wp;
+		String geboortedatum = gb;
+		String geslacht = gs;
+		int telefoonnummer = tfnr;
+		String email = mail;
+		String linkedin = lkin;
 		
 		return Response.ok().build();
 	}
