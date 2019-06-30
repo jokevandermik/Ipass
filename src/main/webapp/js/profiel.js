@@ -8,9 +8,9 @@
 //als antwoord is niet ok
 //else
 
-document.querySelector("#post").addEventListener("click", function () {
+
  
-	
+	function haalIDop(){
 	var jsid;
  
 	
@@ -51,7 +51,9 @@ document.querySelector("#post").addEventListener("click", function () {
 	let input = document.querySelector('tbody');
 	input.innerHTML = "<input class='input' type='number' name='jsid' maxlength='4' value='" + jsid + "'/>";
 });
+}
 
+	haalIDop();
 	
 	 // fetch(idhalen)
     // id json var maken
@@ -59,7 +61,8 @@ document.querySelector("#post").addEventListener("click", function () {
     // geeft json aan var
     // doe +1 bij var
 	// gooi er wat console.logs in
-	
+
+	document.querySelector("#post").addEventListener("click", function () {
 // var formData = new FormData(document.querySelector("#FormPost"));
 // var encData = new URLSearchParams(formData.entries());
 // console.log(encData);
