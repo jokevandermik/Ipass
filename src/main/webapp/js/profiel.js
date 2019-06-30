@@ -49,6 +49,10 @@ document.querySelector("#post").addEventListener("click", function () {
 	console.log(jsid);
 	var formData = new FormData(document.querySelector("#FormPost"));
     var encData = new URLSearchParams(formData.entries());
+    console.log(encData);
+    console.log(formData);
+    encData = new URLSearchParams(formData.entries() + jsid.entries());
+    console.log(encData);
 });
 
 	
@@ -60,10 +64,7 @@ document.querySelector("#post").addEventListener("click", function () {
 	// gooi er wat console.logs in
 	
     
-    console.log(encData);
-    console.log(formData);
-    encData = new URLSearchParams(formData.entries() + jsid.entries());
-    console.log(encData);
+    
     
 // fetch("restservices/WolfAndCherry/save", { method: 'POST', body: encData })
 // .then(response => {
