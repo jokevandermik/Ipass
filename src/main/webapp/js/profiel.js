@@ -12,11 +12,6 @@
  
 	function haalIDop(){
 	var jsid;
- 
-	
-	
-	let hoi = "hallo";
-    console.log(hoi)
     
  let fetchOptions = {
  method: 'GET',
@@ -60,7 +55,31 @@
  var encData = new URLSearchParams(formData.entries());
  console.log(encData);
  console.log(formData);
-
+ 
+ let hoi = "hallo";
+ console.log(hoi)
+ 
+ let fetchoptions = {
+			method: 'POST',
+			body: encData,
+		}
+ fetch('/restservices/WolfAndCherry/save', fetchoptions)
+	.then((response) => {
+		console.log(response.status);
+		if(response.ok){
+		 hoi = "response oke";
+		 console.log("hoi")
+		 }
+		 else if (response.status == 500){
+		 hoi = "status 500";
+		 console.log(hoi)
+		 }
+		 else{
+		 hoi = "de rest";
+		 console.log(hoi);
+		 console.log(response.status);
+		 }
+	});
 // hoi = "response oke";
 // console.log("hoi")
 // }
