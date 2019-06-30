@@ -100,6 +100,9 @@ public class ProfielResource {
 		String email = mail;
 		String linkedin = lkin;
 		
+		System.out.println(id);
+		System.out.println(naam);
+		
 		String technischeVaardigheden = tv;
 		String functioneleVaardigheden = fv;
 		String werkervaring = we;
