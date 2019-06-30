@@ -100,33 +100,28 @@ public class ProfielResource {
 		String email = mail;
 		String linkedin = lkin;
 		
-//		String technischeVaardigheden = tv;
-//		String functioneleVaardigheden = fv;
-//		String werkervaring = we;
-//		String computertalen = ct;
-//		String platformen = pt;
-//		String pakketen = pk;
-//		
-//		int idPersoonsGegevens = Id;
-//		int idVaardigheid = Id;
-//		String eigenschappen = es;
-//		String spreektalen = st;
-//		int jarenErvaringIT = jeIT;
+		String technischeVaardigheden = tv;
+		String functioneleVaardigheden = fv;
+		String werkervaring = we;
+		String computertalen = ct;
+		String platformen = pt;
+		String pakketen = pk;
+		
+		int idPersoonsGegevens = Id;
+		int idVaardigheid = Id;
+		String eigenschappen = es;
+		String spreektalen = st;
+		int jarenErvaringIT = jeIT;
 		
 		//maakt de PersoonsGegevens obv de velden
 		PersoonsGegevens deGegevens = new PersoonsGegevens(id, naam, straatnaam, huisnummer, postcode, woonplaats, geboortedatum, geslacht, telefoonnummer, email, linkedin);
-		boolean resp = db.save(deGegevens);
-		
-		if(!resp) {
-			return Response.status(402).build();
-		}
-	
-		return Response.ok().build();
 		//maakt de Vaardigheid 
-//		Vaardigheid deVaardigheid = new Vaardigheid(id, technischeVaardigheden, functioneleVaardigheden, werkervaring, computertalen, platformen, pakketen);
-//		//maakt een profiel
-//		Profiel hetProfiel = new Profiel(id, idPersoonsGegevens, idVaardigheid, eigenschappen, spreektalen, jarenErvaringIT);
+		Vaardigheid deVaardigheid = new Vaardigheid(id, technischeVaardigheden, functioneleVaardigheden, werkervaring, computertalen, platformen, pakketen);
+		//maakt een profiel
+		Profiel hetProfiel = new Profiel(id, idPersoonsGegevens, idVaardigheid, eigenschappen, spreektalen, jarenErvaringIT);
 //		
+		if(profielService.saveAlles(hetProfiel)) return Response.ok(hetProfiel).build();
+		return Response.status(Status.NOT_MODIFIED).build();
 	}
 //	@Consumes({ MediaType.MULTIPART_FORM_DATA })
 //	public Response saveProfiel(@FormParam("id") int Id,@FormParam("naam") String nm, @FormParam("straatnaam") String strnm, @FormParam("huisnummer") int hsnr, @FormParam("postcode") String pc, @FormParam("woonplaats") String wp, @FormParam("geboortedatum") String gb, @FormParam("geslacht") String gs, @FormParam("telefoonnummer") int tfnr, @FormParam("email") String mail, @FormParam("linkedin") String lkin,

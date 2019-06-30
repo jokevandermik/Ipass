@@ -38,14 +38,15 @@ public class VaardigheidPostgresDaoImpl extends PostgresBaseDao implements Vaard
 	
 	public boolean save(Vaardigheid vaardigheid) {
 		try(Connection con = super.getConnection()){
-			String q = "insert into \"Vaardigheden\"(\"Technische_vaardigheden\", \"Functionele_vaardigheden\", \"Werkervaring\", \"Computertalen\", \"Platformen\", \"Pakketen\") values(?, ?, ?, ?, ?, ?)";
+			String q = "insert into \"Vaardigheden\"(\"ID\", \"Technische_vaardigheden\", \"Functionele_vaardigheden\", \"Werkervaring\", \"Computertalen\", \"Platformen\", \"Pakketen\") values(?, ?, ?, ?, ?, ?)";
 			PreparedStatement pstmt = con.prepareStatement(q);
-			pstmt.setString(1, vaardigheid.GetTechnischeVaardigheden());
-			pstmt.setString(2, vaardigheid.GetFunctioneleVaardigheden());
-			pstmt.setString(3, vaardigheid.GetWerkervaring());
-			pstmt.setString(4, vaardigheid.GetComputertalen());
-			pstmt.setString(5, vaardigheid.GetPlatform());
-			pstmt.setString(6, vaardigheid.GetPakketen());
+			pstmt.setInt(1, vaardigheid.getId());
+			pstmt.setString(2, vaardigheid.GetTechnischeVaardigheden());
+			pstmt.setString(3, vaardigheid.GetFunctioneleVaardigheden());
+			pstmt.setString(4, vaardigheid.GetWerkervaring());
+			pstmt.setString(5, vaardigheid.GetComputertalen());
+			pstmt.setString(6, vaardigheid.GetPlatform());
+			pstmt.setString(7, vaardigheid.GetPakketen());
 			pstmt.executeUpdate();
 			return true;
 		} catch (SQLException sqle){
