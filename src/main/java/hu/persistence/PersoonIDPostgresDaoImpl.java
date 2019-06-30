@@ -12,7 +12,7 @@ import hu.domain.PersoonID;
 public class PersoonIDPostgresDaoImpl extends PostgresBaseDao implements PersoonIDDao {
 	public List<PersoonID> selectID() {
 		List<PersoonID> result = new ArrayList<PersoonID>();
-		String query = "select max(\"ID\") from \"Persoonsgegevens\"";
+		String query = "select max(\"ID\") as ID from \"Persoonsgegevens\"";
 
 		try (Connection con = super.getConnection()) {
 			PreparedStatement pstmt = con.prepareStatement(query);
