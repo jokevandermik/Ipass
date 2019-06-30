@@ -79,77 +79,77 @@ public class ProfielResource {
 		return Response.ok(jsonArray.toString()).build();
 	}
 	
-	@POST
-	@Path("/save")
-	public Response saveProfiel(@FormParam("id") int Id,@FormParam("naam") String nm, @FormParam("straatnaam") String strnm, @FormParam("huisnummer") int hsnr, @FormParam("postcode") String pc, @FormParam("woonplaats") String wp, @FormParam("geboortedatum") String gb, @FormParam("geslacht") String gs, @FormParam("telefoonnummer") String tfnr, @FormParam("email") String mail, @FormParam("linkedin") String lkin) {
-		PersoonsGegevensPostgresDaoImpl db = new PersoonsGegevensPostgresDaoImpl();
-		PersoonsGegevens pg = new PersoonsGegevens();
-		pg.setId(Id);
-		pg.setNaam(nm);
-		pg.setStraatnaam(strnm);
-		pg.setHuisnummer(hsnr);
-		pg.setPostcode(pc);
-		pg.setWoonplaats(wp);
-		pg.setGeboortedatum(gb);
-		pg.setGeslacht(gs);
-		pg.setTelefoonnummer(tfnr);
-		pg.setEmail(mail);
-		pg.setLinkedin(lkin);
-		
-		if(pg.getNaam().isEmpty()) return Response.status(405).build();
-		
-		boolean resp = db.save(pg);
-		
-		if (!resp) {
-			return Response.status(402).build();
-		}
-		return Response.ok().build();
-	}
-	
 //	@POST
 //	@Path("/save")
-//	public Response saveProfiel(@FormParam("id") int Id,@FormParam("naam") String nm, @FormParam("straatnaam") String strnm, @FormParam("huisnummer") int hsnr, @FormParam("postcode") String pc, @FormParam("woonplaats") String wp, @FormParam("geboortedatum") String gb, @FormParam("geslacht") String gs, @FormParam("telefoonnummer") String tfnr, @FormParam("email") String mail, @FormParam("linkedin") String lkin,
-//			@FormParam("eigenschappen") String es, @FormParam("spreektalen") String st, @FormParam("jarenErvaringIT") int jeIT, @FormParam("technischeVaardigheden") String tv, @FormParam("functioneleVaardigheden") String fv, @FormParam("werkervaring") String we, @FormParam("computertalen") String ct, @FormParam("platformen") String pt, @FormParam("pakketen") String pk) {
-//		ProfielService profielService = ServiceProvider.getProfielService();
+//	public Response saveProfiel(@FormParam("id") int Id,@FormParam("naam") String nm, @FormParam("straatnaam") String strnm, @FormParam("huisnummer") int hsnr, @FormParam("postcode") String pc, @FormParam("woonplaats") String wp, @FormParam("geboortedatum") String gb, @FormParam("geslacht") String gs, @FormParam("telefoonnummer") String tfnr, @FormParam("email") String mail, @FormParam("linkedin") String lkin) {
+//		PersoonsGegevensPostgresDaoImpl db = new PersoonsGegevensPostgresDaoImpl();
+//		PersoonsGegevens pg = new PersoonsGegevens();
+//		pg.setId(Id);
+//		pg.setNaam(nm);
+//		pg.setStraatnaam(strnm);
+//		pg.setHuisnummer(hsnr);
+//		pg.setPostcode(pc);
+//		pg.setWoonplaats(wp);
+//		pg.setGeboortedatum(gb);
+//		pg.setGeslacht(gs);
+//		pg.setTelefoonnummer(tfnr);
+//		pg.setEmail(mail);
+//		pg.setLinkedin(lkin);
 //		
-//		if(nm.isEmpty()) return Response.status(405).build();
-//
-//		int id = Id;
-//		String naam = nm;
-//		String straatnaam = strnm;
-//		int huisnummer = hsnr
-//		String postcode = pc;
-//		String woonplaats = wp;
-//		String geboortedatum = gb;
-//		String geslacht = gs;
-//		String telefoonnummer = tfnr;
-//		String email = mail;
-//		String linkedin = lkin;
+//		if(pg.getNaam().isEmpty()) return Response.status(405).build();
 //		
-//		String technischeVaardigheden = tv;
-//		String functioneleVaardigheden = fv;
-//		String werkervaring = we;
-//		String computertalen = ct;
-//		String platformen = pt;
-//		String pakketen = pk;
+//		boolean resp = db.save(pg);
 //		
-//		int idPersoonsGegevens = Id;
-//		int idVaardigheid = Id;
-//		String eigenschappen = es;
-//		String spreektalen = st;
-//		int jarenErvaringIT = jeIT;
-//		
-//		//maakt de PersoonsGegevens obv de velden
-//		PersoonsGegevens deGegevens = new PersoonsGegevens(id, naam, straatnaam, huisnummer, postcode, woonplaats, geboortedatum, geslacht, telefoonnummer, email, linkedin);
-//		//maakt de Vaardigheid 
-//		Vaardigheid deVaardigheid = new Vaardigheid(id, technischeVaardigheden, functioneleVaardigheden, werkervaring, computertalen, platformen, pakketen);
-//		//maakt een profiel
-//		Profiel hetProfiel = new Profiel(id, idPersoonsGegevens, idVaardigheid, eigenschappen, spreektalen, jarenErvaringIT);
-//		
-//		hetProfiel.setGegevens(deGegevens);
-//		hetProfiel.setVaardigheden(deVaardigheid);
-//		
-//		if(profielService.saveAlles(hetProfiel)) return Response.ok(hetProfiel).build();
-//		return Response.status(402).build();
+//		if (!resp) {
+//			return Response.status(402).build();
+//		}
+//		return Response.ok().build();
 //	}
+	
+	@POST
+	@Path("/save")
+	public Response saveProfiel(@FormParam("id") int Id,@FormParam("naam") String nm, @FormParam("straatnaam") String strnm, @FormParam("huisnummer") int hsnr, @FormParam("postcode") String pc, @FormParam("woonplaats") String wp, @FormParam("geboortedatum") String gb, @FormParam("geslacht") String gs, @FormParam("telefoonnummer") String tfnr, @FormParam("email") String mail, @FormParam("linkedin") String lkin,
+			@FormParam("eigenschappen") String es, @FormParam("spreektalen") String st, @FormParam("jarenErvaringIT") int jeIT, @FormParam("technischeVaardigheden") String tv, @FormParam("functioneleVaardigheden") String fv, @FormParam("werkervaring") String we, @FormParam("computertalen") String ct, @FormParam("platformen") String pt, @FormParam("pakketen") String pk) {
+		ProfielService profielService = ServiceProvider.getProfielService();
+		
+		if(nm.isEmpty()) return Response.status(405).build();
+
+		int id = Id;
+		String naam = nm;
+		String straatnaam = strnm;
+		int huisnummer = hsnr;
+		String postcode = pc;
+		String woonplaats = wp;
+		String geboortedatum = gb;
+		String geslacht = gs;
+		String telefoonnummer = tfnr;
+		String email = mail;
+		String linkedin = lkin;
+		
+		String technischeVaardigheden = tv;
+		String functioneleVaardigheden = fv;
+		String werkervaring = we;
+		String computertalen = ct;
+		String platformen = pt;
+		String pakketen = pk;
+		
+		int idPersoonsGegevens = Id;
+		int idVaardigheid = Id;
+		String eigenschappen = es;
+		String spreektalen = st;
+		int jarenErvaringIT = jeIT;
+		
+		//maakt de PersoonsGegevens obv de velden
+		PersoonsGegevens deGegevens = new PersoonsGegevens(id, naam, straatnaam, huisnummer, postcode, woonplaats, geboortedatum, geslacht, telefoonnummer, email, linkedin);
+		//maakt de Vaardigheid 
+		Vaardigheid deVaardigheid = new Vaardigheid(id, technischeVaardigheden, functioneleVaardigheden, werkervaring, computertalen, platformen, pakketen);
+		//maakt een profiel
+		Profiel hetProfiel = new Profiel(id, idPersoonsGegevens, idVaardigheid, eigenschappen, spreektalen, jarenErvaringIT);
+		
+		hetProfiel.setGegevens(deGegevens);
+		hetProfiel.setVaardigheden(deVaardigheid);
+		
+		if(profielService.saveAlles(hetProfiel)) return Response.ok(hetProfiel).build();
+		return Response.status(402).build();
+	}
 }

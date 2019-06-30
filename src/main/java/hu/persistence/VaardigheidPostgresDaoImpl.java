@@ -40,20 +40,20 @@ public class VaardigheidPostgresDaoImpl extends PostgresBaseDao implements Vaard
 		try(Connection con = super.getConnection()){
 			String q = "insert into \"Vaardigheden\"(\"ID\", \"Technische_vaardigheden\", \"Functionele_vaardigheden\", \"Werkervaring\", \"Computertalen\", \"Platformen\", \"Pakketen\") values(?, ?, ?, ?, ?, ?, ?);";
 			PreparedStatement pstmt = con.prepareStatement(q);
-//			pstmt.setInt(1, 4);
-//			pstmt.setString(2, "veel");
-//			pstmt.setString(3, "veel");
-//			pstmt.setString(4, "veel");
-//			pstmt.setString(5, "veel");
-//			pstmt.setString(6, "veel");
-//			pstmt.setString(7, "veel");
-			pstmt.setInt(1, vaardigheid.getId());
-			pstmt.setString(2, vaardigheid.GetTechnischeVaardigheden());
-			pstmt.setString(3, vaardigheid.GetFunctioneleVaardigheden());
-			pstmt.setString(4, vaardigheid.GetWerkervaring());
-			pstmt.setString(5, vaardigheid.GetComputertalen());
-			pstmt.setString(6, vaardigheid.GetPlatform());
-			pstmt.setString(7, vaardigheid.GetPakketen());
+			pstmt.setInt(1, 5);
+			pstmt.setString(2, "veel");
+			pstmt.setString(3, "veel");
+			pstmt.setString(4, "veel");
+			pstmt.setString(5, "veel");
+			pstmt.setString(6, "veel");
+			pstmt.setString(7, "veel");
+//			pstmt.setInt(1, vaardigheid.getId());
+//			pstmt.setString(2, vaardigheid.GetTechnischeVaardigheden());
+//			pstmt.setString(3, vaardigheid.GetFunctioneleVaardigheden());
+//			pstmt.setString(4, vaardigheid.GetWerkervaring());
+//			pstmt.setString(5, vaardigheid.GetComputertalen());
+//			pstmt.setString(6, vaardigheid.GetPlatform());
+//			pstmt.setString(7, vaardigheid.GetPakketen());
 			pstmt.executeUpdate();
 			return true;
 		} catch (SQLException sqle){
