@@ -12,6 +12,10 @@ document.querySelector("#post").addEventListener("click", function () {
 // var id;
 // id = id + 1;
 //	
+	
+	let hoi = "hallo";
+    console.log(hoi)
+    
  let fetchOptions = {
  method: 'GET',
  };
@@ -49,8 +53,7 @@ document.querySelector("#post").addEventListener("click", function () {
 	var formData = new FormData(document.querySelector("#FormPost"));
     var encData = new URLSearchParams(formData.entries() + id.entries());
     
-    let hoi = "hallo";
-    console.log(hoi)
+    
     
     fetch("restservices/WolfAndCherry/save", { method: 'POST', body: encData })
         .then(response => {
