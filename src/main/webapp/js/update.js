@@ -69,8 +69,11 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 				"Pakketen: <input class=\"input\" type=\"text\" name=\"pakketen\" value=\""+myJson[0].pakketten +"\" maxlength=\"256\"/>" +
 				"<input class=\"submit\" type=\"button\" id=\"Put\" value=\"Aanpassen\"" +
 				"</div>";
+			
+			putData();
 		});
 	
+function putData(){	
 	document.querySelector("#Put").addEventListener("click", function () {
 		var formData = new FormData(document.querySelector("#FormPut"));
 		 var encData = new URLSearchParams(formData.entries());
@@ -103,4 +106,5 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 			});
 
 	});
+}
 })
