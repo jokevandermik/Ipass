@@ -78,16 +78,6 @@ public class ProfielResource {
 		return Response.ok(jsonArray.toString()).build();
 	}
 	
-//	@GET
-//	@Path("/all")
-//	public Response getProfiel() {
-//		ProfielPostgresDaoImpl db = new ProfielPostgresDaoImpl();
-//		JsonArrayBuilder jab = Json.createArrayBuilder();
-//		
-//		for (PersoonsGegevens pg : db.selectGegevens()) {
-//			JsonObjectBuilder job = Json.createObjectBuilder();
-//	}
-	
 	@GET
 	@Path("/Idhalen")
 	public Response getPersoonID() {
