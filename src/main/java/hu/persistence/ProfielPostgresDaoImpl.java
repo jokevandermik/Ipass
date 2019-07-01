@@ -125,6 +125,63 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 		return result;
 	}
 	
+	public List<Profiel> selectProfielID(int ID){
+		List<Profiel> result = new ArrayList<Profiel>();
+		String query = "select \"Profiel\".* , \"Naam\", \"Straatnaam\", \"Huisnummer\", \"Postcode\", \"Woonplaats\", \"Geboortedatum\", \"Geslacht\", \"Telefoonnummer\", \"Email\", \"Linkedin\", \"Technische_vaardigheden\", \"Functionele_vaardigheden\", \"Werkervaring\", \"Computertalen\", \"Platformen\", \"Pakketen\" from \"Persoonsgegevens\",  \"Profiel\", \"Vaardigheden\" where \"Persoonsgegevens\".\"ID\" = \"Profiel\".\"Persoonsgegevens_ID\" and \"Vaardigheden\".\"ID\" = \"Profiel\".\"Vaardigheden_ID\" and \r\n" + 
+				"	\"Profiel\".\"ID\" = " + ID + ";";
+		 System.out.println("voor db connectie");
+		try(Connection con = super.getConnection()){
+			PreparedStatement pstmt = con.prepareStatement(query);
+			ResultSet dbResultSet = pstmt.executeQuery();
+			System.out.println("na db connectie");
+			while(dbResultSet.next()) {
+				int id = dbResultSet.getInt("id");
+				System.out.println("Dao: "+ dbResultSet.getInt("id"));
+				int idPersoonsGegevens = dbResultSet.getInt("Persoonsgegevens_ID");
+				int idVaardigheid = dbResultSet.getInt("Vaardigheden_ID");
+				String eigenschappen = dbResultSet.getString("eigenschappen");
+				String spreektalen	= dbResultSet.getString("spreektalen");
+				int jarenErvaringIT = dbResultSet.getInt("jaren_Ervaring_IT");
+				
+				String naam = dbResultSet.getString("naam");
+				String straatnaam = dbResultSet.getString("straatnaam");
+				int huisnummer = dbResultSet.getInt("huisnummer");
+				String postcode = dbResultSet.getString("postcode");
+				String woonplaats = dbResultSet.getString("woonplaats");
+				String geboortedatum = dbResultSet.getString("geboortedatum");
+				String geslacht = dbResultSet.getString("geslacht");
+				String telefoonnummer = dbResultSet.getString("telefoonnummer");
+				String email = dbResultSet.getString("email");
+				String linkedin = dbResultSet.getString("linkedin");
+				
+				String technischeVaardigheden = dbResultSet.getString("Technische_vaardigheden");
+				System.out.println("dao" + dbResultSet.getString("technische_vaardigheden"));
+				String functioneleVaardigheden = dbResultSet.getString("functionele_vaardigheden");
+				String werkervaring = dbResultSet.getString("werkervaring");
+				String computertalen = dbResultSet.getString("computertalen");
+				String platformen = dbResultSet.getString("platformen");
+				String pakketen = dbResultSet.getString("pakketen");
+				
+				PersoonsGegevens pg = new PersoonsGegevens(id, naam, straatnaam, huisnummer, postcode, woonplaats,
+						geboortedatum, geslacht, telefoonnummer, email, linkedin);
+				
+				Vaardigheid vh = new Vaardigheid(id, technischeVaardigheden, functioneleVaardigheden, werkervaring, computertalen, platformen, pakketen);
+				
+				Profiel pf = new Profiel(id, idPersoonsGegevens, idVaardigheid, eigenschappen, spreektalen, jarenErvaringIT);
+				
+				pf.setGegevens(pg);
+				pf.setVaardigheden(vh);
+				
+				result.add(pf);
+			}
+		} catch(SQLException sqle) {
+			sqle.printStackTrace();
+			System.err.println(sqle.toString());
+			System.err.println(sqle.getMessage());
+		}
+		return result;
+	}
+	
 	public boolean save(Profiel profiel) {
 		try(Connection con = super.getConnection()){
 			String q = "insert into \"Profiel\"(\"ID\", \"Persoonsgegevens_ID\", \"Vaardigheden_ID\", \"Eigenschappen\", \"Spreektalen\", \"Jaren_Ervaring_IT\") values (?, ?, ?, ?, ?, ?);";
