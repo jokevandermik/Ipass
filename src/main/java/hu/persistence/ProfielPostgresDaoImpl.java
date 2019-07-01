@@ -71,7 +71,7 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 	public List<Profiel> selectProfielRelevantie(String relevantie){
 		List<Profiel> result = new ArrayList<Profiel>();
 		String query = "select \"Profiel\".* , \"Naam\", \"Straatnaam\", \"Huisnummer\", \"Postcode\", \"Woonplaats\", \"Geboortedatum\", \"Geslacht\", \"Telefoonnummer\", \"Email\", \"Linkedin\", \"Technische_vaardigheden\", \"Functionele_vaardigheden\", \"Werkervaring\", \"Computertalen\", \"Platformen\", \"Pakketen\" from \"Persoonsgegevens\",  \"Profiel\", \"Vaardigheden\" where \"Persoonsgegevens\".\"ID\" = \"Profiel\".\"Persoonsgegevens_ID\" and \"Vaardigheden\".\"ID\" = \"Profiel\".\"Vaardigheden_ID\" and\r\n" + 
-				"	(\"Technische_vaardigheden\" LIKE '%SQL%' or \"Functionele_vaardigheden\" like '%" + relevantie + "%' or \"Computertalen\" like '%" + relevantie + "%' or \"Platformen\" like '%" + relevantie + "%' or \"Pakketen\" like '%" + relevantie + "%');";
+				"	(\"Technische_vaardigheden\" LIKE '%"+ relevantie + "%' or \"Functionele_vaardigheden\" like '%" + relevantie + "%' or \"Computertalen\" like '%" + relevantie + "%' or \"Platformen\" like '%" + relevantie + "%' or \"Pakketen\" like '%" + relevantie + "%');";
 		 System.out.println("voor db connectie");
 		try(Connection con = super.getConnection()){
 			PreparedStatement pstmt = con.prepareStatement(query);
