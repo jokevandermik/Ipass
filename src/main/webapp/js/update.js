@@ -1,6 +1,6 @@
 document.querySelector("#ophalen").addEventListener("click", function () {
 	var idinput = document.getElementById("id").value;
-	console.log(relevantie)
+	console.log(idinput)
 	
 	let fetchOptions = {
 			method: 'GET'
