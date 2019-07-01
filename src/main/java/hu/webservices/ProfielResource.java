@@ -65,6 +65,7 @@ public class ProfielResource {
 		for(Profiel pf : pfdb.selectProfiel()) {
 			JsonObjectBuilder job = Json.createObjectBuilder();
 			job.add("id", pf.getId());
+			System.out.println("resource: "+ pf.getId());
 			job.add("eigenschappen", pf.getEigenschappen());
 			job.add("spreektalen", pf.getSpreektalen());
 			job.add("jarenErvaringIT", pf.getJarenErvaringIT());
