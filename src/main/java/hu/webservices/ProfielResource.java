@@ -27,27 +27,27 @@ public class ProfielResource {
 	@GET
 	@Path("/all")
 	public Response getGegevens() {
-//		PersoonsGegevensPostgresDaoImpl pgdb = new PersoonsGegevensPostgresDaoImpl();
+		PersoonsGegevensPostgresDaoImpl pgdb = new PersoonsGegevensPostgresDaoImpl();
 //		VaardigheidPostgresDaoImpl vhdb = new VaardigheidPostgresDaoImpl();
-		ProfielPostgresDaoImpl pfdb = new ProfielPostgresDaoImpl();
+//		ProfielPostgresDaoImpl pfdb = new ProfielPostgresDaoImpl();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		
-//		for (PersoonsGegevens pg : pgdb.selectGegevens()) {
-//			JsonObjectBuilder job = Json.createObjectBuilder();
-//			job.add("id", pg.getId());
-//			job.add("naam", pg.getNaam());
-//			job.add("straatnaam", pg.getStraatnaam());
-//			job.add("huisnummer", pg.getHuisnummer());
-//			job.add("postcode", pg.getPostcode());
-//			job.add("woonplaats", pg.getWoonplaats());
-//			job.add("geboortedatum", pg.getGeboortedatum());
-//			job.add("geslacht", pg.getGeslacht());
-//			job.add("telefoonnummer", pg.getTelefoonnummer());
-//			job.add("email", pg.getEmail());
-//			job.add("linkedin", pg.getLinkedin());
-//			
-//			jab.add(job);
-//		}
+		for (PersoonsGegevens pg : pgdb.selectGegevens()) {
+			JsonObjectBuilder job = Json.createObjectBuilder();
+			job.add("id", pg.getId());
+			job.add("naam", pg.getNaam());
+			job.add("straatnaam", pg.getStraatnaam());
+			job.add("huisnummer", pg.getHuisnummer());
+			job.add("postcode", pg.getPostcode());
+			job.add("woonplaats", pg.getWoonplaats());
+			job.add("geboortedatum", pg.getGeboortedatum());
+			job.add("geslacht", pg.getGeslacht());
+			job.add("telefoonnummer", pg.getTelefoonnummer());
+			job.add("email", pg.getEmail());
+			job.add("linkedin", pg.getLinkedin());
+			
+			jab.add(job);
+		}
 		
 //		for(Vaardigheid vh : vhdb.selectVaarigheden()) {
 //			JsonObjectBuilder job = Json.createObjectBuilder();
@@ -62,17 +62,17 @@ public class ProfielResource {
 //			jab.add(job);
 //		}
 		
-		for(Profiel pf : pfdb.selectProfiel()) {
-			JsonObjectBuilder job = Json.createObjectBuilder();
-			job.add("id", pf.getId());
-			job.add("eigenschappen", pf.getEigenschappen());
-			job.add("spreektalen", pf.getSpreektalen());
-			job.add("jarenErvaringIT", pf.getJarenErvaringIT());
-			//job.add("naam", pf.getGegevens().getNaam());			
-			
-			jab.add(job);
-		}
-		
+//		for(Profiel pf : pfdb.selectProfiel()) {
+//			JsonObjectBuilder job = Json.createObjectBuilder();
+//			job.add("id", pf.getId());
+//			job.add("eigenschappen", pf.getEigenschappen());
+//			job.add("spreektalen", pf.getSpreektalen());
+//			job.add("jarenErvaringIT", pf.getJarenErvaringIT());
+//			job.add("naam", pf.getGegevens().getNaam());			
+//			
+//			jab.add(job);
+//		}
+//		
 		JsonArray jsonArray = jab.build();
 		return Response.ok(jsonArray.toString()).build();
 	}
