@@ -51,28 +51,28 @@ public class ProfielResource {
 			jab.add(job);
 		}
 		
-		for(Vaardigheid vd : vddb.selectVaarigheden()) {
-			JsonObjectBuilder job = Json.createObjectBuilder();
-			job.add("id", vd.getId());
-			job.add("technischeVaardigheden", vd.GetTechnischeVaardigheden());
-			job.add("functioneleVaardigheden", vd.GetFunctioneleVaardigheden());
-			job.add("werkervaring", vd.GetWerkervaring());
-			job.add("computertalen", vd.GetComputertalen());
-			job.add("platform", vd.GetPlatform());
-			job.add("pakketten", vd.GetPakketen());
-			
-			jab.add(job);
-		}
-		
-		for(Profiel pf : pfdb.selectProfiel()) {
-			JsonObjectBuilder job = Json.createObjectBuilder();
-			job.add("id", pf.getId());
-			job.add("eigenschappen", pf.getEigenschappen());
-			job.add("spreektalen", pf.getSpreektalen());
-			job.add("jarenErvaringIT", pf.getJarenErvaringIT());
-			
-			jab.add(job);
-		}
+//		for(Vaardigheid vd : vddb.selectVaarigheden()) {
+//			JsonObjectBuilder job = Json.createObjectBuilder();
+//			job.add("id", vd.getId());
+//			job.add("technischeVaardigheden", vd.GetTechnischeVaardigheden());
+//			job.add("functioneleVaardigheden", vd.GetFunctioneleVaardigheden());
+//			job.add("werkervaring", vd.GetWerkervaring());
+//			job.add("computertalen", vd.GetComputertalen());
+//			job.add("platform", vd.GetPlatform());
+//			job.add("pakketten", vd.GetPakketen());
+//			
+//			jab.add(job);
+//		}
+//		
+//		for(Profiel pf : pfdb.selectProfiel()) {
+//			JsonObjectBuilder job = Json.createObjectBuilder();
+//			job.add("id", pf.getId());
+//			job.add("eigenschappen", pf.getEigenschappen());
+//			job.add("spreektalen", pf.getSpreektalen());
+//			job.add("jarenErvaringIT", pf.getJarenErvaringIT());
+//			
+//			jab.add(job);
+//		}
 		
 		JsonArray jsonArray = jab.build();
 		return Response.ok(jsonArray.toString()).build();
