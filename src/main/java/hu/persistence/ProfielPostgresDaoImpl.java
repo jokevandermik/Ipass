@@ -29,16 +29,16 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 				String spreektalen	= dbResultSet.getString("spreektalen");
 				int jarenErvaringIT = dbResultSet.getInt("jaren_Ervaring_IT");
 				
-//				String naam = dbResultSet.getString("naam");
-//				String straatnaam = dbResultSet.getString("straatnaam");
-//				int huisnummer = dbResultSet.getInt("huisnummer");
-//				String postcode = dbResultSet.getString("postcode");
-//				String woonplaats = dbResultSet.getString("woonplaats");
-//				String geboortedatum = dbResultSet.getString("geboortedatum");
-//				String geslacht = dbResultSet.getString("geslacht");
-//				String telefoonnummer = dbResultSet.getString("telefoonnummer");
-//				String email = dbResultSet.getString("email");
-//				String linkedin = dbResultSet.getString("linkedin");
+				String naam = dbResultSet.getString("naam");
+				String straatnaam = dbResultSet.getString("straatnaam");
+				int huisnummer = dbResultSet.getInt("huisnummer");
+				String postcode = dbResultSet.getString("postcode");
+				String woonplaats = dbResultSet.getString("woonplaats");
+				String geboortedatum = dbResultSet.getString("geboortedatum");
+				String geslacht = dbResultSet.getString("geslacht");
+				String telefoonnummer = dbResultSet.getString("telefoonnummer");
+				String email = dbResultSet.getString("email");
+				String linkedin = dbResultSet.getString("linkedin");
 //				
 //				String technischeVaardigheden = dbResultSet.getString("technische_vaardigheden");
 //				String functioneleVaardigheden = dbResultSet.getString("functionele_vaardigheden");
@@ -47,14 +47,14 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 //				String platformen = dbResultSet.getString("platformen");
 //				String pakketen = dbResultSet.getString("pakketen");
 //				
-//				PersoonsGegevens pg = new PersoonsGegevens(id, naam, straatnaam, huisnummer, postcode, woonplaats,
-//						geboortedatum, geslacht, telefoonnummer, email, linkedin);
+				PersoonsGegevens pg = new PersoonsGegevens(id, naam, straatnaam, huisnummer, postcode, woonplaats,
+						geboortedatum, geslacht, telefoonnummer, email, linkedin);
 //				
 //				Vaardigheid vh = new Vaardigheid(id, technischeVaardigheden, functioneleVaardigheden, werkervaring, computertalen, platformen, pakketen);
 //				
 				Profiel pf = new Profiel(id, idPersoonsGegevens, idVaardigheid, eigenschappen, spreektalen, jarenErvaringIT);
 				
-//				pf.setGegevens(pg);
+				pf.setGegevens(pg);
 //				pf.setVaardigheden(vh);
 				
 				result.add(pf);
