@@ -31,7 +31,7 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 			console.log(JSON.stringify(myJson));
 			json = JSON.parse(myJson[0]);
 			
-			let input = document.getElementById('json');
+			let table = document.querySelector('inputData');
 			input.innerHTML = "Naam: <input class=\"input\" type=\"text\" name=\"naam\" value=\"" + json.naam + "\" maxlength=\"50\"/><br>"
 		});
 })
