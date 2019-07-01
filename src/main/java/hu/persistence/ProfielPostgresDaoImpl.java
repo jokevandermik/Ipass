@@ -39,9 +39,9 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 		try(Connection con = super.getConnection()){
 			String q = "insert into \"Profiel\"(\"ID\", \"Persoonsgegevens_ID\", \"Vaardigheden_ID\", \"Eigenschappen\", \"Spreektalen\", \"Jaren_Ervaring_IT\") values (?, ?, ?, ?, ?, ?);";
 			PreparedStatement pstmt = con.prepareStatement(q);
-			pstmt.setInt(1, 12);
-			pstmt.setInt(2, 12);
-			pstmt.setInt(3, 12);
+			pstmt.setInt(1, 13);
+			pstmt.setInt(2, 13);
+			pstmt.setInt(3, 13);
 			pstmt.setString(4, "vrolijk");
 			pstmt.setString(5, "nl");
 			pstmt.setInt(6, 5);
