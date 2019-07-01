@@ -44,7 +44,7 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 				System.out.println("dao" + dbResultSet.getString("technische_vaardigheden"));
 				String functioneleVaardigheden = dbResultSet.getString("functionele_vaardigheden");
 				String werkervaring = dbResultSet.getString("werkervaring");
-				String computertalen = dbResultSet.getString("comptertalen");
+				String computertalen = dbResultSet.getString("computertalen");
 				String platformen = dbResultSet.getString("platformen");
 				String pakketen = dbResultSet.getString("pakketen");
 				
