@@ -9,7 +9,7 @@ import java.util.List;
 
 import hu.domain.PersoonsGegevens;
 import hu.domain.Profiel;
-import hu.domain.Vaardigheid;;
+import hu.domain.Vaardigheid;
 
 public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDao{
 	public List<Profiel> selectProfiel(){
@@ -28,33 +28,33 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 				String spreektalen	= dbResultSet.getString("spreektalen");
 				int jarenErvaringIT = dbResultSet.getInt("jarenErvaringIT");
 				
-				String naam = dbResultSet.getString("naam");
-				String straatnaam = dbResultSet.getString("straatnaam");
-				int huisnummer = dbResultSet.getInt("huisnummer");
-				String postcode = dbResultSet.getString("postcode");
-				String woonplaats = dbResultSet.getString("woonplaats");
-				String geboortedatum = dbResultSet.getString("geboortedatum");
-				String geslacht = dbResultSet.getString("geslacht");
-				String telefoonnummer = dbResultSet.getString("telefoonnummer");
-				String email = dbResultSet.getString("email");
-				String linkedin = dbResultSet.getString("linkedin");
-				
-				String technischeVaardigheden = dbResultSet.getString("technischeVaardigheden");
-				String functioneleVaardigheden = dbResultSet.getString("functioneleVaardigheden");
-				String werkervaring = dbResultSet.getString("werkervaring");
-				String computertalen = dbResultSet.getString("comptertalen");
-				String platformen = dbResultSet.getString("platformen");
-				String pakketen = dbResultSet.getString("pakketen");
-				
-				PersoonsGegevens pg = new PersoonsGegevens(id, naam, straatnaam, huisnummer, postcode, woonplaats,
-						geboortedatum, geslacht, telefoonnummer, email, linkedin);
-				
-				Vaardigheid vh = new Vaardigheid(id, technischeVaardigheden, functioneleVaardigheden, werkervaring, computertalen, platformen, pakketen);
-				
+//				String naam = dbResultSet.getString("naam");
+//				String straatnaam = dbResultSet.getString("straatnaam");
+//				int huisnummer = dbResultSet.getInt("huisnummer");
+//				String postcode = dbResultSet.getString("postcode");
+//				String woonplaats = dbResultSet.getString("woonplaats");
+//				String geboortedatum = dbResultSet.getString("geboortedatum");
+//				String geslacht = dbResultSet.getString("geslacht");
+//				String telefoonnummer = dbResultSet.getString("telefoonnummer");
+//				String email = dbResultSet.getString("email");
+//				String linkedin = dbResultSet.getString("linkedin");
+//				
+//				String technischeVaardigheden = dbResultSet.getString("technischeVaardigheden");
+//				String functioneleVaardigheden = dbResultSet.getString("functioneleVaardigheden");
+//				String werkervaring = dbResultSet.getString("werkervaring");
+//				String computertalen = dbResultSet.getString("comptertalen");
+//				String platformen = dbResultSet.getString("platformen");
+//				String pakketen = dbResultSet.getString("pakketen");
+//				
+//				PersoonsGegevens pg = new PersoonsGegevens(id, naam, straatnaam, huisnummer, postcode, woonplaats,
+//						geboortedatum, geslacht, telefoonnummer, email, linkedin);
+//				
+//				Vaardigheid vh = new Vaardigheid(id, technischeVaardigheden, functioneleVaardigheden, werkervaring, computertalen, platformen, pakketen);
+//				
 				Profiel pf = new Profiel(id, idPersoonsGegevens, idVaardigheid, eigenschappen, spreektalen, jarenErvaringIT);
 				
-				pf.setGegevens(pg);
-				pf.setVaardigheden(vh);
+//				pf.setGegevens(pg);
+//				pf.setVaardigheden(vh);
 				
 				result.add(pf);
 			}
