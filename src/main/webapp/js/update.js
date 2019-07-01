@@ -44,7 +44,7 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 				"Straatnaam: <input class=\"input\" type=\"text\" name=\"straatnaam\" value=\" "+ myJson[0].straatnaam +"\" maxlength=\"50\"/><br>" + 
 				"Woonplaats: <input class=\"input\" type=\"text\" name=\"woonplaats\" value=\" "+ myJson[0].woonplaats +"\" maxlength=\"50\"/><br>" + 
 				"Geboortedatum: <input class=\"input\" type=\"text\" name=\"geboortedatum\" value=\" "+ myJson[0].geboortedatum+"\"/><br>" +
-				"Telefoonnummer: <input class=\"input\" type=\"number\" name=\"telefoonnummer\" value=\" "+ telnr +"\" maxlength=\"10\"/><br>" +
+				"Telefoonnummer: <input class=\"input\" type=\"number\" name=\"telefoonnummer\" value= "+ telnr +" maxlength=\"10\"/><br>" +
 				"<br>" + 
 				"Eigenschappen: <input class=\"input\" type=\"text\" name=\"eigenschappen\" value=\" "+ myJson[0].eigenschappen +"\" maxlength=\"256\"/><br>" +
 				"Spreektalen: <input class=\"input\" type=\"text\" name=\"straatnaam\" value=\" "+ myJson[0].spreektalen +"\" maxlength=\"256\"/><br>" +
