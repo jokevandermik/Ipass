@@ -23,8 +23,8 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 			while(dbResultSet.next()) {
 				int id = dbResultSet.getInt("id");
 				System.out.println("Dao: "+ dbResultSet.getInt("id"));
-				int idPersoonsGegevens = dbResultSet.getInt("id");
-				int idVaardigheid = dbResultSet.getInt("idVaardigheden");
+				int idPersoonsGegevens = dbResultSet.getInt("Persoonsgegevens_ID");
+				int idVaardigheid = dbResultSet.getInt("Vaardigheden_ID");
 				String eigenschappen = dbResultSet.getString("eigenschappen");
 				String spreektalen	= dbResultSet.getString("spreektalen");
 				int jarenErvaringIT = dbResultSet.getInt("jarenErvaringIT");
