@@ -27,8 +27,6 @@ public class ProfielResource {
 	@GET
 	@Path("/all")
 	public Response getGegevens() {
-//		PersoonsGegevensPostgresDaoImpl pgdb = new PersoonsGegevensPostgresDaoImpl();
-//		VaardigheidPostgresDaoImpl vhdb = new VaardigheidPostgresDaoImpl();
 		ProfielPostgresDaoImpl pfdb = new ProfielPostgresDaoImpl();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		
@@ -36,15 +34,15 @@ public class ProfielResource {
 //			JsonObjectBuilder job = Json.createObjectBuilder();
 //			job.add("id", pg.getId());
 //			job.add("naam", pg.getNaam());
-//			job.add("straatnaam", pg.getStraatnaam());
-//			job.add("huisnummer", pg.getHuisnummer());
-//			job.add("postcode", pg.getPostcode());
-//			job.add("woonplaats", pg.getWoonplaats());
-//			job.add("geboortedatum", pg.getGeboortedatum());
-//			job.add("geslacht", pg.getGeslacht());
-//			job.add("telefoonnummer", pg.getTelefoonnummer());
-//			job.add("email", pg.getEmail());
-//			job.add("linkedin", pg.getLinkedin());
+			job.add("straatnaam", pg.getStraatnaam());
+			job.add("huisnummer", pg.getHuisnummer());
+			job.add("postcode", pg.getPostcode());
+			job.add("woonplaats", pg.getWoonplaats());
+			job.add("geboortedatum", pg.getGeboortedatum());
+			job.add("geslacht", pg.getGeslacht());
+			job.add("telefoonnummer", pg.getTelefoonnummer());
+			job.add("email", pg.getEmail());
+			job.add("linkedin", pg.getLinkedin());
 //			
 //			jab.add(job);
 //		}
@@ -69,7 +67,18 @@ public class ProfielResource {
 			job.add("eigenschappen", pf.getEigenschappen());
 			job.add("spreektalen", pf.getSpreektalen());
 			job.add("jarenErvaringIT", pf.getJarenErvaringIT());
+			
 			job.add("naam", pf.getGegevens().getNaam());
+			job.add("straatnaam", pf.getGegevens().getStraatnaam());
+			job.add("huisnummer", pf.getGegevens().getHuisnummer());
+			job.add("postcode", pf.getGegevens().getPostcode());
+			job.add("woonplaats", pf.getGegevens().getWoonplaats());
+			job.add("geboortedatum", pf.getGegevens().getGeboortedatum());
+			job.add("geslacht", pf.getGegevens().getGeslacht());
+			job.add("telefoonnummer", pf.getGegevens().getTelefoonnummer());
+			job.add("email", pf.getGegevens().getEmail());
+			job.add("linkedin", pf.getGegevens().getLinkedin());
+			
 			job.add("technischeVaardigheden", pf.getVaardigheden().GetTechnischeVaardigheden());
 			System.out.println("resource" + pf.getVaardigheden().GetTechnischeVaardigheden());
 			jab.add(job);
