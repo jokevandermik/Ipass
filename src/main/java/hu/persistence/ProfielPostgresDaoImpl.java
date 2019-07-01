@@ -15,11 +15,11 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 	public List<Profiel> selectProfiel(){
 		List<Profiel> result = new ArrayList<Profiel>();
 		String query = "select \"Profiel\".* , \"Naam\", \"Straatnaam\", \"Huisnummer\", \"Postcode\", \"Woonplaats\", \"Geboortedatum\", \"Geslacht\", \"Telefoonnummer\", \"Email\", \"Linkedin\", \"Technische_vaardigheden\", \"Functionele_vaardigheden\", \"Werkervaring\", \"Computertalen\", \"Platformen\", \"Pakketen\" from \"Persoonsgegevens\",  \"Profiel\", \"Vaardigheden\" where \"Persoonsgegevens\".\"ID\" = \"Profiel\".\"Persoonsgegevens_ID\" and \"Vaardigheden\".\"ID\" = \"Profiel\".\"Vaardigheden_ID\";";
-		 
+		 System.out.println("voor db connectie");
 		try(Connection con = super.getConnection()){
 			PreparedStatement pstmt = con.prepareStatement(query);
 			ResultSet dbResultSet = pstmt.executeQuery();
-			
+			System.out.println("na db connectie");
 			while(dbResultSet.next()) {
 				int id = dbResultSet.getInt("id");
 				System.out.println("Dao: "+ dbResultSet.getInt("id"));
@@ -61,6 +61,8 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 			}
 		} catch(SQLException sqle) {
 			sqle.printStackTrace();
+			System.err.println(sqle.toString());
+			System.err.println(sqle.getMessage());
 		}
 		return result;
 	}
