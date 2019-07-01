@@ -20,6 +20,7 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 
 			while (dbResultSet.next()) {
 				int id = dbResultSet.getInt("id");
+				System.out.println("dao: " + dbResultSet.getInt("id"));
 				String naam = dbResultSet.getString("naam");
 				String straatnaam = dbResultSet.getString("straatnaam");
 				int huisnummer = dbResultSet.getInt("huisnummer");

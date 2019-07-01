@@ -1,7 +1,5 @@
 package hu.webservices;
 
-import java.awt.PageAttributes.MediaType;
-
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
@@ -30,13 +28,12 @@ public class ProfielResource {
 	@Path("/all")
 	public Response getProfiel() {
 		PersoonsGegevensPostgresDaoImpl pgdb = new PersoonsGegevensPostgresDaoImpl();
-//		VaardigheidPostgresDaoImpl vddb = new VaardigheidPostgresDaoImpl();
-//		ProfielPostgresDaoImpl pfdb = new ProfielPostgresDaoImpl();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		
 		for (PersoonsGegevens pg : pgdb.selectGegevens()) {
 			JsonObjectBuilder job = Json.createObjectBuilder();
 			job.add("id", pg.getId());
+			System.out.println("Resource: " + pg.getId());
 			job.add("naam", pg.getNaam());
 			job.add("straatnaam", pg.getStraatnaam());
 			job.add("huisnummer", pg.getHuisnummer());
@@ -50,29 +47,6 @@ public class ProfielResource {
 			
 			jab.add(job);
 		}
-		
-//		for(Vaardigheid vd : vddb.selectVaarigheden()) {
-//			JsonObjectBuilder job = Json.createObjectBuilder();
-//			job.add("id", vd.getId());
-//			job.add("technischeVaardigheden", vd.GetTechnischeVaardigheden());
-//			job.add("functioneleVaardigheden", vd.GetFunctioneleVaardigheden());
-//			job.add("werkervaring", vd.GetWerkervaring());
-//			job.add("computertalen", vd.GetComputertalen());
-//			job.add("platform", vd.GetPlatform());
-//			job.add("pakketten", vd.GetPakketen());
-//			
-//			jab.add(job);
-//		}
-//		
-//		for(Profiel pf : pfdb.selectProfiel()) {
-//			JsonObjectBuilder job = Json.createObjectBuilder();
-//			job.add("id", pf.getId());
-//			job.add("eigenschappen", pf.getEigenschappen());
-//			job.add("spreektalen", pf.getSpreektalen());
-//			job.add("jarenErvaringIT", pf.getJarenErvaringIT());
-//			
-//			jab.add(job);
-//		}
 		
 		JsonArray jsonArray = jab.build();
 		return Response.ok(jsonArray.toString()).build();
@@ -94,33 +68,6 @@ public class ProfielResource {
 		JsonArray jsonArray = jab.build();
 		return Response.ok(jsonArray.toString()).build();
 	}
-	
-//	@POST
-//	@Path("/save")
-//	public Response saveProfiel(@FormParam("id") int Id,@FormParam("naam") String nm, @FormParam("straatnaam") String strnm, @FormParam("huisnummer") int hsnr, @FormParam("postcode") String pc, @FormParam("woonplaats") String wp, @FormParam("geboortedatum") String gb, @FormParam("geslacht") String gs, @FormParam("telefoonnummer") String tfnr, @FormParam("email") String mail, @FormParam("linkedin") String lkin) {
-//		PersoonsGegevensPostgresDaoImpl db = new PersoonsGegevensPostgresDaoImpl();
-//		PersoonsGegevens pg = new PersoonsGegevens();
-//		pg.setId(Id);
-//		pg.setNaam(nm);
-//		pg.setStraatnaam(strnm);
-//		pg.setHuisnummer(hsnr);
-//		pg.setPostcode(pc);
-//		pg.setWoonplaats(wp);
-//		pg.setGeboortedatum(gb);
-//		pg.setGeslacht(gs);
-//		pg.setTelefoonnummer(tfnr);
-//		pg.setEmail(mail);
-//		pg.setLinkedin(lkin);
-//		
-//		if(pg.getNaam().isEmpty()) return Response.status(405).build();
-//		
-//		boolean resp = db.save(pg);
-//		
-//		if (!resp) {
-//			return Response.status(402).build();
-//		}
-//		return Response.ok().build();
-//	}
 	
 	@POST
 	@Path("/save")
