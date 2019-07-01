@@ -9,6 +9,7 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
@@ -31,6 +32,45 @@ public class ProfielResource {
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		
 		for(Profiel pf : pfdb.selectProfiel()) {
+			JsonObjectBuilder job = Json.createObjectBuilder();
+			job.add("id", pf.getId());
+			System.out.println("resource: "+ pf.getId());
+			job.add("eigenschappen", pf.getEigenschappen());
+			job.add("spreektalen", pf.getSpreektalen());
+			job.add("jarenErvaringIT", pf.getJarenErvaringIT());
+			
+			job.add("naam", pf.getGegevens().getNaam());
+			job.add("straatnaam", pf.getGegevens().getStraatnaam());
+			job.add("huisnummer", pf.getGegevens().getHuisnummer());
+			job.add("postcode", pf.getGegevens().getPostcode());
+			job.add("woonplaats", pf.getGegevens().getWoonplaats());
+			job.add("geboortedatum", pf.getGegevens().getGeboortedatum());
+			job.add("geslacht", pf.getGegevens().getGeslacht());
+			job.add("telefoonnummer", pf.getGegevens().getTelefoonnummer());
+			job.add("email", pf.getGegevens().getEmail());
+			job.add("linkedin", pf.getGegevens().getLinkedin());
+			
+			job.add("technischeVaardigheden", pf.getVaardigheden().GetTechnischeVaardigheden());
+			job.add("functioneleVaardigheden", pf.getVaardigheden().GetFunctioneleVaardigheden());
+			job.add("werkervaring", pf.getVaardigheden().GetWerkervaring());
+			job.add("computertalen", pf.getVaardigheden().GetComputertalen());
+			job.add("platform", pf.getVaardigheden().GetPlatform());
+			job.add("pakketten", pf.getVaardigheden().GetPakketen());
+			System.out.println("resource" + pf.getVaardigheden().GetTechnischeVaardigheden());
+			jab.add(job);
+		}
+		
+		JsonArray jsonArray = jab.build();
+		return Response.ok(jsonArray.toString()).build();
+	}
+	
+	@GET
+	@Path("/relevantie/{relevantie}")
+	public Response getRelevantie(@PathParam("relevantie") String relevant){
+		ProfielPostgresDaoImpl pfdb = new ProfielPostgresDaoImpl();
+		JsonArrayBuilder jab = Json.createArrayBuilder();
+		
+		for(Profiel pf : pfdb.selectProfielRelevantie(relevant)) {
 			JsonObjectBuilder job = Json.createObjectBuilder();
 			job.add("id", pf.getId());
 			System.out.println("resource: "+ pf.getId());
