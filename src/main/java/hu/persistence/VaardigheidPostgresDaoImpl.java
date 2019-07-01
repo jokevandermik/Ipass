@@ -40,7 +40,7 @@ public class VaardigheidPostgresDaoImpl extends PostgresBaseDao implements Vaard
 		try(Connection con = super.getConnection()){
 			String q = "insert into \"Vaardigheden\"(\"ID\", \"Technische_vaardigheden\", \"Functionele_vaardigheden\", \"Werkervaring\", \"Computertalen\", \"Platformen\", \"Pakketen\") values(?, ?, ?, ?, ?, ?, ?);";
 			PreparedStatement pstmt = con.prepareStatement(q);
-			pstmt.setInt(1, 8);
+			pstmt.setInt(1, 9);
 			pstmt.setString(2, "veel");
 			pstmt.setString(3, "veel");
 			pstmt.setString(4, "veel");

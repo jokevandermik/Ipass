@@ -157,7 +157,7 @@ public class ProfielResource {
 		
 		hetProfiel.setVaardigheden(deVaardigheid);
 		
-		if(profielService.saveAlles(hetProfiel)) return Response.ok(hetProfiel).build();
+		if(profielService.saveAlles(hetProfiel)) return Response.ok().build();
 		return Response.status(402).build();
 	}
 }
