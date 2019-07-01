@@ -30,8 +30,8 @@ public class ProfielResource {
 	@Path("/all")
 	public Response getProfiel() {
 		PersoonsGegevensPostgresDaoImpl pgdb = new PersoonsGegevensPostgresDaoImpl();
-		VaardigheidPostgresDaoImpl vddb = new VaardigheidPostgresDaoImpl();
-		ProfielPostgresDaoImpl pfdb = new ProfielPostgresDaoImpl();
+//		VaardigheidPostgresDaoImpl vddb = new VaardigheidPostgresDaoImpl();
+//		ProfielPostgresDaoImpl pfdb = new ProfielPostgresDaoImpl();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		
 		for (PersoonsGegevens pg : pgdb.selectGegevens()) {
