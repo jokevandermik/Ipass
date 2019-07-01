@@ -31,7 +31,8 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 			console.log(JSON.stringify(myJson));
 
 			let input = document.querySelector('inputData');
-			input.innerHTML = "Naam: <input class=\"input\" type=\"text\" name=\"naam\" value=\"" + myJson[0].naam + "\" maxlength=\"50\"/><br>" + 
+			input.innerHTML = "<div class=\"div_input_links\">" +
+				"Naam: <input class=\"input\" type=\"text\" name=\"naam\" value=\"" + myJson[0].naam + "\" maxlength=\"50\"/><br>" + 
 				"Straatnaam: <input class=\"input\" type=\"text\" name=\"straatnaam\" value=\" "+ myJson[0].straatnaam +"\" maxlength=\"50\"/><br>" + 
 				"Woonplaats: <input class=\"input\" type=\"text\" name=\"woonplaats\" value=\" "+ myJson[0].woonplaats +"\" maxlength=\"50\"/><br>" + 
 				"Geboortedatum: <input class=\"input\" type=\"date\" name=\"geboortedatum\" value=\" "+ myJson[0].geboortedatum +"\"/><br>" +
@@ -54,6 +55,7 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 				"Functionele vaardigheden: <input class=\"input\" type=\"text\" name=\"functionele_vaardigheden\" value=\" "+ myJson[0].functioneleVaardigheden +"\" maxlength=\"256\"/><br>" +
 				"Computertalen: <input class=\"input\" type=\"text\" name=\"computertalen\" value=\" "+myJson[0].computertalen +"\" maxlength=\"256\"/><br>" +
 				"Pakketen: <input class=\"input\" type=\"text\" name=\"pakketen\" value=\""+myJson[0].pakketten +"\" maxlength=\"256\"/>" +
-				"<input class=\"submit\" type=\"button\" id=\"Put\" value=\"Aanpassen\"";
+				"<input class=\"submit\" type=\"button\" id=\"Put\" value=\"Aanpassen\"" +
+				"</div>";
 		});
 })
