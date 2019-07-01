@@ -6,7 +6,7 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 			method: 'GET'
 	};
 	
-	fetch('/restservices/WolfAndCherry/aanpassen/' + id, fetchOptions)
+	fetch('/restservices/WolfAndCherry/aanpassen/' + idinput, fetchOptions)
 		.then((response) => {
 			console.log(response.status);
 			if (response.status = 200){
