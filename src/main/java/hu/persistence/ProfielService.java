@@ -4,7 +4,7 @@ import hu.domain.PersoonsGegevens;
 import hu.domain.Profiel;
 import hu.domain.Vaardigheid;;
 
-public class ProfielService {
+public class ProfielService {	
 	public boolean saveAlles (Profiel p) {
 		PersoonsGegevensDao persoonsGegevensDao = new PersoonsGegevensPostgresDaoImpl();
 		System.out.println("in service:"+p.getGegevens());
