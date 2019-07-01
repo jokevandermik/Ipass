@@ -84,7 +84,7 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 			pstmt.setString(9, persoonsGegevens.getLinkedin());
 			pstmt.setString(10, persoonsGegevens.getNaam());
 			pstmt.setInt(11, persoonsGegevens.getId());
-			System.out.println("dao pg id :"+persoonsGegevens.getId());
+//			System.out.println("dao pg id :"+persoonsGegevens.getId());
 			pstmt.executeUpdate();
 //			ResultSet dbResultSet = pstmt.executeQuery();
 		} catch (Exception exc) {
