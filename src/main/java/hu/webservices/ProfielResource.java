@@ -70,8 +70,8 @@ public class ProfielResource {
 			job.add("spreektalen", pf.getSpreektalen());
 			job.add("jarenErvaringIT", pf.getJarenErvaringIT());
 			job.add("naam", pf.getGegevens().getNaam());
-			job.add("technischeVaardigheden", pf.getVaardigheden().GetTechnischeVaardigheden());
-			
+			//job.add("technischeVaardigheden", pf.getVaardigheden().GetTechnischeVaardigheden());
+			System.out.println("resource" + pf.getVaardigheden().GetTechnischeVaardigheden());
 			jab.add(job);
 		}
 		
