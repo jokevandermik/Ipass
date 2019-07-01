@@ -29,23 +29,6 @@ public class ProfielResource {
 	public Response getGegevens() {
 		ProfielPostgresDaoImpl pfdb = new ProfielPostgresDaoImpl();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
-		
-//		for (PersoonsGegevens pg : pgdb.selectGegevens()) {
-//			JsonObjectBuilder job = Json.createObjectBuilder();
-//			job.add("id", pg.getId());
-//			job.add("naam", pg.getNaam());
-			job.add("straatnaam", pg.getStraatnaam());
-			job.add("huisnummer", pg.getHuisnummer());
-			job.add("postcode", pg.getPostcode());
-			job.add("woonplaats", pg.getWoonplaats());
-			job.add("geboortedatum", pg.getGeboortedatum());
-			job.add("geslacht", pg.getGeslacht());
-			job.add("telefoonnummer", pg.getTelefoonnummer());
-			job.add("email", pg.getEmail());
-			job.add("linkedin", pg.getLinkedin());
-//			
-//			jab.add(job);
-//		}
 //		
 //		for(Vaardigheid vh : vhdb.selectVaarigheden()) {
 //			JsonObjectBuilder job = Json.createObjectBuilder();
