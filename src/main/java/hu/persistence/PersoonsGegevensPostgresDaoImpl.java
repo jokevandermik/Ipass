@@ -70,7 +70,7 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 	public boolean update(PersoonsGegevens persoonsGegevens) {
 		try (Connection con = super.getConnection()) {
 			String q = "Update \"Persoonsgegevens\" SET \"Straatnaam\" = ? , \"huisnumer\" = ?, \"Postcode\" = ?, \"Woonplaats\" = ?,"
-					+ " \"Geboortedatum\" = ?, \"Geslacht\" = ?, \"Telefoonnummer\" = ?, \"Email\" = ?, \"Naam\" = ? where \"ID\" = ?;";
+					+ " \"Geboortedatum\" = ?, \"Geslacht\" = ?, \"Telefoonnummer\" = ?, \"Email\" = ?, \"Linkedin\" = ? , \"Naam\" = ? where \"ID\" = ?;";
 			System.out.println(q);
 			PreparedStatement pstmt = con.prepareStatement(q);
 			pstmt.setString(1, persoonsGegevens.getStraatnaam());
