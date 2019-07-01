@@ -70,6 +70,10 @@
 				
 		let fetchOptions = {
 				method: 'GET',
+				headers : { 
+			        'Content-Type': 'application/json',
+			        'Accept': 'application/json'
+			       }
 		};
 		
 		fetch('/restservices/WolfAndCherry/all', fetchOptions)
