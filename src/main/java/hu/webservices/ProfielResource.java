@@ -25,7 +25,7 @@ import hu.persistence.VaardigheidPostgresDaoImpl;;
 @Path("/WolfAndCherry")
 public class ProfielResource {
 	@GET
-	@Path("/all")
+	@Path("/gegevens")
 	public Response getGegevens() {
 //		PersoonsGegevensPostgresDaoImpl pgdb = new PersoonsGegevensPostgresDaoImpl();
 //		VaardigheidPostgresDaoImpl vhdb = new VaardigheidPostgresDaoImpl();
@@ -48,7 +48,7 @@ public class ProfielResource {
 //			
 //			jab.add(job);
 //		}
-//		
+		
 //		for(Vaardigheid vh : vhdb.selectVaarigheden()) {
 //			JsonObjectBuilder job = Json.createObjectBuilder();
 //			job.add("id", vh.getId());
@@ -77,29 +77,28 @@ public class ProfielResource {
 		return Response.ok(jsonArray.toString()).build();
 	}
 	
-//	@GET
-//	@Path("/all")
-//	public Response getGegevens() {
-//		VaardigheidPostgresDaoImpl vhdb = new VaardigheidPostgresDaoImpl();
-//		ProfielPostgresDaoImpl pfdb = new ProfielPostgresDaoImpl();
-//		JsonArrayBuilder jab = Json.createArrayBuilder();
+	@GET
+	@Path("/vaardigheid")
+	public Response getVaardigheden() {
+		VaardigheidPostgresDaoImpl vhdb = new VaardigheidPostgresDaoImpl();
+		JsonArrayBuilder jab = Json.createArrayBuilder();
 
-//		for(Vaardigheid vh : vhdb.selectVaarigheden()) {
-//			JsonObjectBuilder job = Json.createObjectBuilder();
-//			job.add("id", vh.getId());
-//			job.add("technischeVaardigheden", vh.GetTechnischeVaardigheden());
-//			job.add("functioneleVaardigheden", vh.GetFunctioneleVaardigheden());
-//			job.add("werkervaring", vh.GetWerkervaring());
-//			job.add("computertalen", vh.GetComputertalen());
-//			job.add("platform", vh.GetPlatform());
-//			job.add("pakketten", vh.GetPakketen());
-//			
-//			jab.add(job);
-//		}
-//		JsonArray jsonArray = jab.build();
-//		return Response.ok(jsonArray.toString()).build();
-//	}
-//	
+		for(Vaardigheid vh : vhdb.selectVaarigheden()) {
+			JsonObjectBuilder job = Json.createObjectBuilder();
+			job.add("id", vh.getId());
+			job.add("technischeVaardigheden", vh.GetTechnischeVaardigheden());
+			job.add("functioneleVaardigheden", vh.GetFunctioneleVaardigheden());
+			job.add("werkervaring", vh.GetWerkervaring());
+			job.add("computertalen", vh.GetComputertalen());
+			job.add("platform", vh.GetPlatform());
+			job.add("pakketten", vh.GetPakketen());
+			
+			jab.add(job);
+		}
+		JsonArray jsonArray = jab.build();
+		return Response.ok(jsonArray.toString()).build();
+	}
+	
 	@GET
 	@Path("/Idhalen")
 	public Response getPersoonID() {
