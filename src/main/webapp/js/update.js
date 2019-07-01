@@ -31,7 +31,7 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 			console.log(JSON.stringify(myJson));
 			
 			var parts = myJson[0].geboortedatum.split('-');
-			var gbdatum = new Date (parts[0], parts[1] -1, parts[2]);
+			var gbdatum = new Date (parts[2], parts[1] -1, parts[0]);
 			console.log(gbdatum);
 
 			let input = document.querySelector('inputData');
