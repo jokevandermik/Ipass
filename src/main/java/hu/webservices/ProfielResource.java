@@ -69,7 +69,8 @@ public class ProfielResource {
 			job.add("eigenschappen", pf.getEigenschappen());
 			job.add("spreektalen", pf.getSpreektalen());
 			job.add("jarenErvaringIT", pf.getJarenErvaringIT());
-			job.add("naam", pf.getGegevens().getNaam());			
+			job.add("naam", pf.getGegevens().getNaam());
+			job.add("technischeVaardigheden", pf.getVaardigheden().GetTechnischeVaardigheden());
 			
 			jab.add(job);
 		}
