@@ -80,19 +80,5 @@
 		 console.log(response.status);
 		 }
 	});
-// hoi = "response oke";
-// console.log("hoi")
-// }
-// else if (response.status == 500){
-// hoi = "status 500";
-// console.log(hoi)
-// }
-// else{
-// hoi = "de rest";
-// console.log(hoi);
-// console.log(response.status);
-// }
-// });
-        // {response.json())
-        // .then(function (myJson) { console.log(myJson); });
+
 	});
