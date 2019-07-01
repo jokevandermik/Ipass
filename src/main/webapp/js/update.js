@@ -51,7 +51,7 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 				"Telefoonnummer: <input class=\"input\" type=\"number\" name=\"telefoonnummer\" value= "+ telnr +" maxlength=\"10\"/><br>" +
 				"<br>" + 
 				"Eigenschappen: <input class=\"input\" type=\"text\" name=\"eigenschappen\" value=\" "+ myJson[0].eigenschappen +"\" maxlength=\"256\"/><br>" +
-				"Spreektalen: <input class=\"input\" type=\"text\" name=\"straatnaam\" value=\" "+ myJson[0].spreektalen +"\" maxlength=\"256\"/><br>" +
+				"Spreektalen: <input class=\"input\" type=\"text\" name=\"spreektalen\" value=\" "+ myJson[0].spreektalen +"\" maxlength=\"256\"/><br>" +
 				"Jaren ervaring in IT: <input class=\"input\" type=\"number\" name=\"jaren_ervaring_it\" value= "+ jarenIT +" maxlength=\"5\"/><br>" +
 				"<br>" +
 				"Technische vaardigheden: <input class=\"input\" type=\"text\" name=\"technische_vaardigheden\" value=\" "+ myJson[0].technischeVaardigheden +"\" maxlength=\"256\"/><br>" +
