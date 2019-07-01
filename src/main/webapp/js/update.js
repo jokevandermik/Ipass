@@ -70,4 +70,37 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 				"<input class=\"submit\" type=\"button\" id=\"Put\" value=\"Aanpassen\"" +
 				"</div>";
 		});
+	
+	document.querySelector("#Put").addEventListener("click", function () {
+		var formData = new FormData(document.querySelector("#FormPut"));
+		 var encData = new URLSearchParams(formData.entries());
+		 console.log(encData);
+		 console.log(formData);
+		 
+		 let hoi = "hallo";
+		 console.log(hoi)
+		 
+		 let fetchoptions = {
+					method: 'PUT',
+					body: encData,
+				}
+		 fetch('/restservices/WolfAndCherry/update', fetchoptions)
+			.then((response) => {
+				console.log(response.status);
+				if(response.ok){
+				 hoi = "response oke";
+				 console.log("hoi")
+				 }
+				 else if (response.status == 500){
+				 hoi = "status 500";
+				 console.log(hoi)
+				 }
+				 else{
+				 hoi = "de rest";
+				 console.log(hoi);
+				 console.log(response.status);
+				 }
+			});
+
+	});
 })

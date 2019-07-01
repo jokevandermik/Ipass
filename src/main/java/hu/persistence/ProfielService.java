@@ -17,4 +17,15 @@ public class ProfielService {
 		boolean profielOK = profielDao.save(p);
 		return gegevensOK && vaardigheidOK && profielOK;
 	}
+	
+	public boolean updateAlles (Profiel p) {
+		PersoonsGegevensDao persoonsGegevensDao = new PersoonsGegevensPostgresDaoImpl();
+		System.out.println("in service:"+p.getGegevens());
+		boolean gegevensOK = persoonsGegevensDao.update(p.getGegevens());
+		VaardigheidDao vaardigheidDao = new VaardigheidPostgresDaoImpl();
+		boolean vaardigheidOK = vaardigheidDao.update(p.getVaardigheden());
+		ProfielDao profielDao = new ProfielPostgresDaoImpl();
+		boolean profielOK = profielDao.update(p);
+		return gegevensOK && vaardigheidOK && profielOK;
+	}
 }

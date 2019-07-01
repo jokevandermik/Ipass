@@ -212,6 +212,8 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 			ResultSet dbResultSet = pstmt.executeQuery();
 		} catch(Exception exc) {
 			exc.printStackTrace();
+			System.err.println(exc.toString());
+			System.err.println(exc.getMessage());
 		}
 		return true;
 	}
