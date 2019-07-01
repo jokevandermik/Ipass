@@ -28,6 +28,8 @@ public class ProfielResource {
 	@Path("/all")
 	public Response getProfiel() {
 		PersoonsGegevensPostgresDaoImpl pgdb = new PersoonsGegevensPostgresDaoImpl();
+		VaardigheidPostgresDaoImpl vhdb = new VaardigheidPostgresDaoImpl();
+//		ProfielPostgresDaoImpl pfdb = new ProfielPostgresDaoImpl();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		
 		for (PersoonsGegevens pg : pgdb.selectGegevens()) {
@@ -46,6 +48,29 @@ public class ProfielResource {
 			
 			jab.add(job);
 		}
+		
+		for(Vaardigheid vh : vhdb.selectVaarigheden()) {
+			JsonObjectBuilder job = Json.createObjectBuilder();
+			job.add("id", vh.getId());
+			job.add("technischeVaardigheden", vh.GetTechnischeVaardigheden());
+			job.add("functioneleVaardigheden", vh.GetFunctioneleVaardigheden());
+			job.add("werkervaring", vh.GetWerkervaring());
+			job.add("computertalen", vh.GetComputertalen());
+			job.add("platform", vh.GetPlatform());
+			job.add("pakketten", vh.GetPakketen());
+			
+			jab.add(job);
+		}
+//		
+//		for(Profiel pf : pfdb.selectProfiel()) {
+//			JsonObjectBuilder job = Json.createObjectBuilder();
+//			job.add("id", pf.getId());
+//			job.add("eigenschappen", pf.getEigenschappen());
+//			job.add("spreektalen", pf.getSpreektalen());
+//			job.add("jarenErvaringIT", pf.getJarenErvaringIT());
+//			
+//			jab.add(job);
+//		}
 		
 		JsonArray jsonArray = jab.build();
 		return Response.ok(jsonArray.toString()).build();
