@@ -30,9 +30,9 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 		.then((myJson) => {
 			console.log(JSON.stringify(myJson));
 			
-			var parts = myJson[0].geboortedatum.split('-');
-			var gbdatum = new Date (parts[2], parts[1] -1, parts[0]);
-			console.log(gbdatum);
+//			var parts = myJson[0].geboortedatum.split('-');
+//			var gbdatum = new Date (parts[2], parts[1] -1, parts[0]);
+//			console.log(gbdatum);
 			
 			var tel = myJson[0].telefoonnummer;
 			var telnr = Number(tel);
@@ -59,6 +59,7 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 				"Platformen: <input class=\"input\" type=\"text\" name=\"platformen\" value=\" "+ myJson[0].platform +"\" maxlength=\"256\"/><br>" +
 				"</div>"+
 				"<div class=\"div_input_rechts\">" +
+				"Geslacht: <input class=\"input\" type=\"text\" name=\"geslacht\" value=\"" + myJson[0].geslacht+ "\"maxlength=\"5\"/><br>" +
 				"Huisnummer: <input class=\"input\" type=\"number\" name=\"huisnummer\" value= "+ huisnr +" maxlength=\"4\"/><br>" + 
 				"Postcode: <input class=\"input\" type=\"text\" name=\"postcode\" value=\" "+ myJson[0].postcode +"\" maxlength=\"6\"/><br>" + 
 				"Email: <input class=\"input\" type=\"text\" name=\"email\" value=\" "+ myJson[0].email +"\" maxlength=\"50\"/><br>" + 
