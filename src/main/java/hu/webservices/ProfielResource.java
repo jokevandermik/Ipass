@@ -33,7 +33,6 @@ public class ProfielResource {
 		for (PersoonsGegevens pg : pgdb.selectGegevens()) {
 			JsonObjectBuilder job = Json.createObjectBuilder();
 			job.add("id", pg.getId());
-			System.out.println("Resource: " + pg.getId());
 			job.add("naam", pg.getNaam());
 			job.add("straatnaam", pg.getStraatnaam());
 			job.add("huisnummer", pg.getHuisnummer());
