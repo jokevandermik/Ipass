@@ -37,6 +37,10 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 			var tel = myJson[0].telefoonnummer;
 			var telnr = Number(tel);
 			console.log(telnr);
+			var huis = myJson[0].huisnummer;
+			var huisnr = Number(huis);
+			var jaren = myJson[0].jaren_ErvaringIT
+			var jarenIT = Number(jaren);
 
 			let input = document.querySelector('inputData');
 			input.innerHTML = "<div class=\"div_input_links\">" +
@@ -48,14 +52,14 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 				"<br>" + 
 				"Eigenschappen: <input class=\"input\" type=\"text\" name=\"eigenschappen\" value=\" "+ myJson[0].eigenschappen +"\" maxlength=\"256\"/><br>" +
 				"Spreektalen: <input class=\"input\" type=\"text\" name=\"straatnaam\" value=\" "+ myJson[0].spreektalen +"\" maxlength=\"256\"/><br>" +
-				"Jaren ervaring in IT: <input class=\"input\" type=\"number\" name=\"jaren_ervaring_it\" value=\" "+ myJson[0].jarenErvaringIT +"\" maxlength=\"5\"/><br>" +
+				"Jaren ervaring in IT: <input class=\"input\" type=\"number\" name=\"jaren_ervaring_it\" value= "+ jarenIT +" maxlength=\"5\"/><br>" +
 				"<br>" +
 				"Technische vaardigheden: <input class=\"input\" type=\"text\" name=\"technische_vaardigheden\" value=\" "+ myJson[0].technischeVaardigheden +"\" maxlength=\"256\"/><br>" +
 				"Werkervaring: <input class=\"input\" type=\"text\" name=\"werkervaring\" value=\" "+ myJson[0].werkervaring +"\" maxlength=\"256\"/><br>" +
 				"Platformen: <input class=\"input\" type=\"text\" name=\"platformen\" value=\" "+ myJson[0].platform +"\" maxlength=\"256\"/><br>" +
 				"</div>"+
 				"<div class=\"div_input_rechts\">" +
-				"Huisnummer: <input class=\"input\" type=\"number\" name=\"huisnummer\" value=\" "+ myJson[0].huisnummer +"\" maxlength=\"4\"/><br>" + 
+				"Huisnummer: <input class=\"input\" type=\"number\" name=\"huisnummer\" value= "+ huisnr +" maxlength=\"4\"/><br>" + 
 				"Postcode: <input class=\"input\" type=\"text\" name=\"postcode\" value=\" "+ myJson[0].postcode +"\" maxlength=\"6\"/><br>" + 
 				"Email: <input class=\"input\" type=\"text\" name=\"email\" value=\" "+ myJson[0].email +"\" maxlength=\"50\"/><br>" + 
 				"Linkedin: <input class=\"input\" type=\"text\" name=\"linkedin\" value=\" "+ myJson[0].linkedin +"\" maxlength=\"50\"/><br>" +
