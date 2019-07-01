@@ -17,10 +17,4 @@ public class ProfielService {
 		boolean profielOK = profielDao.save(p);
 		return gegevensOK && vaardigheidOK && profielOK;
 	}
-	
-//	public List<Profiel> getRelevantie(String relevantie) {
-//		ProfielPostgresDaoImpl db = new ProfielPostgresDaoImpl();
-//		
-//		return db.selectProfielRelevantie(relevantie);
-//	}
 }
