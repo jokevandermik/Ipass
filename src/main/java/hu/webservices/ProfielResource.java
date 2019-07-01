@@ -228,7 +228,7 @@ public class ProfielResource {
 		String naam = nm;
 		String straatnaam = strnm;
 		int huisnummer = hsnr;
-		String postcode = pc;
+		String postcode = pc.trim();
 		String woonplaats = wp;
 		String geboortedatum = gb;
 		String geslacht = gs;
