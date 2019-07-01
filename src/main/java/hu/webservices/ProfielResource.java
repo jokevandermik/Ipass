@@ -26,7 +26,6 @@ import hu.persistence.VaardigheidPostgresDaoImpl;;
 public class ProfielResource {
 	@GET
 	@Path("/all")
-	@Produces("application/json")
 	public Response getProfiel() {
 		PersoonsGegevensPostgresDaoImpl pgdb = new PersoonsGegevensPostgresDaoImpl();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
