@@ -21,17 +21,20 @@ import hu.persistence.PersoonIDPostgresDaoImpl;
 import hu.persistence.PersoonsGegevensPostgresDaoImpl;
 import hu.persistence.ProfielPostgresDaoImpl;
 import hu.persistence.ProfielService;
-import hu.persistence.ServiceProvider;;
+import hu.persistence.ServiceProvider;
+import hu.persistence.VaardigheidPostgresDaoImpl;;
 
 @Path("/WolfAndCherry")
 public class ProfielResource {
 	@GET
 	@Path("/all")
-	public Response getPersoonsGegevens() {
-		PersoonsGegevensPostgresDaoImpl db = new PersoonsGegevensPostgresDaoImpl();
+	public Response getProfiel() {
+		PersoonsGegevensPostgresDaoImpl pgdb = new PersoonsGegevensPostgresDaoImpl();
+		VaardigheidPostgresDaoImpl vddb = new VaardigheidPostgresDaoImpl();
+		ProfielPostgresDaoImpl pfdb = new ProfielPostgresDaoImpl();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		
-		for (PersoonsGegevens pg : db.selectGegevens()) {
+		for (PersoonsGegevens pg : pgdb.selectGegevens()) {
 			JsonObjectBuilder job = Json.createObjectBuilder();
 			job.add("id", pg.getId());
 			job.add("naam", pg.getNaam());
@@ -44,6 +47,29 @@ public class ProfielResource {
 			job.add("telefoonnummer", pg.getTelefoonnummer());
 			job.add("email", pg.getEmail());
 			job.add("linkedin", pg.getLinkedin());
+			
+			jab.add(job);
+		}
+		
+		for(Vaardigheid vd : vddb.selectVaarigheden()) {
+			JsonObjectBuilder job = Json.createObjectBuilder();
+			job.add("id", vd.getId());
+			job.add("technischeVaardigheden", vd.GetTechnischeVaardigheden());
+			job.add("functioneleVaardigheden", vd.GetFunctioneleVaardigheden());
+			job.add("werkervaring", vd.GetWerkervaring());
+			job.add("computertalen", vd.GetComputertalen());
+			job.add("platform", vd.GetPlatform());
+			job.add("pakketten", vd.GetPakketen());
+			
+			jab.add(job);
+		}
+		
+		for(Profiel pf : pfdb.selectProfiel()) {
+			JsonObjectBuilder job = Json.createObjectBuilder();
+			job.add("id", pf.getId());
+			job.add("eigenschappen", pf.getEigenschappen());
+			job.add("spreektalen", pf.getSpreektalen());
+			job.add("jarenErvaringIT", pf.getJarenErvaringIT());
 			
 			jab.add(job);
 		}
