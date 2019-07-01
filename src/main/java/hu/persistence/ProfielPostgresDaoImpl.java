@@ -39,23 +39,23 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 				String telefoonnummer = dbResultSet.getString("telefoonnummer");
 				String email = dbResultSet.getString("email");
 				String linkedin = dbResultSet.getString("linkedin");
-//				
-//				String technischeVaardigheden = dbResultSet.getString("technische_vaardigheden");
-//				String functioneleVaardigheden = dbResultSet.getString("functionele_vaardigheden");
-//				String werkervaring = dbResultSet.getString("werkervaring");
-//				String computertalen = dbResultSet.getString("comptertalen");
-//				String platformen = dbResultSet.getString("platformen");
-//				String pakketen = dbResultSet.getString("pakketen");
-//				
+				
+				String technischeVaardigheden = dbResultSet.getString("technische_vaardigheden");
+				String functioneleVaardigheden = dbResultSet.getString("functionele_vaardigheden");
+				String werkervaring = dbResultSet.getString("werkervaring");
+				String computertalen = dbResultSet.getString("comptertalen");
+				String platformen = dbResultSet.getString("platformen");
+				String pakketen = dbResultSet.getString("pakketen");
+				
 				PersoonsGegevens pg = new PersoonsGegevens(id, naam, straatnaam, huisnummer, postcode, woonplaats,
 						geboortedatum, geslacht, telefoonnummer, email, linkedin);
-//				
-//				Vaardigheid vh = new Vaardigheid(id, technischeVaardigheden, functioneleVaardigheden, werkervaring, computertalen, platformen, pakketen);
-//				
+				
+				Vaardigheid vh = new Vaardigheid(id, technischeVaardigheden, functioneleVaardigheden, werkervaring, computertalen, platformen, pakketen);
+				
 				Profiel pf = new Profiel(id, idPersoonsGegevens, idVaardigheid, eigenschappen, spreektalen, jarenErvaringIT);
 				
 				pf.setGegevens(pg);
-//				pf.setVaardigheden(vh);
+				pf.setVaardigheden(vh);
 				
 				result.add(pf);
 			}
