@@ -34,15 +34,16 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 			var gbdatum = new Date (parts[2], parts[1] -1, parts[0]);
 			console.log(gbdatum);
 			
-//			var tel = myJson[0].telefoonnummer;
-//			var telnr = Number(tel);
+			var tel = myJson[0].telefoonnummer;
+			var telnr = Number(tel);
+			console.log(telnr);
 
 			let input = document.querySelector('inputData');
 			input.innerHTML = "<div class=\"div_input_links\">" +
 				"Naam: <input class=\"input\" type=\"text\" name=\"naam\" value=\"" + myJson[0].naam + "\" maxlength=\"50\"/><br>" + 
 				"Straatnaam: <input class=\"input\" type=\"text\" name=\"straatnaam\" value=\" "+ myJson[0].straatnaam +"\" maxlength=\"50\"/><br>" + 
 				"Woonplaats: <input class=\"input\" type=\"text\" name=\"woonplaats\" value=\" "+ myJson[0].woonplaats +"\" maxlength=\"50\"/><br>" + 
-				"Geboortedatum: <input class=\"input\" type=\"date\" name=\"geboortedatum\" value=\" "+ myJson[0].geboortedatum +"\"/><br>" +
+				"Geboortedatum: <input class=\"input\" type=\"date\" name=\"geboortedatum\" value=\" "+ gbdatum +"\"/><br>" +
 				"Telefoonnummer: <input class=\"input\" type=\"number\" name=\"telefoonnummer\" value=\" "+ myJson[0].telefoonnummer +"\" maxlength=\"10\"/><br>" +
 				"<br>" + 
 				"Eigenschappen: <input class=\"input\" type=\"text\" name=\"eigenschappen\" value=\" "+ myJson[0].eigenschappen +"\" maxlength=\"256\"/><br>" +
