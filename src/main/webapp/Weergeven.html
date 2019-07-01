@@ -67,6 +67,8 @@
 	console.log(hoi);
 	
 	function init(){
+		var json;
+		
 		let fetchOptions = {
 				method: 'GET',
 		};
@@ -92,7 +94,8 @@
 			})
 			.then((myJson) => {
 				console.log(JSON.stringify(myJson));
-				
+				json = JSON.parse(myJson);
+				console.log(json);
 			});
 		}
 		
