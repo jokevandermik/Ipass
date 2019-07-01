@@ -17,7 +17,8 @@
 		</div>
 	</div>
 		<div class="div_input_links"> 
-		<form> 
+		<form id="FormPut"> 
+			Id: <div id="id"></div><br>
 			Naam: <input class="input" type="text" name="naam" value="Naam" maxlength="50"/><br>
 			Straatnaam: <input class="input" type="text" name="straatnaam" value="Straatnaam" maxlength="50"/><br>
 			Woonplaats: <input class="input" type="text" name="woonplaats" value="Woonplaats" maxlength="50"/><br>
@@ -26,16 +27,14 @@
 			<br>
 			Eigenschappen: <input class="input" type="text" name="eigenschappen" value="Eigenschappen" maxlength="256"/><br>
 			Spreektalen: <input class="input" type="text" name="spreektalen" value="Spreektalen" maxlength="256"/><br>
-			Jaren ervaring in IT: <input class="input" type="number" name="jaren_ervaring_it" value="5" maxlength="4"/><br>
+			Jaren ervaring in IT: <input class="input" type="number" name="jaren_ervaring	it" value="5" maxlength="4"/><br>
 			<br>
 			Technische vaardigheden: <input class="input" type="text" name="technische_vaardigheden" value="Technische vaardigheden" maxlength="256"/><br>
 			Werkervaring: <input class="input" type="text" name="werkervaring" value="Werkervaring" maxlength="256"/><br>
 			Platformen: <input class="input" type="text" name="platformen" value="Platformen" maxlength="256"/><br>
-		</form>
 	</div>
 	
 	<div class="div_input_rechts">
-		<form>
 			<input class="submit" type="submit" value="Verwijderen" /><br>
 			Huisnummer: <input class="input" type="number" name="huisnummer" value="5" maxlength="4"/><br>
 			Postcode: <input class="input" type="text" name="postcode" value="Postcode" maxlength="6"/><br>
@@ -45,8 +44,9 @@
 			Functionele vaardigheden: <input class="input" type="text" name="functionele_vaardigheden" value="Functionele vaardigheden" maxlength="256"/><br>
 			Computertalen: <input class="input" type="text" name="computertalen" value="Computertalen" maxlength="256"/><br>
 			Pakketen: <input class="input" type="text" name="pakketen" value="Paketten" maxlength="256"/>
-			<input class="submit" type="submit" value="Aanpassen" />
+			<input class="submit" type="submit" id="Put"value="Aanpassen" />
 		</form>
 	</div>
+	<script src="js/update.js"></script>
 </body>
 </html>

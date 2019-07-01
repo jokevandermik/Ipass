@@ -40,13 +40,6 @@ public class VaardigheidPostgresDaoImpl extends PostgresBaseDao implements Vaard
 		try(Connection con = super.getConnection()){
 			String q = "insert into \"Vaardigheden\"(\"ID\", \"Technische_vaardigheden\", \"Functionele_vaardigheden\", \"Werkervaring\", \"Computertalen\", \"Platformen\", \"Pakketen\") values(?, ?, ?, ?, ?, ?, ?);";
 			PreparedStatement pstmt = con.prepareStatement(q);
-//			pstmt.setInt(1, 13);
-//			pstmt.setString(2, "veel");
-//			pstmt.setString(3, "veel");
-//			pstmt.setString(4, "veel");
-//			pstmt.setString(5, "veel");
-//			pstmt.setString(6, "veel");
-//			pstmt.setString(7, "veel");
 			pstmt.setInt(1, vaardigheid.getId());
 			pstmt.setString(2, vaardigheid.GetTechnischeVaardigheden());
 			pstmt.setString(3, vaardigheid.GetFunctioneleVaardigheden());
@@ -64,7 +57,7 @@ public class VaardigheidPostgresDaoImpl extends PostgresBaseDao implements Vaard
 	
 	public boolean update(Vaardigheid vaardigheid) {
 		try(Connection con = super.getConnection()){
-			String q = "Update \"Vaardigheden\" set \"Technische_vaardigheden\" = ? , \"Functionele_vaardigheden\" = ? , \"Werkervaring\" = ? ,\"Computertalen\" = ? , \"Platformen\" = ? , \"Pakketen\"= ? ;";
+			String q = "Update \"Vaardigheden\" set \"Technische_vaardigheden\" = ? , \"Functionele_vaardigheden\" = ? , \"Werkervaring\" = ? ,\"Computertalen\" = ? , \"Platformen\" = ? , \"Pakketen\"= ? where \"ID\" = ?;";
 			System.out.println(q);
 			PreparedStatement pstmt = con.prepareStatement(q);
 			pstmt.setString(1, vaardigheid.GetTechnischeVaardigheden());
@@ -73,6 +66,7 @@ public class VaardigheidPostgresDaoImpl extends PostgresBaseDao implements Vaard
 			pstmt.setString(4, vaardigheid.GetComputertalen());
 			pstmt.setString(5, vaardigheid.GetPlatform());
 			pstmt.setString(6, vaardigheid.GetPakketen());
+			pstmt.setInt(7, vaardigheid.getId());
 			ResultSet dbResultSet = pstmt.executeQuery();
 		} catch(Exception exc) {
 			exc.printStackTrace();
@@ -82,7 +76,7 @@ public class VaardigheidPostgresDaoImpl extends PostgresBaseDao implements Vaard
 	
 	public boolean delete(Vaardigheid vaardigheid) {
 		try(Connection con = super.getConnection()){
-			String q = "delete from \"Vaardigheden\" where \"id\" = ?";
+			String q = "delete from \"Vaardigheden\" where \"ID\" = ?";
 			System.out.println(q);
 			PreparedStatement pstmt = con.prepareStatement(q);
 			pstmt.setInt(1, vaardigheid.getId());

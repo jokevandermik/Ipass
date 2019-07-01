@@ -39,12 +39,6 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 		try(Connection con = super.getConnection()){
 			String q = "insert into \"Profiel\"(\"ID\", \"Persoonsgegevens_ID\", \"Vaardigheden_ID\", \"Eigenschappen\", \"Spreektalen\", \"Jaren_Ervaring_IT\") values (?, ?, ?, ?, ?, ?);";
 			PreparedStatement pstmt = con.prepareStatement(q);
-//			pstmt.setInt(1, 14);
-//			pstmt.setInt(2, 14);
-//			pstmt.setInt(3, 14);
-//			pstmt.setString(4, "vrolijk");
-//			pstmt.setString(5, "nl");
-//			pstmt.setInt(6, 5);
 			pstmt.setInt(1, profiel.getId());
 			pstmt.setInt(2, profiel.getId());
 			pstmt.setInt(3, profiel.getId());
@@ -61,12 +55,13 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 	
 	public boolean update(Profiel profiel) {
 		try (Connection con = super.getConnection()){
-			String q = "update \"Profiel\" set \"Eigenschappen\" = ? , \"Spreektalen\" = ? , \"Jaren_Ervaring_IT\" = ?;";
+			String q = "update \"Profiel\" set \"Eigenschappen\" = ? , \"Spreektalen\" = ? , \"Jaren_Ervaring_IT\" = ? where \"ID\" = ? ;";
 			System.out.println(q);
 			PreparedStatement pstmt = con.prepareStatement(q);
 			pstmt.setString(1, profiel.getEigenschappen());
 			pstmt.setString(2, profiel.getSpreektalen());
 			pstmt.setInt(3, profiel.getJarenErvaringIT());
+			pstmt.setInt(4, profiel.getId());
 			ResultSet dbResultSet = pstmt.executeQuery();
 		} catch(Exception exc) {
 			exc.printStackTrace();
@@ -76,7 +71,7 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 	
 	public boolean delete(Profiel profiel) {
 		try(Connection con = super.getConnection()){
-			String q = "delete from \"Profiel\" where \"id\" = ?";
+			String q = "delete from \"Profiel\" where \"ID\" = ?";
 			System.out.println(q);
 			PreparedStatement pstmt = con.prepareStatement(q);
 			pstmt.setInt(1, profiel.getId());

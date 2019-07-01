@@ -47,17 +47,6 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 		try (Connection con = super.getConnection()) {
 			String q = "insert into \"Persoonsgegevens\"(\"ID\", \"Straatnaam\", \"Huisnummer\", \"Postcode\", \"Woonplaats\", \"Geboortedatum\", \"Geslacht\", \"Telefoonnummer\", \"Email\", \"Linkedin\", \"Naam\") values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 			PreparedStatement pstmt = con.prepareStatement(q);
-//			pstmt.setInt(1, 12);
-//			pstmt.setString(2, "straat");
-//			pstmt.setInt(3, 6);
-//			pstmt.setString(4, "5555KK");
-//			pstmt.setString(5, "plaats");
-//			pstmt.setString(6, "20-06-2000");
-//			pstmt.setString(7, "Vrouw");
-//			pstmt.setString(8, "6789");
-//			pstmt.setString(9, "mail");
-//			pstmt.setString(10, "hoi");
-//			pstmt.setString(11, "hoi");
 			pstmt.setInt(1, persoonsGegevens.getId());
 			pstmt.setString(2, persoonsGegevens.getStraatnaam());
 			pstmt.setInt(3, persoonsGegevens.getHuisnummer());
@@ -94,6 +83,7 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 			pstmt.setString(8, persoonsGegevens.getEmail());
 			pstmt.setString(9, persoonsGegevens.getLinkedin());
 			pstmt.setString(10, persoonsGegevens.getNaam());
+			pstmt.setInt(11, persoonsGegevens.getId());
 			ResultSet dbResultSet = pstmt.executeQuery();
 		} catch (Exception exc) {
 			exc.printStackTrace();
@@ -103,7 +93,7 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 	
 	public boolean delete(PersoonsGegevens persoonsGegevens) {
 		try(Connection con = super.getConnection()){
-			String q = "delete from \"Persoonsgegevens\" where \"id\" = ?";
+			String q = "delete from \"Persoonsgegevens\" where \"ID\" = ?";
 			System.out.println(q);
 			PreparedStatement pstmt = con.prepareStatement(q);
 			pstmt.setInt(1, persoonsGegevens.getId());
