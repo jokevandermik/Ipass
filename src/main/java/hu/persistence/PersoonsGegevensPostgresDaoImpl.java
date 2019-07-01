@@ -64,6 +64,7 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 //			pstmt.setString(4, persoonsGegevens.getPostcode());
 //			pstmt.setString(5, persoonsGegevens.getWoonplaats());
 //			pstmt.setString(6, persoonsGegevens.getGeboortedatum());
+			System.out.println("in dao: "+persoonsGegevens.getGeslacht());
 			pstmt.setString(7, persoonsGegevens.getGeslacht());
 //			pstmt.setInt(8, persoonsGegevens.getTelefoonnummer());
 //			pstmt.setString(9, persoonsGegevens.getEmail());

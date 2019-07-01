@@ -118,4 +118,10 @@ public class PersoonsGegevens {
 	public void setLinkedin(String ldin) {
 		linkedin = ldin;
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.geslacht;
+	}
 }

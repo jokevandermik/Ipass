@@ -122,6 +122,7 @@ public class ProfielResource {
 		String woonplaats = wp;
 		String geboortedatum = gb;
 		String geslacht = gs;
+		System.out.println("in resource: "+gs);
 		String telefoonnummer = tfnr;
 		String email = mail;
 		String linkedin = lkin;
