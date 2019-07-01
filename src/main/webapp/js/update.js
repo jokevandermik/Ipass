@@ -39,7 +39,7 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 			console.log(telnr);
 			var huis = myJson[0].huisnummer;
 			var huisnr = Number(huis);
-			var jaren = myJson[0].jaren_ErvaringIT
+			var jaren = myJson[0].jarenErvaringIT
 			var jarenIT = Number(jaren);
 
 			let input = document.querySelector('inputData');
