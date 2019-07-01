@@ -20,8 +20,8 @@ public class VaardigheidPostgresDaoImpl extends PostgresBaseDao implements Vaard
 			
 			while (dbResultSet.next()) {
 				int id = dbResultSet.getInt("id");
-				String technischeVaardigheden = dbResultSet.getString("technischeVaardigheden");
-				String functioneleVaardigheden = dbResultSet.getString("functioneleVaardigheden");
+				String technischeVaardigheden = dbResultSet.getString("technische_vaardigheden");
+				String functioneleVaardigheden = dbResultSet.getString("functionele_vaardigheden");
 				String werkervaring = dbResultSet.getString("werkervaring");
 				String computertalen = dbResultSet.getString("comptertalen");
 				String platformen = dbResultSet.getString("platformen");

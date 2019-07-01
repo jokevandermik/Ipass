@@ -27,7 +27,7 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 				int idVaardigheid = dbResultSet.getInt("Vaardigheden_ID");
 				String eigenschappen = dbResultSet.getString("eigenschappen");
 				String spreektalen	= dbResultSet.getString("spreektalen");
-				int jarenErvaringIT = dbResultSet.getInt("jarenErvaringIT");
+				int jarenErvaringIT = dbResultSet.getInt("jaren_Ervaring_IT");
 				
 //				String naam = dbResultSet.getString("naam");
 //				String straatnaam = dbResultSet.getString("straatnaam");
@@ -40,8 +40,8 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 //				String email = dbResultSet.getString("email");
 //				String linkedin = dbResultSet.getString("linkedin");
 //				
-//				String technischeVaardigheden = dbResultSet.getString("technischeVaardigheden");
-//				String functioneleVaardigheden = dbResultSet.getString("functioneleVaardigheden");
+//				String technischeVaardigheden = dbResultSet.getString("technische_vaardigheden");
+//				String functioneleVaardigheden = dbResultSet.getString("functionele_vaardigheden");
 //				String werkervaring = dbResultSet.getString("werkervaring");
 //				String computertalen = dbResultSet.getString("comptertalen");
 //				String platformen = dbResultSet.getString("platformen");
