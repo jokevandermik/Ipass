@@ -32,6 +32,14 @@ let hoi = "hallo";
 				let table = document.querySelector('tbody');
 				table.innerHTML = "";
 				
+				if(myJson == ""){
+					let error = document.querySelector('error');
+					error.innerHTML = "Er zijn geen profielen gevonden.";
+					table.innerHTML = "";
+				}
+				
+				else{
+				
 				var i = 0;
 				for (i; i < myJson.length; i++) {
 					table.innerHTML = table.innerHTML + "<tr>" +
@@ -42,6 +50,7 @@ let hoi = "hallo";
 					"<td>"+ myJson[i].spreektalen +"</td> <td>"+ myJson[i].jarenErvaringIT +"</td> <td>"+ myJson[i].technischeVaardigheden +"</td>" +
 					"<td>"+ myJson[i].functioneleVaardigheden +"</td> <td>"+ myJson[i].werkervaring +"</td> <td>"+ myJson[i].computertalen +"</td>" +
 					"<td>"+ myJson[i].platform +"</td> <td>"+ myJson[i].pakketten +"</td>";
+				}
 				}
 			});
 		}

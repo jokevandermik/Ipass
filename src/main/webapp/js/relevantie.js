@@ -39,8 +39,6 @@ document.querySelector("#post").addEventListener("click", function () {
 			}
 			
 			else{
-//			let table = document.querySelector('tbody');
-//			table.innerHTML = "";
 			
 			var i = 0;
 			for (i; i < myJson.length; i++) {
