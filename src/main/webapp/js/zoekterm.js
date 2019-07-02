@@ -28,8 +28,12 @@ document.querySelector("#get").addEventListener("click", function () {
 		.then((myJson) => {
 			console.log(JSON.stringify(myJson));
 			
-			let table = document.querySelector('tbody');
-			table.innerHTML = "";
+			let table = document.querySelector('tabel');
+			table.innerHTML = "<table> <thead> <tr> <th>ID</th> <th>Naam</th> <th>Straatnaam</th> <th>Huisnummer</th>"+
+			"<th>Postcode</th> <th>Woonplaats</th> <th>Geboortedatum</th> <th>Geslacht</th> <th>Telefoonnummer</th>" +
+			"<th>Email</th> <th>Linkedin</th> <th>Eigenschappen</th> <th>Spreektalen</th> <th>Jaren ervaring in IT</th>" +
+			"<th>Technische vaardigheden</th> <th>Functionele vaardigheden</th> <th>Werkervaring</th> <th>Computertalen</th>" +
+			"<th>Platformen</th> <th>Pakketen</th> </tr> </thead>";
 			
 			if(myJson == ""){
 				let error = document.querySelector('error');
@@ -48,7 +52,7 @@ document.querySelector("#get").addEventListener("click", function () {
 				"<td>"+ myJson[i].email +"</td> <td>"+ myJson[i].linkedin +"</td> <td>"+ myJson[i].eigenschappen +"</td>" +
 				"<td>"+ myJson[i].spreektalen +"</td> <td>"+ myJson[i].jarenErvaringIT +"</td> <td>"+ myJson[i].technischeVaardigheden +"</td>" +
 				"<td>"+ myJson[i].functioneleVaardigheden +"</td> <td>"+ myJson[i].werkervaring +"</td> <td>"+ myJson[i].computertalen +"</td>" +
-				"<td>"+ myJson[i].platform +"</td> <td>"+ myJson[i].pakketten +"</td>";
+				"<td>"+ myJson[i].platform +"</td> <td>"+ myJson[i].pakketten +"</td> </table>";
 			}
 			}
 		});

@@ -32,7 +32,7 @@
 	console.log(id);
 	
 	let input = document.getElementById('id');
-	input.innerHTML = "<input class='input' type='number' name='id' maxlength='4' value='" + id + "' readonly/>";
+	input.innerHTML = "ID: <input class='input' type='number' name='id' maxlength='4' value='" + id + "' readonly/>";
 });
 }
 
