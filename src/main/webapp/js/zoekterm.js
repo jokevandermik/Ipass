@@ -28,7 +28,7 @@ document.querySelector("#get").addEventListener("click", function () {
 		.then((myJson) => {
 			console.log(JSON.stringify(myJson));
 			
-			let table = document.querySelector('tabel');
+			let table = document.querySelector('tbody');
 			table.innerHTML = "";
 			
 			if(myJson == ""){
