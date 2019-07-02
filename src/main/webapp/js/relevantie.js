@@ -29,6 +29,9 @@ document.querySelector("#post").addEventListener("click", function () {
 		.then((myJson) => {
 			console.log(JSON.stringify(myJson));
 			
+			let table = document.querySelector('tbody');
+			table.innerHTML = "";
+			
 			if(myJson == ""){
 				let error = document.querySelector('error');
 				error.innerHTML = "Er zijn geen profielen die overeenkomen gevonden."
