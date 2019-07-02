@@ -65,10 +65,14 @@
 	border: 5px solid white;
 }
 
+.div_table{
+	border: 5px solid white;
+}
+
 table {
   border-collapse: collapse;
 }
 
 table, td, th {
-  border: 3px solid black;
+  border: 2px solid black;
 }
