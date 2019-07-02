@@ -1,3 +1,4 @@
+//commando om te wachten tot er wordt gedrukt op de button in de Geografisch.html
 document.querySelector("#get").addEventListener("click", function () {
 	var pcode = document.getElementById("geografisch").value;
 	console.log(pcode);
@@ -5,7 +6,7 @@ document.querySelector("#get").addEventListener("click", function () {
 	let fetchOptions = {
 			method: 'GET'
 	};
-	
+	//roept webservice aan om profielen met opgegeven postcode op te halen
 	fetch('/restservices/WolfAndCherry/geografisch/' + pcode, fetchOptions)
 		.then((response) => {
 			console.log(response.status);
