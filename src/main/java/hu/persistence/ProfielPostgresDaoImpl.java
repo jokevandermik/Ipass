@@ -129,7 +129,9 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 		List<Profiel> result = new ArrayList<Profiel>();
 		String query = "select \"Profiel\".* , \"Naam\", \"Straatnaam\", \"Huisnummer\", \"Postcode\", \"Woonplaats\", \"Geboortedatum\", \"Geslacht\", \"Telefoonnummer\", \"Email\", \"Linkedin\", \"Technische_vaardigheden\", \"Functionele_vaardigheden\", \"Werkervaring\", \"Computertalen\", \"Platformen\", \"Pakketen\" from \"Persoonsgegevens\",  \"Profiel\", \"Vaardigheden\" where \"Persoonsgegevens\".\"ID\" = \"Profiel\".\"Persoonsgegevens_ID\" and \"Vaardigheden\".\"ID\" = \"Profiel\".\"Vaardigheden_ID\" and\r\n" + 
 				"	(lower(\"Technische_vaardigheden\") LIKE lower('%"+ zoekterm + "%') or lower(\"Functionele_vaardigheden\") like lower('%" + zoekterm + "%') or lower(\"Computertalen\") like lower('%" + zoekterm + "%') or lower(\"Platformen\") like lower('%" + zoekterm + "%') or lower(\"Pakketen\") like lower('%" + zoekterm + "%'));";
-		 System.out.println("voor db connectie");
+		System.out.println(query);
+		System.out.println(zoekterm);
+		System.out.println("voor db connectie");
 		try(Connection con = super.getConnection()){
 			PreparedStatement pstmt = con.prepareStatement(query);
 			ResultSet dbResultSet = pstmt.executeQuery();

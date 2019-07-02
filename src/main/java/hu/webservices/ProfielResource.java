@@ -111,6 +111,7 @@ public class ProfielResource {
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		
 		for(Profiel pf : pfdb.selectProfielZoekterm(zoekterm)) {
+			System.out.println(zoekterm);
 			JsonObjectBuilder job = Json.createObjectBuilder();
 			job.add("id", pf.getId());
 			System.out.println("resource: "+ pf.getId());
