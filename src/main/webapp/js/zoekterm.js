@@ -29,11 +29,7 @@ document.querySelector("#get").addEventListener("click", function () {
 			console.log(JSON.stringify(myJson));
 			
 			let table = document.querySelector('tabel');
-			table.innerHTML = "<table> <thead> <tr> <th>ID</th> <th>Naam</th> <th>Straatnaam</th> <th>Huisnummer</th>"+
-			"<th>Postcode</th> <th>Woonplaats</th> <th>Geboortedatum</th> <th>Geslacht</th> <th>Telefoonnummer</th>" +
-			"<th>Email</th> <th>Linkedin</th> <th>Eigenschappen</th> <th>Spreektalen</th> <th>Jaren ervaring in IT</th>" +
-			"<th>Technische vaardigheden</th> <th>Functionele vaardigheden</th> <th>Werkervaring</th> <th>Computertalen</th>" +
-			"<th>Platformen</th> <th>Pakketen</th> </tr> </thead>";
+			table.innerHTML = "";
 			
 			if(myJson == ""){
 				let error = document.querySelector('error');
@@ -54,7 +50,6 @@ document.querySelector("#get").addEventListener("click", function () {
 				"<td>"+ myJson[i].functioneleVaardigheden +"</td> <td>"+ myJson[i].werkervaring +"</td> <td>"+ myJson[i].computertalen +"</td>" +
 				"<td>"+ myJson[i].platform +"</td> <td>"+ myJson[i].pakketten +"</td>";
 			}
-			table.innerHTML = table.innerHTML + "</table>"
 			}
 		});
 }) 
