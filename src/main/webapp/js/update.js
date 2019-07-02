@@ -93,16 +93,16 @@ function putData(){
 			.then((response) => {
 				console.log(response.status);
 				if(response.ok){
-					 status.innerHTML = status.innerHTML + "Het profiel is aangemaakt.";
+					 status.innerHTML = status.innerHTML + "Het profiel is aangepast.";
 					 console.log(status)
 					 }
 					 else if (response.status == 500){
-					 status.innerHTML = status.innerHTML +  "Server fout. Profiel aanmaken mislukt.";
+					 status.innerHTML = status.innerHTML +  "Server fout. Profiel aanpassen mislukt.";
 					 console.log(status)
 					 
 					 }
 					 else if (response.status == 405){
-						 status.innerHTML = status.innerHTML +  "Niet alle velden ingevuld. Profiel aanmaken mislukt.";
+						 status.innerHTML = status.innerHTML +  "Niet alle velden ingevuld. Profiel aanpassen mislukt.";
 						 console.log(status)
 						 }
 					 else{
