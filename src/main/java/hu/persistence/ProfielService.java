@@ -30,13 +30,13 @@ public class ProfielService {
 	}
 	
 	public boolean deleteAlles(Profiel p) {
+		ProfielDao profielDao = new ProfielPostgresDaoImpl();
+		boolean profielOK = profielDao.delete(p);
 		PersoonsGegevensDao persoonsGegevensDao = new PersoonsGegevensPostgresDaoImpl();
 		System.out.println("in service:"+p.getGegevens());
 		boolean gegevensOK = persoonsGegevensDao.delete(p.getGegevens());
 		VaardigheidDao vaardigheidDao = new VaardigheidPostgresDaoImpl();
 		boolean vaardigheidOK = vaardigheidDao.delete(p.getVaardigheden());
-		ProfielDao profielDao = new ProfielPostgresDaoImpl();
-		boolean profielOK = profielDao.delete(p);
 		return gegevensOK && vaardigheidOK && profielOK;
 	}
 }
