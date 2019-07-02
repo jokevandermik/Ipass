@@ -28,6 +28,15 @@ let hoi = "hallo";
 			})
 			.then((myJson) => {
 				console.log(JSON.stringify(myJson));
+				
+				let table = document.querySelector('tbody');
+				table.innerHTML = "";
+				
+				var i = 0;
+				for (i; i < myJson.length; i++) {
+					table.innerHTML = table.innerHTML + "<tr>" +
+					"<td>"+ myJson[i].id +"</td>";
+				}
 			});
 		}
 		
