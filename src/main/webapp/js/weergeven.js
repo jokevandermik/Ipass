@@ -35,7 +35,7 @@ let hoi = "hallo";
 				var i = 0;
 				for (i; i < myJson.length; i++) {
 					table.innerHTML = table.innerHTML + "<tr>" +
-					"<td>"+ myJson[i].id +"</td>";
+					"<td>"+ myJson[i].id +"</td> <td>"+ myJson[i].naam +"</td> <td>"+ myJson[i].straatnaam +"</td>";
 				}
 			});
 		}
