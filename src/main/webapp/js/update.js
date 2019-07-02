@@ -29,11 +29,12 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 		})
 		.then((myJson) => {
 			console.log(JSON.stringify(myJson));
-			
-//			var parts = myJson[0].geboortedatum.split('-');
-//			var gbdatum = new Date (parts[2], parts[1] -1, parts[0]);
-//			console.log(gbdatum);
-			
+
+			if(myJson == ""){
+				let error = document.querySelector('error');
+				error.innerHTML = "Er is geen profiel gevonden.";
+			}
+			else{
 			var tel = myJson[0].telefoonnummer;
 			var telnr = Number(tel);
 			console.log(telnr);
@@ -73,6 +74,7 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 			
 			putData();
 			verwijderData();
+			}
 		});
 	
 function putData(){	
@@ -135,18 +137,14 @@ function verwijderData(){
 			.then((response) => {
 				console.log(response.status);
 				if(response.ok){
-					 status.innerHTML = status.innerHTML + "Het profiel is aangepast.";
+					 status.innerHTML = status.innerHTML + "Het profiel is verwijdert.";
 					 console.log(status)
 					 }
 					 else if (response.status == 500){
-					 status.innerHTML = status.innerHTML +  "Server fout. Profiel aanpassen mislukt.";
+					 status.innerHTML = status.innerHTML +  "Server fout. Profiel verwijderen mislukt.";
 					 console.log(status)
 					 
 					 }
-					 else if (response.status == 405){
-						 status.innerHTML = status.innerHTML +  "Niet alle velden ingevuld. Profiel aanpassen mislukt.";
-						 console.log(status)
-						 }
 					 else{
 					status.innerHTML = status.innerHTML +  "Er is een onbekende fout opgetreden.";
 					 console.log(status);

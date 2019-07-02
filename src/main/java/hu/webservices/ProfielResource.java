@@ -303,17 +303,17 @@ public class ProfielResource {
 		if(nm.isEmpty() || strnm.isEmpty() || pc.isEmpty() || wp.isEmpty() || gb.isEmpty() || gs.isEmpty() || tfnr.isEmpty() || mail.isEmpty() || lkin.isEmpty() || tv.isEmpty() || fv.isEmpty() || we.isEmpty() || ct.isEmpty() || pt.isEmpty() || pk.isEmpty() || es.isEmpty() || st.isEmpty()) return Response.status(405).build();
 
 		int id = Id;
-		String naam = nm;
-		String straatnaam = strnm;
+		String naam = nm.trim();
+		String straatnaam = strnm.trim();
 		int huisnummer = hsnr;
 		String postcode = pc.trim();
-		String woonplaats = wp;
+		String woonplaats = wp.trim();
 		String geboortedatum = gb.trim();
-		String geslacht = gs;
+		String geslacht = gs.trim();
 		System.out.println("in resource: "+gs);
-		String telefoonnummer = tfnr;
-		String email = mail;
-		String linkedin = lkin;
+		String telefoonnummer = tfnr.trim();
+		String email = mail.trim();
+		String linkedin = lkin.trim();
 		
 		String technischeVaardigheden = tv;
 		String functioneleVaardigheden = fv;
