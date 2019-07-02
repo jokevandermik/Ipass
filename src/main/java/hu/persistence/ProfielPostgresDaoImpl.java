@@ -184,7 +184,7 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 	
 	public List<Profiel> selectProfielPostcode(String pcode){
 		List<Profiel> result = new ArrayList<Profiel>();
-		String query = "select \"Profiel\".* , \"Naam\", \"Straatnaam\", \"Huisnummer\", \"Postcode\", \"Woonplaats\", \"Geboortedatum\", \"Geslacht\", \"Telefoonnummer\", \"Email\", \"Linkedin\", \"Technische_vaardigheden\", \"Functionele_vaardigheden\", \"Werkervaring\", \"Computertalen\", \"Platformen\", \"Pakketen\" from \"Persoonsgegevens\", \"Profiel\", \"Vaardigheden\" where \"Persoonsgegevens\".\"ID\" = \"Profiel\".\"Persoonsgegevens_ID\" and \"Vaardigheden\".\"ID\" = \"Profiel\".\"Vaardigheden_ID\" and lower(\"Postcode\" = lower('"+ pcode + "'));";
+		String query = "select \"Profiel\".* , \"Naam\", \"Straatnaam\", \"Huisnummer\", \"Postcode\", \"Woonplaats\", \"Geboortedatum\", \"Geslacht\", \"Telefoonnummer\", \"Email\", \"Linkedin\", \"Technische_vaardigheden\", \"Functionele_vaardigheden\", \"Werkervaring\", \"Computertalen\", \"Platformen\", \"Pakketen\" from \"Persoonsgegevens\", \"Profiel\", \"Vaardigheden\" where \"Persoonsgegevens\".\"ID\" = \"Profiel\".\"Persoonsgegevens_ID\" and \"Vaardigheden\".\"ID\" = \"Profiel\".\"Vaardigheden_ID\" and lower(\"Postcode\") = lower('"+ pcode + "');";
 		 System.out.println("voor db connectie");
 		try(Connection con = super.getConnection()){
 			PreparedStatement pstmt = con.prepareStatement(query);
