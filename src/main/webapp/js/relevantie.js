@@ -1,3 +1,4 @@
+//commando om te wachten tot er wordt gedrukt op de button in de Relevantie.html
 document.querySelector("#get").addEventListener("click", function () {
 	var lijst = document.getElementById("relevant");
 	var relevantie = lijst.options[lijst.selectedIndex].value;
@@ -7,6 +8,7 @@ document.querySelector("#get").addEventListener("click", function () {
 			method: 'GET'
 	};
 	
+	//Roept webservice aan met opgegeven relevantie uitkeuzelijst
 	fetch('/restservices/WolfAndCherry/relevantie/' + relevantie, fetchOptions)
 		.then((response) => {
 			console.log(response.status);
@@ -40,6 +42,7 @@ document.querySelector("#get").addEventListener("click", function () {
 			
 			else{
 			
+			//zet profielen in een tabel op het scherm
 			var i = 0;
 			for (i; i < myJson.length; i++) {
 				table.innerHTML = table.innerHTML + "<tr>" +

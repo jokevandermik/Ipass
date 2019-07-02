@@ -7,6 +7,7 @@ let hoi = "hallo";
 				method: 'GET'
 		};
 		
+		// roept webserives aan om alle profielen op te halen
 		fetch('/restservices/WolfAndCherry/all', fetchOptions)
 			.then((response) => {
 				console.log(response.status);
@@ -40,6 +41,7 @@ let hoi = "hallo";
 				
 				else{
 				
+				// zet alle profielen in een tabel op het scherm.
 				var i = 0;
 				for (i; i < myJson.length; i++) {
 					table.innerHTML = table.innerHTML + "<tr>" +

@@ -1,3 +1,4 @@
+//maakt connectie met de database
 package hu.persistence;
 
 import java.sql.Connection;

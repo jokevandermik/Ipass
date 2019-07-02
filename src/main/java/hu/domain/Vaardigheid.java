@@ -1,3 +1,4 @@
+//domain class voor de vaardigheden om die in de java op te slaan.
 package hu.domain;
 
 public class Vaardigheid {

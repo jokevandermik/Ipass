@@ -1,3 +1,4 @@
+//Dit is de webservices die aangeroepen worden vanuit javascript
 package hu.webservices;
 
 import javax.json.Json;
@@ -26,6 +27,7 @@ import hu.persistence.VaardigheidPostgresDaoImpl;;
 
 @Path("/WolfAndCherry")
 public class ProfielResource {
+	//webservice voor het ophalen van gegevens uit de persoonsgegevens, profiel en vaardigheid
 	@GET
 	@Path("/all")
 	public Response getGegevens() {
@@ -65,6 +67,7 @@ public class ProfielResource {
 		return Response.ok(jsonArray.toString()).build();
 	}
 	
+	//webservice voor het op halen van profiel uit de persoonsgegevens, profiel en vaardigheid op basis van een geselecteerde relevantie
 	@GET
 	@Path("/relevantie/{relevantie}")
 	public Response getRelevantie(@PathParam("relevantie") String relevant){
@@ -104,6 +107,7 @@ public class ProfielResource {
 		return Response.ok(jsonArray.toString()).build();
 	}
 	
+	//webservice voor het op halen van profiel uit de persoonsgegevens, profiel en vaardigheid op basis van een opgegeven zoekterm
 	@GET
 	@Path("/zoekterm/{zoekterm}")
 	public Response getZoekterm(@PathParam("zoekterm") String zoekterm){
@@ -144,6 +148,7 @@ public class ProfielResource {
 		return Response.ok(jsonArray.toString()).build();
 	}
 	
+	//webservice voor het op halen van profiel uit de persoonsgegevens, profiel en vaardigheid op basis van een opgegeven postcode
 	@GET
 	@Path("/geografisch/{pcode}")
 	public Response getPostcode(@PathParam("pcode") String pcode){
@@ -183,6 +188,7 @@ public class ProfielResource {
 		return Response.ok(jsonArray.toString()).build();
 	}
 	
+	//webservice voor het op halen van profiel uit de persoonsgegevens, profiel en vaardigheid op basis van een id
 	@GET
 	@Path("/aanpassen/{ID}")
 	public Response getRelevantie(@PathParam("ID") int id){
@@ -222,6 +228,7 @@ public class ProfielResource {
 		return Response.ok(jsonArray.toString()).build();
 	}
 	
+	//webservice voor het ophalen van een id voor het aanmaken een profiel
 	@GET
 	@Path("/Idhalen")
 	public Response getPersoonID() {
@@ -239,6 +246,7 @@ public class ProfielResource {
 		return Response.ok(jsonArray.toString()).build();
 	}
 	
+	//webservice voor het opslaan van een profiel in persoonsgegevens, profiel en vaardigheid
 	@POST
 	@Path("/save")
 	public Response saveProfiel(@FormParam("id") int Id,@FormParam("naam") String nm, @FormParam("straatnaam") String strnm, @FormParam("huisnummer") int hsnr, @FormParam("postcode") String pc, @FormParam("woonplaats") String wp, @FormParam("geboortedatum") String gb, @FormParam("geslacht") String gs, @FormParam("telefoonnummer") String tfnr, @FormParam("email") String mail, @FormParam("linkedin") String lkin,
@@ -282,12 +290,9 @@ public class ProfielResource {
 		
 		if (deGegevens.getNaam().isEmpty()) return Response.status(406).build();
 		
-		
-		
 		hetProfiel.setGegevens(deGegevens);
 		
 		if(hetProfiel.getGegevens().getNaam().isEmpty()) return Response.status(410).build();
-		
 		
 		hetProfiel.setVaardigheden(deVaardigheid);
 		
@@ -295,6 +300,7 @@ public class ProfielResource {
 		return Response.status(402).build();
 	}
 	
+	//webservice voor het updaten van een profiel in persoonsgegevens, profiel en vaardigheid
 	@PUT
 	@Path("/update")
 	public Response updateProfiel(@FormParam("id") int Id,@FormParam("naam") String nm, @FormParam("straatnaam") String strnm, @FormParam("huisnummer") int hsnr, @FormParam("postcode") String pc, @FormParam("woonplaats") String wp, @FormParam("geboortedatum") String gb, @FormParam("geslacht") String gs, @FormParam("telefoonnummer") String tfnr, @FormParam("email") String mail, @FormParam("linkedin") String lkin,
@@ -340,11 +346,9 @@ public class ProfielResource {
 		
 		if (deGegevens.getNaam().isEmpty()) return Response.status(406).build();
 		
-		
 		hetProfiel.setGegevens(deGegevens);
 		
 		if(hetProfiel.getGegevens().getNaam().isEmpty()) return Response.status(410).build();
-		
 		
 		hetProfiel.setVaardigheden(deVaardigheid);
 		
@@ -352,7 +356,7 @@ public class ProfielResource {
 		return Response.status(402).build();
 	}
 	
-	
+	//webservice voor het verwijderen van een profiel in persoonsgegevens, profiel en vaardigheid
 	@PUT
 	@Path("/delete")
 	public Response deleteProfiel(@FormParam("id") int Id,@FormParam("naam") String nm, @FormParam("straatnaam") String strnm, @FormParam("huisnummer") int hsnr, @FormParam("postcode") String pc, @FormParam("woonplaats") String wp, @FormParam("geboortedatum") String gb, @FormParam("geslacht") String gs, @FormParam("telefoonnummer") String tfnr, @FormParam("email") String mail, @FormParam("linkedin") String lkin,
@@ -398,11 +402,9 @@ public class ProfielResource {
 		
 		if (deGegevens.getNaam().isEmpty()) return Response.status(406).build();
 		
-		
 		hetProfiel.setGegevens(deGegevens);
 		
 		if(hetProfiel.getGegevens().getNaam().isEmpty()) return Response.status(410).build();
-		
 		
 		hetProfiel.setVaardigheden(deVaardigheid);
 		

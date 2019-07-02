@@ -1,3 +1,4 @@
+//Dao interface van de persoonsID
 package hu.persistence;
 
 import java.util.List;

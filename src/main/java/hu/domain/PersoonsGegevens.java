@@ -1,6 +1,5 @@
+//domain class voor de persoonsgegevens om die in de java op te slaan.
 package hu.domain;
-
-import java.util.Date;
 
 public class PersoonsGegevens {
 	private int id;
@@ -119,6 +118,7 @@ public class PersoonsGegevens {
 		linkedin = ldin;
 	}
 	
+	// toString voor het checken of gegevens op bepaalde plekken aankomen
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub

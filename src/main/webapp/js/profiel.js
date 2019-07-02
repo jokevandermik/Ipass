@@ -1,10 +1,11 @@
-	function haalIDop(){
-	var id;
+//functie haalIDop zorgt ervoor dat er een nieuw id bepaald wordt voor het nieuwe profiel.
+function haalIDop(){
+var id;
     
  let fetchOptions = {
  method: 'GET',
  };
-	
+	//ropet webservice aan om profielen aan te maken
  fetch('/restservices/WolfAndCherry/Idhalen', fetchOptions)
  .then((response) => {
  console.log(response.status);
@@ -37,7 +38,7 @@
 }
 
 	haalIDop();
-
+	//commando om te wachten tot er wordt gedrukt op de button in de index.html
 	document.querySelector("#post").addEventListener("click", function () {
  var formData = new FormData(document.querySelector("#FormPost"));
  var encData = new URLSearchParams(formData.entries());
@@ -52,6 +53,7 @@
 			method: 'POST',
 			body: encData,
 		}
+ // roept webservice aan om gegevens op te slaan
  fetch('/restservices/WolfAndCherry/save', fetchoptions)
 	.then((response) => {
 		console.log(response.status);

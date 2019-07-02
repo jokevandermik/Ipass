@@ -1,3 +1,4 @@
+//Dao implementatie van profiel
 package hu.persistence;
 
 import java.sql.Connection;
@@ -12,6 +13,7 @@ import hu.domain.Profiel;
 import hu.domain.Vaardigheid;
 
 public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDao{
+	// haalt profiel, persoonsgegeven en vaardigheden op uit de database
 	public List<Profiel> selectProfiel(){
 		List<Profiel> result = new ArrayList<Profiel>();
 		String query = "select \"Profiel\".* , \"Naam\", \"Straatnaam\", \"Huisnummer\", \"Postcode\", \"Woonplaats\", \"Geboortedatum\", \"Geslacht\", \"Telefoonnummer\", \"Email\", \"Linkedin\", \"Technische_vaardigheden\", \"Functionele_vaardigheden\", \"Werkervaring\", \"Computertalen\", \"Platformen\", \"Pakketen\" from \"Persoonsgegevens\",  \"Profiel\", \"Vaardigheden\" where \"Persoonsgegevens\".\"ID\" = \"Profiel\".\"Persoonsgegevens_ID\" and \"Vaardigheden\".\"ID\" = \"Profiel\".\"Vaardigheden_ID\";";
@@ -68,6 +70,7 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 		return result;
 	}
 	
+	// haalt profielen op uit de database op basis van geselecteerde relevantie
 	public List<Profiel> selectProfielRelevantie(String relevantie){
 		List<Profiel> result = new ArrayList<Profiel>();
 		String query = "select \"Profiel\".* , \"Naam\", \"Straatnaam\", \"Huisnummer\", \"Postcode\", \"Woonplaats\", \"Geboortedatum\", \"Geslacht\", \"Telefoonnummer\", \"Email\", \"Linkedin\", \"Technische_vaardigheden\", \"Functionele_vaardigheden\", \"Werkervaring\", \"Computertalen\", \"Platformen\", \"Pakketen\" from \"Persoonsgegevens\",  \"Profiel\", \"Vaardigheden\" where \"Persoonsgegevens\".\"ID\" = \"Profiel\".\"Persoonsgegevens_ID\" and \"Vaardigheden\".\"ID\" = \"Profiel\".\"Vaardigheden_ID\" and\r\n" + 
@@ -125,6 +128,7 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 		return result;
 	}
 	
+	//haalt profielen uit de database op basis van een opgegeven zoekterm
 	public List<Profiel> selectProfielZoekterm(String zoekterm){
 		List<Profiel> result = new ArrayList<Profiel>();
 		String query = "select \"Profiel\".* , \"Naam\", \"Straatnaam\", \"Huisnummer\", \"Postcode\", \"Woonplaats\", \"Geboortedatum\", \"Geslacht\", \"Telefoonnummer\", \"Email\", \"Linkedin\", \"Technische_vaardigheden\", \"Functionele_vaardigheden\", \"Werkervaring\", \"Computertalen\", \"Platformen\", \"Pakketen\" from \"Persoonsgegevens\",  \"Profiel\", \"Vaardigheden\" where \"Persoonsgegevens\".\"ID\" = \"Profiel\".\"Persoonsgegevens_ID\" and \"Vaardigheden\".\"ID\" = \"Profiel\".\"Vaardigheden_ID\" and\r\n" + 
@@ -184,6 +188,7 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 		return result;
 	}
 	
+	//haalt profielen uit de database op basis van een opgegeven postcode
 	public List<Profiel> selectProfielPostcode(String pcode){
 		List<Profiel> result = new ArrayList<Profiel>();
 		String query = "select \"Profiel\".* , \"Naam\", \"Straatnaam\", \"Huisnummer\", \"Postcode\", \"Woonplaats\", \"Geboortedatum\", \"Geslacht\", \"Telefoonnummer\", \"Email\", \"Linkedin\", \"Technische_vaardigheden\", \"Functionele_vaardigheden\", \"Werkervaring\", \"Computertalen\", \"Platformen\", \"Pakketen\" from \"Persoonsgegevens\", \"Profiel\", \"Vaardigheden\" where \"Persoonsgegevens\".\"ID\" = \"Profiel\".\"Persoonsgegevens_ID\" and \"Vaardigheden\".\"ID\" = \"Profiel\".\"Vaardigheden_ID\" and lower(\"Postcode\") = lower('"+ pcode + "');";
@@ -240,6 +245,7 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 		return result;
 	}
 	
+	//haalt profiel uit de database op basis van een opgegeven ID
 	public List<Profiel> selectProfielID(int ID){
 		List<Profiel> result = new ArrayList<Profiel>();
 		String query = "select \"Profiel\".* , \"Naam\", \"Straatnaam\", \"Huisnummer\", \"Postcode\", \"Woonplaats\", \"Geboortedatum\", \"Geslacht\", \"Telefoonnummer\", \"Email\", \"Linkedin\", \"Technische_vaardigheden\", \"Functionele_vaardigheden\", \"Werkervaring\", \"Computertalen\", \"Platformen\", \"Pakketen\" from \"Persoonsgegevens\",  \"Profiel\", \"Vaardigheden\" where \"Persoonsgegevens\".\"ID\" = \"Profiel\".\"Persoonsgegevens_ID\" and \"Vaardigheden\".\"ID\" = \"Profiel\".\"Vaardigheden_ID\" and \r\n" + 
@@ -297,6 +303,7 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 		return result;
 	}
 	
+	// slaat profiel op in de database
 	public boolean save(Profiel profiel) {
 		try(Connection con = super.getConnection()){
 			String q = "insert into \"Profiel\"(\"ID\", \"Persoonsgegevens_ID\", \"Vaardigheden_ID\", \"Eigenschappen\", \"Spreektalen\", \"Jaren_Ervaring_IT\") values (?, ?, ?, ?, ?, ?);";
@@ -315,6 +322,7 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 		}
 	}
 	
+	// update profiel in de database
 	public boolean update(Profiel profiel) {
 		try (Connection con = super.getConnection()){
 			String q = "update \"Profiel\" set \"Eigenschappen\" = ? , \"Spreektalen\" = ? , \"Jaren_Ervaring_IT\" = ? where \"ID\" = ? ;";
@@ -326,7 +334,6 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 			pstmt.setInt(4, profiel.getId());
 			pstmt.executeUpdate();
 			System.out.println("Dao: " + profiel.getJarenErvaringIT());
-//			ResultSet dbResultSet = pstmt.executeQuery();
 			return true;
 		} catch(Exception exc) {
 			exc.printStackTrace();
@@ -336,6 +343,7 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 		}
 	}
 	
+	//verwijdert profiel uit de database
 	public boolean delete(Profiel profiel) {
 		try(Connection con = super.getConnection()){
 			String q = "delete from \"Profiel\" where \"ID\" = ?";
@@ -343,7 +351,6 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 			PreparedStatement pstmt = con.prepareStatement(q);
 			pstmt.setInt(1, profiel.getId());
 			pstmt.executeUpdate();
-			//ResultSet dbResultSet = pstmt.executeQuery();
 			return true;
 		} catch (Exception exc) {
 			exc.printStackTrace();

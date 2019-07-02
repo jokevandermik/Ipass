@@ -1,3 +1,4 @@
+//Dao implementatie van persoongegevens
 package hu.persistence;
 
 import java.sql.Connection;
@@ -10,6 +11,7 @@ import java.util.List;
 import hu.domain.PersoonsGegevens;
 
 public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements PersoonsGegevensDao{
+	// haalt persoonsgegevens uit database
 	public List<PersoonsGegevens> selectGegevens() {
 		List<PersoonsGegevens> result = new ArrayList<PersoonsGegevens>();
 		String query = "Select * from \"Persoonsgegevens\"";
@@ -42,7 +44,7 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 	}
 	
 	
-
+//slaat persoonsgegevens op in database
 	public boolean save(PersoonsGegevens persoonsGegevens) {
 		try (Connection con = super.getConnection()) {
 			String q = "insert into \"Persoonsgegevens\"(\"ID\", \"Straatnaam\", \"Huisnummer\", \"Postcode\", \"Woonplaats\", \"Geboortedatum\", \"Geslacht\", \"Telefoonnummer\", \"Email\", \"Linkedin\", \"Naam\") values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
@@ -67,6 +69,7 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 		}
 	}
 
+// update persoonsgegevens in de database
 	public boolean update(PersoonsGegevens persoonsGegevens) {
 		try (Connection con = super.getConnection()) {
 			String q = "Update \"Persoonsgegevens\" SET \"Straatnaam\" = ? , \"Huisnummer\" = ?, \"Postcode\" = ?, \"Woonplaats\" = ?,"
@@ -84,10 +87,8 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 			pstmt.setString(9, persoonsGegevens.getLinkedin());
 			pstmt.setString(10, persoonsGegevens.getNaam());
 			pstmt.setInt(11, persoonsGegevens.getId());
-//			System.out.println("dao pg id :"+persoonsGegevens.getId());
 			pstmt.executeUpdate();
 			return true;
-//			ResultSet dbResultSet = pstmt.executeQuery();
 		} catch (Exception exc) {
 			exc.printStackTrace();
 			System.err.println(exc.toString());
@@ -96,6 +97,7 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 		}
 	}
 	
+// verwijdert persoonsgegevens uit database
 	public boolean delete(PersoonsGegevens persoonsGegevens) {
 		try(Connection con = super.getConnection()){
 			String q = "delete from \"Persoonsgegevens\" where \"ID\" = ?";
@@ -103,7 +105,6 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 			PreparedStatement pstmt = con.prepareStatement(q);
 			pstmt.setInt(1, persoonsGegevens.getId());
 			pstmt.executeUpdate();
-			//ResultSet dbResultSet = pstmt.executeQuery();
 			return true;
 		} catch (Exception exc) {
 			exc.printStackTrace();

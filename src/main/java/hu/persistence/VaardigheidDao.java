@@ -1,3 +1,4 @@
+//Dao interface van vaardigheid
 package hu.persistence;
 
 import hu.domain.Vaardigheid;;

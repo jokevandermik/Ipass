@@ -1,3 +1,4 @@
+//commando om te wachten tot er wordt gedrukt op de button get in de Zoekterm.html
 document.querySelector("#get").addEventListener("click", function () {
 	var zoekterm = document.getElementById("zoekterm").value;
 	console.log(zoekterm);
@@ -6,6 +7,7 @@ document.querySelector("#get").addEventListener("click", function () {
 			method: 'GET'
 	};
 	
+	//roept webserive aan met ingevulde zoekterm
 	fetch('/restservices/WolfAndCherry/zoekterm/' + zoekterm, fetchOptions)
 		.then((response) => {
 			console.log(response.status);
@@ -39,6 +41,7 @@ document.querySelector("#get").addEventListener("click", function () {
 			
 			else{
 			
+			//zet alle gevonden profielen in een tabel op het scherm
 			var i = 0;
 			for (i; i < myJson.length; i++) {
 				table.innerHTML = table.innerHTML + "<tr>" +

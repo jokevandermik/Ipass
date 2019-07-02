@@ -1,3 +1,4 @@
+//domain class voor de profiel om die in de java op te slaan.
 package hu.domain;
 
 import java.util.ArrayList;
@@ -47,7 +48,7 @@ public class Profiel {
 	public void setIdVaardigheid(int idVaardigheid) {
 		this.idVaardigheid = idVaardigheid;
 	}
-
+// getters en setters voor vaardigheden en persoonsgevens in de class profiel te zetten.
 	public Vaardigheid getVaardigheden() {
 		return vaardigheden;
 	}

@@ -35,6 +35,7 @@ document.querySelector("#get").addEventListener("click", function () {
 			let table = document.querySelector('tbody');
 			table.innerHTML = "";
 			
+			//Als de json geen profiel mee krijgt komt er een melding op het scherm
 			if(myJson == ""){
 				let error = document.querySelector('error');
 				error.innerHTML = "Er zijn geen profielen die overeenkomen gevonden.";
@@ -43,6 +44,7 @@ document.querySelector("#get").addEventListener("click", function () {
 			
 			else{
 			
+			//zet profielen in een tabel op het scherm
 			var i = 0;
 			for (i; i < myJson.length; i++) {
 				table.innerHTML = table.innerHTML + "<tr>" +
@@ -55,6 +57,7 @@ document.querySelector("#get").addEventListener("click", function () {
 				"<td>"+ myJson[i].platform +"</td> <td>"+ myJson[i].pakketten +"</td>";
 			}
 			
+			//Roept google maps kaart aan
 			jsonPostcode.innerHTML = jsonPostcode.innerHTML + "<iframe width=\"100%\" height=\"600\" src=\"https://maps.google.com/maps?width=90%&height=600&hl=nl&q="+ myJson[0].postcode +"%2C%20Netherlands+(Mijn%20bedrijfsnaam)&ie=UTF8&t=&z=14&iwloc=B&output=embed\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" margin-left=\"100px\">" +
 			"<a href=\"https://www.mapsdirections.info/nl/maak-een-google-map/\">Maak een Google Map</a> van <a href=\"https://www.mapsdirections.info/nl/\">Nederland Kaart</a>" +
 			"</iframe>";

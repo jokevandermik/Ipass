@@ -1,3 +1,4 @@
+//domain class voor het ophalen van een profiel ID bij het aanmaken van een profiel.
 package hu.domain;
 
 public class PersoonID {

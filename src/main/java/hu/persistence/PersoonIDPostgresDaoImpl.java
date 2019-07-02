@@ -1,3 +1,4 @@
+//Dao implementatie van persoonID
 package hu.persistence;
 
 import java.sql.Connection;
@@ -10,6 +11,7 @@ import java.util.List;
 import hu.domain.PersoonID;
 
 public class PersoonIDPostgresDaoImpl extends PostgresBaseDao implements PersoonIDDao {
+	//haalt id op uit database voor het aanmaken van een profiel
 	public List<PersoonID> selectID() {
 		List<PersoonID> result = new ArrayList<PersoonID>();
 		String query = "select max(\"ID\") as ID from \"Persoonsgegevens\"";

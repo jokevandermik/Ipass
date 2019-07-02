@@ -1,3 +1,4 @@
+//Dit is een service die er voor zorgt dat je 3 dao's tegelijk kan aanroepen
 package hu.persistence;
 
 import java.util.List;
@@ -6,7 +7,8 @@ import hu.domain.PersoonsGegevens;
 import hu.domain.Profiel;
 import hu.domain.Vaardigheid;;
 
-public class ProfielService {	
+public class ProfielService {
+	//roept de save in de dao's aan
 	public boolean saveAlles (Profiel p) {
 		PersoonsGegevensDao persoonsGegevensDao = new PersoonsGegevensPostgresDaoImpl();
 		System.out.println("in service:"+p.getGegevens());
@@ -18,6 +20,7 @@ public class ProfielService {
 		return gegevensOK && vaardigheidOK && profielOK;
 	}
 	
+	//roept de update in de dao's aan
 	public boolean updateAlles (Profiel p) {
 		PersoonsGegevensDao persoonsGegevensDao = new PersoonsGegevensPostgresDaoImpl();
 		System.out.println("in service:"+p.getGegevens());
@@ -29,6 +32,7 @@ public class ProfielService {
 		return gegevensOK && vaardigheidOK && profielOK;
 	}
 	
+	//roept de delete in de dao's aan
 	public boolean deleteAlles(Profiel p) {
 		ProfielDao profielDao = new ProfielPostgresDaoImpl();
 		boolean profielOK = profielDao.delete(p);

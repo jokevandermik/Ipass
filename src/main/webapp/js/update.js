@@ -1,3 +1,4 @@
+//commando om te wachten tot er wordt gedrukt op de button ophalen in de Aanpassen.html
 document.querySelector("#ophalen").addEventListener("click", function () {
 	var idinput = document.getElementById("id").value;
 	console.log(idinput)
@@ -8,6 +9,7 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 			method: 'GET'
 	};
 	
+	// Roept webservice aan met opgegeven id
 	fetch('/restservices/WolfAndCherry/aanpassen/' + idinput, fetchOptions)
 		.then((response) => {
 			console.log(response.status);
@@ -35,6 +37,7 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 				error.innerHTML = "Er is geen profiel gevonden.";
 			}
 			else{
+			// zet de json info om naar nummers waar nodig 
 			var tel = myJson[0].telefoonnummer;
 			var telnr = Number(tel);
 			console.log(telnr);
@@ -42,7 +45,8 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 			var huisnr = Number(huis);
 			var jaren = myJson[0].jarenErvaringIT
 			var jarenIT = Number(jaren);
-
+			
+			// zet opgehaalde gegeven op het scherm
 			let input = document.querySelector('inputData');
 			input.innerHTML = "<div class=\"div_input_links\">" +
 				"Naam: <input class=\"input\" type=\"text\" name=\"naam\" value=\"" + myJson[0].naam + "\" maxlength=\"50\"/><br>" + 
@@ -76,8 +80,9 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 			verwijderData();
 			}
 		});
-	
+//functie wordt pas aangeroepen nadat er een profiel is opgehaald
 function putData(){	
+	//commando om te wachten tot er wordt gedrukt op de button Put in de Aanpassen.html
 	document.querySelector("#Put").addEventListener("click", function () {
 		var formData = new FormData(document.querySelector("#FormPut"));
 		 var encData = new URLSearchParams(formData.entries());
@@ -92,6 +97,7 @@ function putData(){
 					method: 'PUT',
 					body: encData,
 				}
+		 // roept de webservice aan om profielen up te daten
 		 fetch('/restservices/WolfAndCherry/update', fetchoptions)
 			.then((response) => {
 				console.log(response.status);
@@ -118,7 +124,9 @@ function putData(){
 	});
 }
 
+//functie wordt pas aangeroepen nadat er een profiel is opgehaald
 function verwijderData(){
+	//commando om te wachten tot er wordt gedrukt op de button verwijderen in de Aanpassen.html
 	document.querySelector("#verwijderen").addEventListener("click", function () {
 		var formData = new FormData(document.querySelector("#FormPut"));
 		 var encData = new URLSearchParams(formData.entries());
@@ -133,6 +141,8 @@ function verwijderData(){
 					method: 'PUT',
 					body: encData,
 				}
+		 
+		 //roept webservice aan om een profiel te verwijderen
 		 fetch('/restservices/WolfAndCherry/delete', fetchoptions)
 			.then((response) => {
 				console.log(response.status);

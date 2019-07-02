@@ -1,3 +1,4 @@
+//Dao interface van de persoonsgegevens
 package hu.persistence;
 
 import java.util.List;
