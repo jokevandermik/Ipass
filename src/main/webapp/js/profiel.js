@@ -1,15 +1,3 @@
-//koppelen aan een knop
-//fetch komt hier
-//post request
-//authentication?
-
-//als antwoord is 
-//if response.ok()
-//als antwoord is niet ok
-//else
-
-
- 
 	function haalIDop(){
 	var id;
     

@@ -81,8 +81,9 @@ function putData(){
 		 console.log(encData);
 		 console.log(formData);
 		 
-		 let hoi = "hallo";
-		 console.log(hoi)
+		 let status = document.querySelector('error');
+		 status.innerHTML = "";
+		 console.log(status);
 		 
 		 let fetchoptions = {
 					method: 'PUT',
@@ -92,18 +93,23 @@ function putData(){
 			.then((response) => {
 				console.log(response.status);
 				if(response.ok){
-				 hoi = "response oke";
-				 console.log("hoi")
-				 }
-				 else if (response.status == 500){
-				 hoi = "status 500";
-				 console.log(hoi)
-				 }
-				 else{
-				 hoi = "de rest";
-				 console.log(hoi);
-				 console.log(response.status);
-				 }
+					 status.innerHTML = status.innerHTML + "Het profiel is aangemaakt.";
+					 console.log(status)
+					 }
+					 else if (response.status == 500){
+					 status.innerHTML = status.innerHTML +  "Server fout. Profiel aanmaken mislukt.";
+					 console.log(status)
+					 
+					 }
+					 else if (response.status == 405){
+						 status.innerHTML = status.innerHTML +  "Niet alle velden ingevuld. Profiel aanmaken mislukt.";
+						 console.log(status)
+						 }
+					 else{
+					status.innerHTML = status.innerHTML +  "Er is een onbekende fout opgetreden.";
+					 console.log(status);
+					 console.log(response.status);
+					 }
 			});
 
 	});
