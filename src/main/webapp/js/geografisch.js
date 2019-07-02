@@ -52,9 +52,11 @@ document.querySelector("#get").addEventListener("click", function () {
 				"<td>"+ myJson[i].spreektalen +"</td> <td>"+ myJson[i].jarenErvaringIT +"</td> <td>"+ myJson[i].technischeVaardigheden +"</td>" +
 				"<td>"+ myJson[i].functioneleVaardigheden +"</td> <td>"+ myJson[i].werkervaring +"</td> <td>"+ myJson[i].computertalen +"</td>" +
 				"<td>"+ myJson[i].platform +"</td> <td>"+ myJson[i].pakketten +"</td>";
-				
-				jsonPostcode.InnerHTML = myJson[i].postcode;
 			}
+			
+			jsonPostcode.innerHTML = jsonPostcode.innerHTML + "<iframe width=\"100%\" height=\"600\" src=\"https://maps.google.com/maps?width=90%&height=600&hl=nl&q="+ myJson[0].postcode +"%2C%20Netherlands+(Mijn%20bedrijfsnaam)&ie=UTF8&t=&z=14&iwloc=B&output=embed\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" margin-left=\"100px\">" +
+			"<a href=\"https://www.mapsdirections.info/nl/maak-een-google-map/\">Maak een Google Map</a> van <a href=\"https://www.mapsdirections.info/nl/\">Nederland Kaart</a>" +
+			"</iframe>";
 			}
 		});
 })
