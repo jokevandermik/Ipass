@@ -28,7 +28,7 @@ document.querySelector("#get").addEventListener("click", function () {
 		.then((myJson) => {
 			console.log(JSON.stringify(myJson));
 			
-			let jsonPostcode = document>querySelector('postcode');
+			let jsonPostcode = document.querySelector('postcode');
 			jsonPostcode.innerHTML = ""
 			
 			let table = document.querySelector('tbody');
