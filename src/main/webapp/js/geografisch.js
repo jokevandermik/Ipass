@@ -28,6 +28,9 @@ document.querySelector("#get").addEventListener("click", function () {
 		.then((myJson) => {
 			console.log(JSON.stringify(myJson));
 			
+			let jsonPostcode = document>querySelector('postcode');
+			jsonPostcode.innerHTML = ""
+			
 			let table = document.querySelector('tbody');
 			table.innerHTML = "";
 			
@@ -41,7 +44,7 @@ document.querySelector("#get").addEventListener("click", function () {
 			
 			var i = 0;
 			for (i; i < myJson.length; i++) {
-				table.innerHTML = table.innerHTML + "<tr>" +
+				table.innerHTML = table.innerHTML + "<br><br><tr>" +
 				"<td>"+ myJson[i].id +"</td> <td>"+ myJson[i].naam +"</td> <td>"+ myJson[i].straatnaam +"</td>" +
 				"<td>"+ myJson[i].huisnummer +"</td> <td>"+ myJson[i].postcode +"</td> <td>"+ myJson[i].woonplaats +"</td>" +
 				"<td>"+ myJson[i].geboortedatum +"</td> <td>"+ myJson[i].geslacht +"</td> <td>"+ myJson[i].telefoonnummer +"</td>" +
@@ -49,6 +52,8 @@ document.querySelector("#get").addEventListener("click", function () {
 				"<td>"+ myJson[i].spreektalen +"</td> <td>"+ myJson[i].jarenErvaringIT +"</td> <td>"+ myJson[i].technischeVaardigheden +"</td>" +
 				"<td>"+ myJson[i].functioneleVaardigheden +"</td> <td>"+ myJson[i].werkervaring +"</td> <td>"+ myJson[i].computertalen +"</td>" +
 				"<td>"+ myJson[i].platform +"</td> <td>"+ myJson[i].pakketten +"</td>";
+				
+				jsonPostcode.InnerHTML = myJson[i].postcode;
 			}
 			}
 		});
