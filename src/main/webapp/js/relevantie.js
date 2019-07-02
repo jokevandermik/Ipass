@@ -28,23 +28,20 @@ document.querySelector("#post").addEventListener("click", function () {
 		})
 		.then((myJson) => {
 			console.log(JSON.stringify(myJson));
-			table();
+			
+			let table = document.querySelector('tbody');
+			table.innerHTML = "";
+			
+			var i = 0;
+			for (i; i < myJson.length; i++) {
+				table.innerHTML = table.innerHTML + "<tr>" +
+				"<td>"+ myJson[i].id +"</td> <td>"+ myJson[i].naam +"</td> <td>"+ myJson[i].straatnaam +"</td>" +
+				"<td>"+ myJson[i].huisnummer +"</td> <td>"+ myJson[i].postcode +"</td> <td>"+ myJson[i].woonplaats +"</td>" +
+				"<td>"+ myJson[i].geboortedatum +"</td> <td>"+ myJson[i].geslacht +"</td> <td>"+ myJson[i].telefoonnummer +"</td>" +
+				"<td>"+ myJson[i].email +"</td> <td>"+ myJson[i].linkedin +"</td> <td>"+ myJson[i].eigenschappen +"</td>" +
+				"<td>"+ myJson[i].spreektalen +"</td> <td>"+ myJson[i].jarenErvaringIT +"</td> <td>"+ myJson[i].technischeVaardigheden +"</td>" +
+				"<td>"+ myJson[i].functioneleVaardigheden +"</td> <td>"+ myJson[i].werkervaring +"</td> <td>"+ myJson[i].computertalen +"</td>" +
+				"<td>"+ myJson[i].platform +"</td> <td>"+ myJson[i].pakketten +"</td>";
+			}
 		});
 })
-
-function table(){
-	let table = document.querySelector('tbody');
-	table.innerHTML = "";
-	
-	var i = 0;
-	for (i; i < myJson.length; i++) {
-		table.innerHTML = table.innerHTML + "<tr>" +
-		"<td>"+ myJson[i].id +"</td> <td>"+ myJson[i].naam +"</td> <td>"+ myJson[i].straatnaam +"</td>" +
-		"<td>"+ myJson[i].huisnummer +"</td> <td>"+ myJson[i].postcode +"</td> <td>"+ myJson[i].woonplaats +"</td>" +
-		"<td>"+ myJson[i].geboortedatum +"</td> <td>"+ myJson[i].geslacht +"</td> <td>"+ myJson[i].telefoonnummer +"</td>" +
-		"<td>"+ myJson[i].email +"</td> <td>"+ myJson[i].linkedin +"</td> <td>"+ myJson[i].eigenschappen +"</td>" +
-		"<td>"+ myJson[i].spreektalen +"</td> <td>"+ myJson[i].jarenErvaringIT +"</td> <td>"+ myJson[i].technischeVaardigheden +"</td>" +
-		"<td>"+ myJson[i].functioneleVaardigheden +"</td> <td>"+ myJson[i].werkervaring +"</td> <td>"+ myJson[i].computertalen +"</td>" +
-		"<td>"+ myJson[i].platform +"</td> <td>"+ myJson[i].pakketten +"</td>";
-	}
-}

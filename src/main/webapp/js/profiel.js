@@ -71,9 +71,13 @@
 		 console.log("hoi")
 		 }
 		 else if (response.status == 500){
-		 hoi = "status 500";
+		 hoi = "Server fout";
 		 console.log(hoi)
 		 }
+		 else if (response.status == 405){
+			 hoi = "Niet alle velden ingevuld";
+			 console.log(hoi)
+			 }
 		 else{
 		 hoi = "de rest";
 		 console.log(hoi);
