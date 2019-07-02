@@ -323,6 +323,7 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 			pstmt.setInt(3, profiel.getJarenErvaringIT());
 			pstmt.setInt(4, profiel.getId());
 			pstmt.executeUpdate();
+			System.out.println("Dao: " + profiel.getJarenErvaringIT());
 //			ResultSet dbResultSet = pstmt.executeQuery();
 		} catch(Exception exc) {
 			exc.printStackTrace();

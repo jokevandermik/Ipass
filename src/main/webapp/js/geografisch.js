@@ -44,7 +44,7 @@ document.querySelector("#get").addEventListener("click", function () {
 			
 			var i = 0;
 			for (i; i < myJson.length; i++) {
-				table.innerHTML = table.innerHTML + "<br><br><tr>" +
+				table.innerHTML = table.innerHTML + "<tr>" +
 				"<td>"+ myJson[i].id +"</td> <td>"+ myJson[i].naam +"</td> <td>"+ myJson[i].straatnaam +"</td>" +
 				"<td>"+ myJson[i].huisnummer +"</td> <td>"+ myJson[i].postcode +"</td> <td>"+ myJson[i].woonplaats +"</td>" +
 				"<td>"+ myJson[i].geboortedatum +"</td> <td>"+ myJson[i].geslacht +"</td> <td>"+ myJson[i].telefoonnummer +"</td>" +

@@ -327,6 +327,8 @@ public class ProfielResource {
 		String eigenschappen = es;
 		String spreektalen = st;
 		int jarenErvaringIT = jeIT;
+		System.out.println("jarenErvaringIT "+jarenErvaringIT);
+		System.out.println("jeIT " + jeIT);
 		
 		//maakt de PersoonsGegevens obv de velden
 		PersoonsGegevens deGegevens = new PersoonsGegevens(id, naam, straatnaam, huisnummer, postcode, woonplaats, geboortedatum, geslacht, telefoonnummer, email, linkedin);
