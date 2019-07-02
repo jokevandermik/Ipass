@@ -166,7 +166,7 @@ public class ProfielResource {
 			@FormParam("eigenschappen") String es, @FormParam("spreektalen") String st, @FormParam("jarenErvaringIT") int jeIT, @FormParam("technischeVaardigheden") String tv, @FormParam("functioneleVaardigheden") String fv, @FormParam("werkervaring") String we, @FormParam("computertalen") String ct, @FormParam("platformen") String pt, @FormParam("pakketen") String pk) {
 		ProfielService profielService = ServiceProvider.getProfielService();
 		
-		if(nm.isEmpty() || strnm.isEmpty()) return Response.status(405).build();
+		if(nm.isEmpty() || strnm.isEmpty() || pc.isEmpty() || wp.isEmpty() || gb.isEmpty() || gs.isEmpty() || tfnr.isEmpty() || mail.isEmpty() || lkin.isEmpty() || tv.isEmpty() || fv.isEmpty() || we.isEmpty() || ct.isEmpty() || pt.isEmpty() || pk.isEmpty() || es.isEmpty() || st.isEmpty()) return Response.status(405).build();
 
 		int id = Id;
 		String naam = nm;
@@ -222,7 +222,7 @@ public class ProfielResource {
 			@FormParam("eigenschappen") String es, @FormParam("spreektalen") String st, @FormParam("jarenErvaringIT") int jeIT, @FormParam("technische_vaardigheden") String tv, @FormParam("functionele_vaardigheden") String fv, @FormParam("werkervaring") String we, @FormParam("computertalen") String ct, @FormParam("platformen") String pt, @FormParam("pakketen") String pk) {
 		ProfielService profielService = ServiceProvider.getProfielService();
 		
-		if(nm.isEmpty()) return Response.status(405).build();
+		if(nm.isEmpty() || strnm.isEmpty() || pc.isEmpty() || wp.isEmpty() || gb.isEmpty() || gs.isEmpty() || tfnr.isEmpty() || mail.isEmpty() || lkin.isEmpty() || tv.isEmpty() || fv.isEmpty() || we.isEmpty() || ct.isEmpty() || pt.isEmpty() || pk.isEmpty() || es.isEmpty() || st.isEmpty()) return Response.status(405).build();
 
 		int id = Id;
 		String naam = nm;

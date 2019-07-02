@@ -11,21 +11,24 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 	fetch('/restservices/WolfAndCherry/aanpassen/' + idinput, fetchOptions)
 		.then((response) => {
 			console.log(response.status);
-			if (response.status = 200){
-				hoi = "response oke";
-				console.log(hoi);
-				return response.json();
-			}
-			else if(response.status = 403){
-			hoi = "status  403";
-			console.log(hoi);
-			
-			}
-			else {
-				hoi = "de rest";
-				console.log(hoi);
-				console.log(response.status);
-			}
+			if(response.ok){
+				 status.innerHTML = status.innerHTML + "Het profiel is aangemaakt.";
+				 console.log(status)
+				 }
+				 else if (response.status == 500){
+				 status.innerHTML = status.innerHTML +  "Server fout. Profiel aanmaken mislukt.";
+				 console.log(status)
+				 
+				 }
+				 else if (response.status == 405){
+					 status.innerHTML = status.innerHTML +  "Niet alle velden ingevuld. Profiel aanmaken mislukt.";
+					 console.log(status)
+					 }
+				 else{
+				status.innerHTML = status.innerHTML +  "Er is een onbekende fout opgetreden.";
+				 console.log(status);
+				 console.log(response.status);
+				 }
 		})
 		.then((myJson) => {
 			console.log(JSON.stringify(myJson));
