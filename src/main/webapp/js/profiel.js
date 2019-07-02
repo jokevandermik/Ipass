@@ -59,7 +59,8 @@ var id;
 		console.log(response.status);
 		if(response.ok){
 		 status.innerHTML = status.innerHTML + "Het profiel is aangemaakt.";
-		 console.log(status)
+		 console.log(status);
+		 location.reload();
 		 }
 		 else if (response.status == 500){
 		 status.innerHTML = status.innerHTML +  "Server fout. Profiel aanmaken mislukt.";
