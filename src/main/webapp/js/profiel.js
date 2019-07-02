@@ -56,8 +56,9 @@
  console.log(encData);
  console.log(formData);
  
- let hoi = "hallo";
- console.log(hoi)
+ let status = document.querySelector('error');
+ status.innerHTML = "";
+ console.log(status);
  
  let fetchoptions = {
 			method: 'POST',
@@ -67,20 +68,21 @@
 	.then((response) => {
 		console.log(response.status);
 		if(response.ok){
-		 hoi = "response oke";
-		 console.log("hoi")
+		 status.innerHTML = status.innerHTML + "Het profiel is aangemaakt.";
+		 console.log(status)
 		 }
 		 else if (response.status == 500){
-		 hoi = "Server fout";
-		 console.log(hoi)
+		 status.innerHTML = status.innerHTML +  "Server fout. Profiel aanmaken mislukt.";
+		 console.log(status)
+		 
 		 }
 		 else if (response.status == 405){
-			 hoi = "Niet alle velden ingevuld";
-			 console.log(hoi)
+			 status.innerHTML = status.innerHTML +  "Niet alle velden ingevuld. Profiel aanmaken mislukt.";
+			 console.log(status)
 			 }
 		 else{
-		 hoi = "de rest";
-		 console.log(hoi);
+		status.innerHTML = status.innerHTML +  "Er is een onbekende fout opgetreden.";
+		 console.log(status);
 		 console.log(response.status);
 		 }
 	});
