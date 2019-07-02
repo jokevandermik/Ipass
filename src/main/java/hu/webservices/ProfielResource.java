@@ -315,17 +315,17 @@ public class ProfielResource {
 		String email = mail.trim();
 		String linkedin = lkin.trim();
 		
-		String technischeVaardigheden = tv;
-		String functioneleVaardigheden = fv;
-		String werkervaring = we;
-		String computertalen = ct;
-		String platformen = pt;
-		String pakketen = pk;
+		String technischeVaardigheden = tv.trim();
+		String functioneleVaardigheden = fv.trim();
+		String werkervaring = we.trim();
+		String computertalen = ct.trim();
+		String platformen = pt.trim();
+		String pakketen = pk.trim();
 		
 		int idPersoonsGegevens = Id;
 		int idVaardigheid = Id;
-		String eigenschappen = es;
-		String spreektalen = st;
+		String eigenschappen = es.trim();
+		String spreektalen = st.trim();
 		int jarenErvaringIT = jeIT;
 		System.out.println("jarenErvaringIT "+jarenErvaringIT);
 		System.out.println("jeIT " + jeIT);
