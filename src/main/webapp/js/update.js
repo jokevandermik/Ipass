@@ -52,7 +52,7 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 				"<br>" + 
 				"Eigenschappen: <input class=\"input\" type=\"text\" name=\"eigenschappen\" value=\" "+ myJson[0].eigenschappen +"\" maxlength=\"256\"/><br>" +
 				"Spreektalen: <input class=\"input\" type=\"text\" name=\"spreektalen\" value=\" "+ myJson[0].spreektalen +"\" maxlength=\"256\"/><br>" +
-				"Jaren ervaring in IT: <input class=\"input\" type=\"number\" name=\"jaren_ervaring_it\" value= "+ jarenIT +" maxlength=\"5\"/><br>" +
+				"Jaren ervaring in IT: <input class=\"input\" type=\"number\" name=\"jarenErvaringIT\" value= "+ jarenIT +" maxlength=\"5\"/><br>" +
 				"<br>" +
 				"Technische vaardigheden: <input class=\"input\" type=\"text\" name=\"technische_vaardigheden\" value=\" "+ myJson[0].technischeVaardigheden +"\" maxlength=\"256\"/><br>" +
 				"Werkervaring: <input class=\"input\" type=\"text\" name=\"werkervaring\" value=\" "+ myJson[0].werkervaring +"\" maxlength=\"256\"/><br>" +
