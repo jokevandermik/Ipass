@@ -34,12 +34,13 @@ document.querySelector("#post").addEventListener("click", function () {
 			
 			if(myJson == ""){
 				let error = document.querySelector('error');
-				error.innerHTML = "Er zijn geen profielen die overeenkomen gevonden."
+				error.innerHTML = "Er zijn geen profielen die overeenkomen gevonden.";
+				table.innerHTML = "";
 			}
 			
 			else{
-			let table = document.querySelector('tbody');
-			table.innerHTML = "";
+//			let table = document.querySelector('tbody');
+//			table.innerHTML = "";
 			
 			var i = 0;
 			for (i; i < myJson.length; i++) {
