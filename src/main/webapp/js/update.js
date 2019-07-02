@@ -68,7 +68,7 @@ document.querySelector("#ophalen").addEventListener("click", function () {
 				"Functionele vaardigheden: <input class=\"input\" type=\"text\" name=\"functionele_vaardigheden\" value=\" "+ myJson[0].functioneleVaardigheden +"\" maxlength=\"256\"/><br>" +
 				"Computertalen: <input class=\"input\" type=\"text\" name=\"computertalen\" value=\" "+myJson[0].computertalen +"\" maxlength=\"256\"/><br>" +
 				"Pakketen: <input class=\"input\" type=\"text\" name=\"pakketen\" value=\""+myJson[0].pakketten +"\" maxlength=\"256\"/>" +
-				"<input class=\"submit\" type=\"submit\" id=\"verwijderen\" value=\"Verwijderen\" /><input class=\"submit\" type=\"button\" id=\"Put\" value=\"Aanpassen\"" +
+				"<input class=\"submit\" type=\"button\" id=\"verwijderen\" value=\"Verwijderen\" /><input class=\"submit\" type=\"button\" id=\"Put\" value=\"Aanpassen\"" +
 				"</div>";
 			
 			putData();

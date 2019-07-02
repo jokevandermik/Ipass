@@ -405,7 +405,7 @@ public class ProfielResource {
 		
 		hetProfiel.setVaardigheden(deVaardigheid);
 		
-		if(profielService.updateAlles(hetProfiel)) return Response.ok().build();
+		if(profielService.deleteAlles(hetProfiel)) return Response.ok().build();
 		return Response.status(402).build();
 	}
 }
