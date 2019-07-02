@@ -60,6 +60,7 @@ var id;
 		if(response.ok){
 		 status.innerHTML = status.innerHTML + "Het profiel is aangemaakt.";
 		 console.log(status);
+		 //ververst de pagina zodra er een profiel is toegevoegd
 		 location.reload();
 		 }
 		 else if (response.status == 500){

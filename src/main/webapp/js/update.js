@@ -149,6 +149,7 @@ function verwijderData(){
 				if(response.ok){
 					 status.innerHTML = status.innerHTML + "Het profiel is verwijdert.";
 					 console.log(status)
+					 //ververst de pagina zodra er een profiel wordt verwijdert
 					 location.reload();
 					 }
 					 else if (response.status == 500){
