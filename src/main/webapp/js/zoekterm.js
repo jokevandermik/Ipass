@@ -52,8 +52,9 @@ document.querySelector("#get").addEventListener("click", function () {
 				"<td>"+ myJson[i].email +"</td> <td>"+ myJson[i].linkedin +"</td> <td>"+ myJson[i].eigenschappen +"</td>" +
 				"<td>"+ myJson[i].spreektalen +"</td> <td>"+ myJson[i].jarenErvaringIT +"</td> <td>"+ myJson[i].technischeVaardigheden +"</td>" +
 				"<td>"+ myJson[i].functioneleVaardigheden +"</td> <td>"+ myJson[i].werkervaring +"</td> <td>"+ myJson[i].computertalen +"</td>" +
-				"<td>"+ myJson[i].platform +"</td> <td>"+ myJson[i].pakketten +"</td> </table>";
+				"<td>"+ myJson[i].platform +"</td> <td>"+ myJson[i].pakketten +"</td>";
 			}
+			table.innerHTML = table.innerHTML + "</table>"
 			}
 		});
 }) 
