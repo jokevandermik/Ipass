@@ -1,6 +1,6 @@
 document.querySelector("#get").addEventListener("click", function () {
 	var zoekterm = document.getElementById("zoekterm").value;
-	console.log(zoek);
+	console.log(zoekterm);
 	
 	let fetchOptions = {
 			method: 'GET'
