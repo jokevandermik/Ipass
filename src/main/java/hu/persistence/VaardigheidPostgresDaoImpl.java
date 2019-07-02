@@ -83,7 +83,8 @@ public class VaardigheidPostgresDaoImpl extends PostgresBaseDao implements Vaard
 			System.out.println(q);
 			PreparedStatement pstmt = con.prepareStatement(q);
 			pstmt.setInt(1, vaardigheid.getId());
-			ResultSet dbResultSet = pstmt.executeQuery();
+			pstmt.executeUpdate();
+			//ResultSet dbResultSet = pstmt.executeQuery();
 			return true;
 		} catch (Exception exc) {
 			exc.printStackTrace();

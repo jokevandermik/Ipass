@@ -101,7 +101,8 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 			System.out.println(q);
 			PreparedStatement pstmt = con.prepareStatement(q);
 			pstmt.setInt(1, persoonsGegevens.getId());
-			ResultSet dbResultSet = pstmt.executeQuery();
+			pstmt.executeUpdate();
+			//ResultSet dbResultSet = pstmt.executeQuery();
 			return true;
 		} catch (Exception exc) {
 			exc.printStackTrace();
