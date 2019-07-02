@@ -68,13 +68,14 @@ public class VaardigheidPostgresDaoImpl extends PostgresBaseDao implements Vaard
 			pstmt.setString(6, vaardigheid.GetPakketen());
 			pstmt.setInt(7, vaardigheid.getId());
 			pstmt.executeUpdate();
+			return true;
 //			ResultSet dbResultSet = pstmt.executeQuery();
 		} catch(Exception exc) {
 			exc.printStackTrace();
 			System.err.println(exc.toString());
 			System.err.println(exc.getMessage());
+			return false;
 		}
-		return true;
 	}
 	
 	public boolean delete(Vaardigheid vaardigheid) {
@@ -88,6 +89,8 @@ public class VaardigheidPostgresDaoImpl extends PostgresBaseDao implements Vaard
 			return true;
 		} catch (Exception exc) {
 			exc.printStackTrace();
+			System.err.println(exc.toString());
+			System.err.println(exc.getMessage());
 			return false;
 		}
 	}

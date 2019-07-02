@@ -325,12 +325,13 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 			pstmt.executeUpdate();
 			System.out.println("Dao: " + profiel.getJarenErvaringIT());
 //			ResultSet dbResultSet = pstmt.executeQuery();
+			return true;
 		} catch(Exception exc) {
 			exc.printStackTrace();
 			System.err.println(exc.toString());
 			System.err.println(exc.getMessage());
+			return false;
 		}
-		return true;
 	}
 	
 	public boolean delete(Profiel profiel) {
@@ -344,6 +345,8 @@ public class ProfielPostgresDaoImpl extends PostgresBaseDao implements ProfielDa
 			return true;
 		} catch (Exception exc) {
 			exc.printStackTrace();
+			System.err.println(exc.toString());
+			System.err.println(exc.getMessage());
 			return false;
 		}
 	}

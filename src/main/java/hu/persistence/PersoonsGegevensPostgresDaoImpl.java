@@ -86,13 +86,14 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 			pstmt.setInt(11, persoonsGegevens.getId());
 //			System.out.println("dao pg id :"+persoonsGegevens.getId());
 			pstmt.executeUpdate();
+			return true;
 //			ResultSet dbResultSet = pstmt.executeQuery();
 		} catch (Exception exc) {
 			exc.printStackTrace();
 			System.err.println(exc.toString());
 			System.err.println(exc.getMessage());
+			return false;
 		}
-		return true;
 	}
 	
 	public boolean delete(PersoonsGegevens persoonsGegevens) {
@@ -106,6 +107,8 @@ public class PersoonsGegevensPostgresDaoImpl extends PostgresBaseDao implements 
 			return true;
 		} catch (Exception exc) {
 			exc.printStackTrace();
+			System.err.println(exc.toString());
+			System.err.println(exc.getMessage());
 			return false;
 		}
 	}
