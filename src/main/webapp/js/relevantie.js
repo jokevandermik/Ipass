@@ -29,6 +29,12 @@ document.querySelector("#post").addEventListener("click", function () {
 		.then((myJson) => {
 			console.log(JSON.stringify(myJson));
 			
+			if(myJson == null){
+				let error = document.querySelector('error');
+				error.innerHTML = "Er zijn geen profielen die overeenkomen gevonden."
+			}
+			
+			else{
 			let table = document.querySelector('tbody');
 			table.innerHTML = "";
 			
@@ -42,6 +48,7 @@ document.querySelector("#post").addEventListener("click", function () {
 				"<td>"+ myJson[i].spreektalen +"</td> <td>"+ myJson[i].jarenErvaringIT +"</td> <td>"+ myJson[i].technischeVaardigheden +"</td>" +
 				"<td>"+ myJson[i].functioneleVaardigheden +"</td> <td>"+ myJson[i].werkervaring +"</td> <td>"+ myJson[i].computertalen +"</td>" +
 				"<td>"+ myJson[i].platform +"</td> <td>"+ myJson[i].pakketten +"</td>";
+			}
 			}
 		});
 })
