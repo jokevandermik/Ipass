@@ -1,4 +1,4 @@
-document.querySelector("#post").addEventListener("click", function () {
+document.querySelector("#get").addEventListener("click", function () {
 	var lijst = document.getElementById("relevant");
 	var relevantie = lijst.options[lijst.selectedIndex].value;
 	console.log(relevantie)
