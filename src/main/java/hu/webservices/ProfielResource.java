@@ -350,4 +350,62 @@ public class ProfielResource {
 		if(profielService.updateAlles(hetProfiel)) return Response.ok().build();
 		return Response.status(402).build();
 	}
+	
+	
+	@PUT
+	@Path("/delete")
+	public Response deleteProfiel(@FormParam("id") int Id,@FormParam("naam") String nm, @FormParam("straatnaam") String strnm, @FormParam("huisnummer") int hsnr, @FormParam("postcode") String pc, @FormParam("woonplaats") String wp, @FormParam("geboortedatum") String gb, @FormParam("geslacht") String gs, @FormParam("telefoonnummer") String tfnr, @FormParam("email") String mail, @FormParam("linkedin") String lkin,
+			@FormParam("eigenschappen") String es, @FormParam("spreektalen") String st, @FormParam("jarenErvaringIT") int jeIT, @FormParam("technische_vaardigheden") String tv, @FormParam("functionele_vaardigheden") String fv, @FormParam("werkervaring") String we, @FormParam("computertalen") String ct, @FormParam("platformen") String pt, @FormParam("pakketen") String pk) {
+		ProfielService profielService = ServiceProvider.getProfielService();
+		
+		if(nm.isEmpty() || strnm.isEmpty() || pc.isEmpty() || wp.isEmpty() || gb.isEmpty() || gs.isEmpty() || tfnr.isEmpty() || mail.isEmpty() || lkin.isEmpty() || tv.isEmpty() || fv.isEmpty() || we.isEmpty() || ct.isEmpty() || pt.isEmpty() || pk.isEmpty() || es.isEmpty() || st.isEmpty()) return Response.status(405).build();
+
+		int id = Id;
+		String naam = nm;
+		String straatnaam = strnm;
+		int huisnummer = hsnr;
+		String postcode = pc.trim();
+		String woonplaats = wp;
+		String geboortedatum = gb.trim();
+		String geslacht = gs;
+		System.out.println("in resource: "+gs);
+		String telefoonnummer = tfnr;
+		String email = mail;
+		String linkedin = lkin;
+		
+		String technischeVaardigheden = tv;
+		String functioneleVaardigheden = fv;
+		String werkervaring = we;
+		String computertalen = ct;
+		String platformen = pt;
+		String pakketen = pk;
+		
+		int idPersoonsGegevens = Id;
+		int idVaardigheid = Id;
+		String eigenschappen = es;
+		String spreektalen = st;
+		int jarenErvaringIT = jeIT;
+		System.out.println("jarenErvaringIT "+jarenErvaringIT);
+		System.out.println("jeIT " + jeIT);
+		
+		//maakt de PersoonsGegevens obv de velden
+		PersoonsGegevens deGegevens = new PersoonsGegevens(id, naam, straatnaam, huisnummer, postcode, woonplaats, geboortedatum, geslacht, telefoonnummer, email, linkedin);
+		//maakt de Vaardigheid 
+		Vaardigheid deVaardigheid = new Vaardigheid(id, technischeVaardigheden, functioneleVaardigheden, werkervaring, computertalen, platformen, pakketen);
+		//maakt een profiel
+		Profiel hetProfiel = new Profiel(id, idPersoonsGegevens, idVaardigheid, eigenschappen, spreektalen, jarenErvaringIT);
+		
+		if (deGegevens.getNaam().isEmpty()) return Response.status(406).build();
+		
+		
+		hetProfiel.setGegevens(deGegevens);
+		
+		if(hetProfiel.getGegevens().getNaam().isEmpty()) return Response.status(410).build();
+		
+		
+		hetProfiel.setVaardigheden(deVaardigheid);
+		
+		if(profielService.updateAlles(hetProfiel)) return Response.ok().build();
+		return Response.status(402).build();
+	}
 }

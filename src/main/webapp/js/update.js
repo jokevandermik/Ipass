@@ -122,6 +122,37 @@ function verwijderData(){
 		 var encData = new URLSearchParams(formData.entries());
 		 console.log(encData);
 		 console.log(formData);
+		 
+		 let status = document.querySelector('error');
+		 status.innerHTML = "";
+		 console.log(status);
+		 
+		 let fetchoptions = {
+					method: 'PUT',
+					body: encData,
+				}
+		 fetch('/restservices/WolfAndCherry/delete', fetchoptions)
+			.then((response) => {
+				console.log(response.status);
+				if(response.ok){
+					 status.innerHTML = status.innerHTML + "Het profiel is aangepast.";
+					 console.log(status)
+					 }
+					 else if (response.status == 500){
+					 status.innerHTML = status.innerHTML +  "Server fout. Profiel aanpassen mislukt.";
+					 console.log(status)
+					 
+					 }
+					 else if (response.status == 405){
+						 status.innerHTML = status.innerHTML +  "Niet alle velden ingevuld. Profiel aanpassen mislukt.";
+						 console.log(status)
+						 }
+					 else{
+					status.innerHTML = status.innerHTML +  "Er is een onbekende fout opgetreden.";
+					 console.log(status);
+					 console.log(response.status);
+					 }
+			});
 	})
 }
 })
